@@ -2,10 +2,150 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Climate Compass | About</title>
-  <meta name="description" content="Learn more about Climate Compass, founded by Dr. Richard Davy to bring actionable climate insights to organizations worldwide." />
+  <title>About Climate Compass | Research-Led Climate Guidance</title>
+  <meta name="description" content="Learn about Climate Compass and founder Dr. Richard Davy. We combine climate science, high-resolution data, tailored communication, and decision-focused tools to support adaptation and planning." />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css">
+  <style>
+    .about-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    .about-panel {
+      background-color: #f1f6f9;
+      border-radius: 8px;
+      padding: 2rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .founder-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin: 2rem auto;
+      align-items: flex-start;
+      max-width: 1100px;
+      padding: 0 1rem;
+    }
+    .founder-image {
+      flex: 1 1 280px;
+      max-width: 320px;
+    }
+    .founder-image img {
+      border-radius: 8px;
+      border: 1px solid #d7e2e5;
+    }
+    .founder-details {
+      flex: 1 1 520px;
+    }
+    .founder-details h3 {
+      margin-bottom: 0.35rem;
+    }
+    .founder-details ul {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 1.25rem;
+      line-height: 1.7;
+    }
+    .founder-details li::before {
+      content: "• ";
+      color: #17494D;
+      font-weight: 600;
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+    .about-card {
+      background-color: #fff;
+      border-radius: 6px;
+      padding: 1rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .about-card h3,
+    .about-card h4 {
+      margin-bottom: 0.6rem;
+      color: #17494D;
+    }
+    .about-section {
+      margin: 2rem auto;
+      max-width: 1100px;
+      padding: 0 1rem;
+    }
+    .about-section h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background-color: #17494D;
+      color: #fff;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+    .cta-box {
+      text-align: center;
+    }
+    .cta-box p {
+      max-width: 760px;
+      margin: 0 auto 1rem;
+      line-height: 1.6;
+    }
+    .about-cta {
+      display: inline-block;
+      background-color: #17494D;
+      color: #fff;
+      padding: 0.85rem 1.5rem;
+      border-radius: 4px;
+      font-weight: 600;
+      transition: opacity 0.3s;
+    }
+    .about-cta:hover {
+      opacity: 0.9;
+    }
+    .link-inline {
+      text-decoration: underline;
+    }
+    @media (max-width: 768px) {
+      .founder-section {
+        margin-top: 1.5rem;
+      }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "Climate Compass",
+        "url": "https://climateguidance.com/",
+        "description": "Climate Compass provides research-led climate guidance, high-resolution climate data, decision-focused tools, workshops, and tailored communication for organizations working on climate adaptation and planning.",
+        "founder": {
+          "@type": "Person",
+          "name": "Dr. Richard Davy"
+        }
+      },
+      {
+        "@type": "Person",
+        "name": "Dr. Richard Davy",
+        "jobTitle": "Founder, Climate Compass",
+        "description": "Climate scientist with 15+ years of postdoctoral experience, focused on translating climate science into practical guidance, tools, and high-resolution datasets.",
+        "sameAs": [
+          "https://www.linkedin.com/in/richard-davy-9261a430/",
+          "https://bsky.app/profile/davyclimate.bsky.social"
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -36,34 +176,144 @@
   <section class="hero" style="background: url('Banner.png') center center/cover no-repeat;">
     <div class="hero-overlay">
       <h2>About Climate Compass</h2>
-      <p>Bridging Cutting-Edge Climate Science and Real-World Decision Making</p>
+      <p>Research-led climate guidance for real-world decisions</p>
     </div>
   </section>
 
   <!-- Founder Section -->
   <section class="founder-section">
     <div class="founder-image">
-      <img src="RichardDavy-portrait.JPG" alt="Dr. Richard Davy Portrait">
+      <img src="RichardDavy-portrait.JPG" alt="Dr. Richard Davy, founder of Climate Compass">
     </div>
     <div class="founder-details">
       <h3>Founder</h3>
       <h3>Dr. Richard Davy</h3>
       <ul>
-        <li>15+ years postdoctoral experience in climate science</li>
-        <li>45+ peer-reviewed publications, 2,300+ citations</li>
-        <li>Lead investigator on many National and European research grants</li>
+        <li>15+ years of postdoctoral experience in climate science</li>
+        <li>45+ peer-reviewed publications and 2,300+ citations</li>
+        <li>Lead investigator on national and European research grants</li>
         <li>Member of the Norwegian Scientific Academy for Polar Research</li>
       </ul>
-      <p>
-        After extensive research in climate modeling and data analysis, Dr. Davy recognized 
-        the need to translate cutting-edge science into accessible, practical strategies. 
-        Climate Compass was founded to connect organizations with the data and insights 
-        they need to adapt, innovate, and lead on climate action.
+      <p style="line-height:1.7; margin-bottom:1rem;">
+        Climate Compass was founded to solve a common problem: climate data are increasingly available, but they are often difficult to interpret, compare, and use in real decisions. Dr. Richard Davy built Climate Compass to bridge that gap, combining rigorous climate science with practical communication, decision-focused analysis, and outputs that clients can actually use.
+      </p>
+      <p style="line-height:1.7; margin-bottom:1rem;">
+        His work is especially focused on translating complex model output into clear guidance through high-resolution climate layers, tailored briefings, interactive tools, and workshops. Alongside a long research track record in Arctic climate change, Dr. Davy has delivered public lectures, media interviews, and end-user collaborations designed to make climate science more useful beyond academia.
       </p>
       <p class="follow-note">
-        Interested in staying updated? Follow Dr. Davy on social media for the latest climate 
-        insights and project news!
+        Follow Dr. Davy on LinkedIn or Bluesky for updates on climate science, new tools, and ongoing projects.
       </p>
+    </div>
+  </section>
+
+  <!-- Mission -->
+  <section class="about-section">
+    <h2>Why Climate Compass Exists</h2>
+    <div class="about-panel">
+      <p style="line-height:1.7; margin-bottom:1rem;">
+        Climate Compass helps organizations make better decisions under climate uncertainty. We work at the point where raw climate data become usable: selecting appropriate datasets, refining them where needed, communicating uncertainty honestly, and turning results into maps, tools, memos, and guidance that support planning.
+      </p>
+      <p style="line-height:1.7;">
+        The goal is not simply to provide more climate information. It is to provide the <strong>right</strong> climate information for a specific decision, at the right spatial scale, over the right time horizon, and in a format that decision-makers and stakeholders can understand.
+      </p>
+    </div>
+  </section>
+
+  <!-- What Makes Us Different -->
+  <section class="about-section">
+    <h2>What Makes Us Different</h2>
+    <div class="about-grid">
+      <div class="about-card">
+        <h3>Research-led</h3>
+        <p style="line-height:1.6;">
+          Our work is grounded in active climate-science practice, not generic consulting language. We use current methods, current datasets, and a strong awareness of model strengths, weaknesses, and uncertainty.
+        </p>
+      </div>
+      <div class="about-card">
+        <h3>Decision-focused</h3>
+        <p style="line-height:1.6;">
+          We begin with the client’s problem, not the dataset. That means matching methods, scenarios, spatial resolution, and outputs to the question that actually needs answering.
+        </p>
+      </div>
+      <div class="about-card">
+        <h3>High-resolution where it matters</h3>
+        <p style="line-height:1.6;">
+          Many real decisions happen at local scale. We specialize in making climate information more locally relevant through downscaling, tailored indicators, and spatially explicit products.
+        </p>
+      </div>
+      <div class="about-card">
+        <h3>Built for communication</h3>
+        <p style="line-height:1.6;">
+          We do not stop at analysis. We also build tools, workshops, and concise written outputs that help non-specialists understand what the science means for their own work.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How We Work -->
+  <section class="about-section">
+    <h2>How We Work</h2>
+    <div class="about-grid">
+      <div class="about-card">
+        <div class="step-number">1</div>
+        <h4>Start with the decision</h4>
+        <p style="line-height:1.6;">
+          We first clarify what the client needs to decide, over what time horizon, and at what geographic scale. This keeps the work focused and avoids irrelevant analysis.
+        </p>
+      </div>
+      <div class="about-card">
+        <div class="step-number">2</div>
+        <h4>Select and refine the right data</h4>
+        <p style="line-height:1.6;">
+          We choose the most appropriate climate datasets and methods for the question at hand, then refine outputs where needed through tailored processing, downscaling, and interpretation.
+        </p>
+      </div>
+      <div class="about-card">
+        <div class="step-number">3</div>
+        <h4>Deliver usable outputs</h4>
+        <p style="line-height:1.6;">
+          Results are delivered as maps, metrics, briefings, workshops, or interactive tools so they can be applied directly in planning, communication, and stakeholder engagement.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Selected Experience -->
+  <section class="about-section">
+    <h2>Selected Experience</h2>
+    <div class="about-grid">
+      <div class="about-card">
+        <h4>Protected-area planning</h4>
+        <p style="line-height:1.6; margin-bottom:0.75rem;">
+          We have supported protected-area and park-related work through high-resolution climate metrics, stakeholder consultation, and decision-ready interpretation.
+        </p>
+        <a href="case-studies.html" class="link-inline">View case studies</a>
+      </div>
+      <div class="about-card">
+        <h4>Policy-ready communication</h4>
+        <p style="line-height:1.6; margin-bottom:0.75rem;">
+          We produce concise memos and briefings that synthesize climate research for organizations that need clarity, speed, and scientific credibility.
+        </p>
+        <a href="services.html" class="link-inline">See services</a>
+      </div>
+      <div class="about-card">
+        <h4>Interactive climate tools</h4>
+        <p style="line-height:1.6; margin-bottom:0.75rem;">
+          We co-develop web-based tools that help users and stakeholders explore scenarios, compare futures, and understand changing risks at local scale.
+        </p>
+        <a href="interactive-parks.html" class="link-inline">Explore a live example</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="about-section">
+    <div class="about-panel cta-box">
+      <h2 style="margin-bottom:1rem;">Have a climate question to solve?</h2>
+      <p>
+        If you need help understanding which climate data are relevant for your problem, how to interpret uncertainty, or how to communicate climate risks more clearly, Climate Compass can help.
+      </p>
+      <a href="contact.html" class="about-cta">Get in Touch</a>
     </div>
   </section>
 
@@ -75,7 +325,7 @@
     };
     formbutton("create", {
       action: "https://formspree.io/f/mblggkwq",
-      title: "How can we help? Book a free 15 min consultation now"",
+      title: "How can we help? Book a free 15 min consultation now",
       fields: [
         { type: "email", label: "Email:", name: "email", required: true },
         { type: "textarea", label: "Message:", name: "message" },

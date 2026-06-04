@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Warm nights in Europe | Climate Guidance Data Viz</title>
+  <meta name="description" content="Interactive map of sustained warm-night spells in Europe from ERA5-Land." />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+  <link rel="stylesheet" href="assets/warm-nights.css" />
+</head>
+<body>
+  <main class="page-shell">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Climate Guidance · Data Viz</p>
+        <h1>Where do European nights stay warm for two weeks at a time?</h1>
+        <p class="lede">This map shows how often summers contain at least one 14-night spell where every nightly minimum temperature exceeds a selected threshold.</p>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number">14</div>
+        <div class="metric-label">consecutive warm nights</div>
+      </div>
+    </section>
+
+    <section class="viz-card">
+      <aside class="controls">
+        <div class="control-group">
+          <h2>Night threshold</h2>
+          <button data-threshold="15">15°C <span>Mild</span></button>
+          <button data-threshold="18" class="active">18°C <span>Warm</span></button>
+          <button data-threshold="20">20°C <span>Tropical</span></button>
+        </div>
+
+        <div class="control-group">
+          <h2>View</h2>
+          <button data-view="1981_2000">1981–2000</button>
+          <button data-view="2005_2024" class="active">2005–2024</button>
+          <button data-view="change">Change</button>
+        </div>
+
+        <div class="layer-readout">
+          <h2 id="current-layer-title">18°C warm nights · 2005–2024</h2>
+          <p id="current-layer-note">Showing the percentage of summers with at least one 14-night warm spell.</p>
+        </div>
+
+        <div id="legend" class="legend"></div>
+      </aside>
+
+      <section class="map-wrap">
+        <div id="map"></div>
+        <div id="map-message" class="map-message" hidden></div>
+      </section>
+    </section>
+
+    <section class="explain">
+      <h2>How to read this</h2>
+      <p>For each grid cell, each summer is counted as a “yes” if it contains at least one 14-day period where the daily minimum 2 m temperature stayed above the selected threshold every day. The period maps show the percentage of summers with such a spell. The change map shows 2005–2024 minus 1981–2000 in percentage points.</p>
+      <p class="caveat">Caveat: daily minima are based on the timezone used in the CDS request, likely UTC+00:00. This is suitable for a regional visualization, but a local-solar-day calculation would be preferable for a formal analysis of individual cities.</p>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script src="assets/warm-nights.js"></script>
+</body>
+</html>

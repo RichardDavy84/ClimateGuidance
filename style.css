@@ -506,3 +506,12 @@ footer {
 .social-bottom-logos img:hover {
   opacity: 0.7;
 }
+
+
+/* Force Data Viz top-level navbar item to match the other menu items */
+.navbar .nav-dropdown {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  overflow: visible;
+}

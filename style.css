@@ -388,74 +388,83 @@ header {
   }
 }
 
-/* Data Viz dropdown navigation */
+
+
+/* Ensure navbar sits above page content */
+.navbar {
+  position: relative;
+  z-index: 9999;
+  overflow: visible;
+}
+
+/* Dropdown wrapper should behave like the other nav items */
 .nav-dropdown {
   position: relative;
   display: inline-block;
 }
 
-.nav-dropdown summary {
-  list-style: none;
-  cursor: pointer;
-  padding: inherit;
+/* Make Data Viz look exactly like the other navbar links */
+.navbar .nav-dropdown > .nav-dropbtn {
+  display: inline-block;
   color: inherit;
-  font: inherit;
+  text-decoration: none;
 }
 
-.nav-dropdown summary::-webkit-details-marker {
-  display: none;
-}
-
-.nav-dropdown summary::after {
-  content: " ▾";
-  font-size: 0.8em;
-}
-
-.dropdown-content {
+/* Dropdown panel */
+.navbar .dropdown-content {
   display: none;
   position: absolute;
   top: 100%;
   left: 0;
   min-width: 240px;
   background-color: #ffffff;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.14);
-  z-index: 1000;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+  z-index: 10000;
   border-radius: 0 0 6px 6px;
-  overflow: hidden;
+  overflow: visible;
 }
 
-.dropdown-content a {
+/* Dropdown item */
+.navbar .dropdown-content a {
   display: block;
   padding: 0.85rem 1rem;
   color: #333;
+  background-color: #ffffff;
   text-decoration: none;
   white-space: nowrap;
 }
 
-.dropdown-content a:hover {
+.navbar .dropdown-content a:hover {
   background-color: #f1f6f9;
 }
 
-/* Show dropdown on hover or click */
+/* Show dropdown on hover and keyboard focus */
 .nav-dropdown:hover .dropdown-content,
-.nav-dropdown[open] .dropdown-content {
+.nav-dropdown:focus-within .dropdown-content {
   display: block;
 }
 
-/* Mobile: keep it hidden until Data Viz is clicked */
+/* Make sure hero/page content cannot cover dropdown */
+.hero,
+.hero-overlay,
+section {
+  position: relative;
+  z-index: 1;
+}
+
+/* Mobile menu behaviour */
 @media (max-width: 768px) {
   .nav-dropdown {
     display: block;
     width: 100%;
   }
 
-  .nav-dropdown summary {
+  .navbar .nav-dropdown > .nav-dropbtn {
     display: block;
     width: 100%;
-    padding: 1rem;
   }
 
-  .dropdown-content {
+  .navbar .dropdown-content {
     position: static;
     display: none;
     box-shadow: none;
@@ -464,14 +473,16 @@ header {
     padding-left: 1rem;
   }
 
-  .nav-dropdown[open] .dropdown-content {
+  .nav-dropdown:hover .dropdown-content,
+  .nav-dropdown:focus-within .dropdown-content {
     display: block;
   }
 
-  .dropdown-content a {
-    padding: 0.7rem 1rem;
+  .navbar .dropdown-content a {
+    background-color: transparent;
   }
 }
+
 /* Footer */
 footer {
   background-color: #17494D;

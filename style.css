@@ -394,8 +394,21 @@ header {
   display: inline-block;
 }
 
-.nav-dropbtn {
-  display: inline-block;
+.nav-dropdown summary {
+  list-style: none;
+  cursor: pointer;
+  padding: inherit;
+  color: inherit;
+  font: inherit;
+}
+
+.nav-dropdown summary::-webkit-details-marker {
+  display: none;
+}
+
+.nav-dropdown summary::after {
+  content: " ▾";
+  font-size: 0.8em;
 }
 
 .dropdown-content {
@@ -403,7 +416,7 @@ header {
   position: absolute;
   top: 100%;
   left: 0;
-  min-width: 230px;
+  min-width: 240px;
   background-color: #ffffff;
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.14);
   z-index: 1000;
@@ -423,36 +436,42 @@ header {
   background-color: #f1f6f9;
 }
 
-.nav-dropdown:hover .dropdown-content {
+/* Show dropdown on hover or click */
+.nav-dropdown:hover .dropdown-content,
+.nav-dropdown[open] .dropdown-content {
   display: block;
 }
 
-/* Mobile layout: show dropdown items as normal stacked links */
+/* Mobile: keep it hidden until Data Viz is clicked */
 @media (max-width: 768px) {
   .nav-dropdown {
     display: block;
     width: 100%;
   }
 
-  .nav-dropbtn {
+  .nav-dropdown summary {
     display: block;
     width: 100%;
+    padding: 1rem;
   }
 
   .dropdown-content {
     position: static;
-    display: block;
+    display: none;
     box-shadow: none;
     border-radius: 0;
     background-color: transparent;
     padding-left: 1rem;
   }
 
+  .nav-dropdown[open] .dropdown-content {
+    display: block;
+  }
+
   .dropdown-content a {
     padding: 0.7rem 1rem;
   }
 }
-
 /* Footer */
 footer {
   background-color: #17494D;

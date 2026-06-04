@@ -388,6 +388,71 @@ header {
   }
 }
 
+/* Data Viz dropdown navigation */
+.nav-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-dropbtn {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 230px;
+  background-color: #ffffff;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.14);
+  z-index: 1000;
+  border-radius: 0 0 6px 6px;
+  overflow: hidden;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 0.85rem 1rem;
+  color: #333;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f6f9;
+}
+
+.nav-dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Mobile layout: show dropdown items as normal stacked links */
+@media (max-width: 768px) {
+  .nav-dropdown {
+    display: block;
+    width: 100%;
+  }
+
+  .nav-dropbtn {
+    display: block;
+    width: 100%;
+  }
+
+  .dropdown-content {
+    position: static;
+    display: block;
+    box-shadow: none;
+    border-radius: 0;
+    background-color: transparent;
+    padding-left: 1rem;
+  }
+
+  .dropdown-content a {
+    padding: 0.7rem 1rem;
+  }
+}
+
 /* Footer */
 footer {
   background-color: #17494D;

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Data Viz | Climate Compass</title>
+  <meta name="description" content="Interactive climate data visualizations from Climate Compass." />
+  <meta name="keywords" content="climate data visualization, climate change, Europe, warm nights, climate tools" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <input type="checkbox" id="menu-toggle" />
+  <label for="menu-toggle" class="hamburger">
+    <img src="menu-icon.png" alt="Menu Icon">
+  </label>
+
+  <header>
+    <div class="logo">
+      <h1>Climate Compass</h1>
+    </div>
+  </header>
+
+  <nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="case-studies.html">Case Studies</a>
+    <a href="interactive-parks.html">Data Interaction</a>
+
+    <div class="nav-dropdown">
+      <a href="data-viz.html" class="nav-dropbtn active">Data Viz</a>
+      <div class="dropdown-content">
+        <a href="warm-nights/">Two Weeks of Warm Nights</a>
+      </div>
+    </div>
+
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <section style="max-width:1000px; margin:3rem auto; padding:1rem;">
+    <h2 style="text-align:center; font-size:2.4rem; margin-bottom:1rem;">
+      Data Viz
+    </h2>
+
+    <p style="max-width:720px; margin:0 auto 2rem auto; text-align:center; line-height:1.6;">
+      Interactive climate data stories built from reanalysis, observations, and climate-model output.
+      Each tool turns a specific climate question into something explorable.
+    </p>
+
+    <div style="background-color:#f1f6f9; border-radius:8px; padding:2rem; box-shadow:0 2px 5px rgba(0,0,0,0.1);">
+      <a href="warm-nights/" style="display:block; background:#fff; border-radius:8px; padding:1.5rem; text-decoration:none; color:inherit; box-shadow:0 1px 3px rgba(0,0,0,0.1);">
+        <h3 style="margin-top:0; margin-bottom:0.5rem;">Two Weeks of Warm Nights</h3>
+        <p style="margin:0; line-height:1.6;">
+          Explore where European summer nights now remain warm for at least two weeks at a time.
+          The map shows how sustained warm-night conditions have expanded between 1981–2000 and 2005–2024.
+        </p>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Climate Compass. All rights reserved.</p>
+    <div class="social-bottom-logos" style="margin-top:1rem; display:flex; gap:0.75rem; justify-content:center;">
+      <a href="https://www.linkedin.com/in/richard-davy-9261a430/" target="_blank">
+        <img src="LinkedIn_logo.png" alt="LinkedIn" style="width:24px;">
+      </a>
+      <a href="https://x.com/RDavy84" target="_blank">
+        <img src="X_logo.png" alt="Twitter/X" style="width:24px;">
+      </a>
+      <a href="https://bsky.app/profile/davyclimate.bsky.social" target="_blank">
+        <img src="BlueSky_logo.png" alt="BlueSky" style="width:24px;">
+      </a>
+    </div>
+  </footer>
+
+</body>
+</html>

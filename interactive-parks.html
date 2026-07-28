@@ -2,114 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Climate Compass | Interactive Parks App</title>
-  <meta name="description" content="Explore Reisa National Park's climate futures with our interactive app, featuring scenario-based data and a traffic-light system for priority risks." />
+  <title>Redirecting to Data Viz | Climate Compass</title>
+  <meta name="description" content="Climate Compass interactive climate tools have moved to the Data Viz page." />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="refresh" content="0; url=data-viz.html" />
+  <link rel="canonical" href="https://www.climateguidance.com/data-viz.html" />
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <!-- Mobile nav toggle -->
-  <input type="checkbox" id="menu-toggle" />
-  <label for="menu-toggle" class="hamburger">
-    <img src="menu-icon.png" alt="Menu Icon">
-  </label>
-
-  <!-- Header -->
-  <header>
-    <div class="logo">
-      <h1>Climate Compass</h1>
-    </div>
-  </header>
-
-  <!-- Navigation -->
-<nav class="navbar">
-  <a href="index.html">Home</a>
-  <a href="services.html">Services</a>
-  <a href="case-studies.html">Case Studies</a>
-  <a href="interactive-parks.html" class="active">Data Interaction</a>
-
-  <div class="nav-dropdown">
-    <a href="data-viz.html" class="nav-dropbtn">Data Viz</a>
-    <div class="dropdown-content">
-      <a href="warm-nights/">Two Weeks of Warm Nights</a>
-    </div>
-  </div>
-
-  <a href="about.html">About</a>
-  <a href="contact.html">Contact</a>
-</nav>
-
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-overlay">
-      <h2>Explore Climate Futures using interactive data</h2>
-      <p>Interactive Data Visualization for Priority Climate Risks</p>
-    </div>
-  </section>
-
-  <!-- Intro Text -->
-  <section style="max-width:800px; margin:2rem auto; line-height:1.5; text-align:center;">
-    <h3>Reisa National Park Explorer</h3>
+  <section class="commercial-focus">
+    <h1>Interactive tools have moved</h1>
     <p>
-      This tool provides an overview of potential climate futures for Reisa National Park. 
-      It’s oriented around the park’s main conservation priorities—like forest fires or river access. 
-      Select a priority from the dropdown menu to see its climate drivers, classified by a 
-      “traffic light” system (safe, neutral, dangerous).
-    </p>
-    <p>
-      Adjust the time window and emissions scenario to explore changes over time. 
-      Clicking on the map reveals local climate drivers (300 m resolution). 
-      See how these metrics shift under different scenarios and plan accordingly.
+      The Climate Compass interactive examples are now on the
+      <a href="data-viz.html" style="text-decoration:underline;">Data Viz page</a>.
     </p>
   </section>
-
-  <!-- Embedded Shiny App -->
-  <section style="max-width:1200px; margin:2rem auto; padding:1rem;">
-    <iframe 
-      src="https://seasonalforecastsfornorway.shinyapps.io/Reisa_app/" 
-      width="100%" 
-      height="700" 
-      style="border:1px solid #ccc; border-radius:4px;"
-      title="Reisa National Park Climate App">
-    </iframe>
-    <p style="margin-top:1rem; text-align:center; font-style:italic;">
-      If the app doesn't load, you can access it directly at 
-      <a href="https://seasonalforecastsfornorway.shinyapps.io/Reisa_app/" target="_blank">this link</a>.
-    </p>
-  </section>
-
-  <!-- Formspree Button -->
-  <script src="https://formspree.io/js/formbutton-v1.min.js" defer></script>
-  <script>
-    window.formbutton=window.formbutton||function(){(formbutton.q=formbutton.q||[]).push(arguments)};
-    formbutton("create", {
-      action: "https://formspree.io/f/mblggkwq",
-      title: "How can we help? Book a free 15 min consultation now",
-      fields: [
-        { type: "email", label: "Email:", name: "email", required: true },
-        { type: "textarea", label: "Message:", name: "message" },
-        { type: "submit" }
-      ],
-      styles: {
-        title: { backgroundColor: "gray" },
-        button: { backgroundColor: "gray" }
-      }
-    });
-  </script>
-
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Climate Compass. All rights reserved.</p>
-    <div class="social-bottom-logos" style="margin-top:1rem; display:flex; gap:0.75rem; justify-content:center;">
-      <a href="https://www.linkedin.com/in/richard-davy-9261a430/" target="_blank">
-        <img src="LinkedIn_logo.png" alt="LinkedIn" style="width:24px;">
-      </a>
-      <a href="https://bsky.app/profile/davyclimate.bsky.social" target="_blank">
-        <img src="BlueSky_logo.png" alt="BlueSky" style="width:24px;">
-      </a>
-    </div>
-  </footer>
-
 </body>
 </html>

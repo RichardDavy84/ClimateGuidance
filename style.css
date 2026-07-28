@@ -34,7 +34,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.5rem 4rem; ! 0.5, 4
+  padding: 0.5rem 4rem;
   position: relative;
   z-index: 1;
 }
@@ -179,6 +179,50 @@ header {
 }
 .commercial-focus li {
   margin: 0.5rem 0;
+}
+.tool-grid {
+  background-color: #f1f6f9;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  display: grid;
+  gap: 1rem;
+}
+.tool-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+.tool-card h3 {
+  margin: 0 0 0.5rem;
+}
+.tool-card p {
+  margin: 0 0 1rem;
+  line-height: 1.6;
+}
+.tool-toggle {
+  background-color: #17494D;
+  color: #fff;
+  padding: 0.75rem 1.25rem;
+  border: none;
+  border-radius: 4px;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.tool-toggle:hover {
+  opacity: 0.9;
+}
+.tool-frame-wrap {
+  margin-top: 1.25rem;
+}
+.tool-frame-wrap iframe {
+  width: 100%;
+  min-height: 720px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
 }
 
 /* Home Page Video Section */
@@ -426,67 +470,7 @@ header {
 
 
 
-/* Ensure navbar sits above page content */
-.navbar {
-  position: relative;
-  z-index: 9999;
-  overflow: visible;
-}
-
-/* Dropdown wrapper should behave like the other nav items */
-.nav-dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-/* Make Data Viz look exactly like the other navbar links */
-.navbar .nav-dropdown > .nav-dropbtn,
-.navbar .nav-dropdown > summary {
-  display: inline-block;
-  color: #fff;
-  text-decoration: none;
-  list-style: none;
-}
-
-.navbar .nav-dropdown > summary::-webkit-details-marker {
-  display: none;
-}
-
-/* Dropdown panel */
-.navbar .dropdown-content {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  min-width: 240px;
-  background-color: #ffffff;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
-  z-index: 10000;
-  border-radius: 0 0 6px 6px;
-  overflow: visible;
-}
-
-/* Dropdown item */
-.navbar .dropdown-content a {
-  display: block;
-  padding: 0.85rem 1rem;
-  color: #333;
-  background-color: #ffffff;
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-.navbar .dropdown-content a:hover {
-  background-color: #f1f6f9;
-}
-
-/* Show dropdown on hover and keyboard focus */
-.nav-dropdown:hover .dropdown-content,
-.nav-dropdown:focus-within .dropdown-content {
-  display: block;
-}
-
-/* Make sure hero/page content cannot cover dropdown */
+/* Keep hero/page content below the navigation */
 .hero,
 .hero-overlay,
 section {
@@ -496,32 +480,12 @@ section {
 
 /* Mobile menu behaviour */
 @media (max-width: 768px) {
-  .nav-dropdown {
-    display: block;
-    width: 100%;
+  .tool-grid {
+    padding: 1rem;
   }
 
-  .navbar .nav-dropdown > .nav-dropbtn {
-    display: block;
-    width: 100%;
-  }
-
-  .navbar .dropdown-content {
-    position: static;
-    display: none;
-    box-shadow: none;
-    border-radius: 0;
-    background-color: transparent;
-    padding-left: 1rem;
-  }
-
-  .nav-dropdown:hover .dropdown-content,
-  .nav-dropdown:focus-within .dropdown-content {
-    display: block;
-  }
-
-  .navbar .dropdown-content a {
-    background-color: transparent;
+  .tool-frame-wrap iframe {
+    min-height: 620px;
   }
 }
 
@@ -547,13 +511,4 @@ footer {
 }
 .social-bottom-logos img:hover {
   opacity: 0.7;
-}
-
-
-/* Force Data Viz top-level navbar item to match the other menu items */
-.navbar .nav-dropdown {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  overflow: visible;
 }

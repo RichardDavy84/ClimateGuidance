@@ -25,15 +25,7 @@
     <a href="index.html">Home</a>
     <a href="services.html">Services</a>
     <a href="case-studies.html">Case Studies</a>
-    <a href="interactive-parks.html">Data Interaction</a>
-
-    <div class="nav-dropdown">
-    <a href="data-viz.html" class="nav-dropbtn active">Data Viz</a>
-      <div class="dropdown-content">
-        <a href="warm-nights/">Two Weeks of Warm Nights</a>
-      </div>
-    </div>
-
+    <a href="data-viz.html" class="active">Data Viz</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
   </nav>
@@ -69,32 +61,92 @@
       Each tool turns a specific climate question into something explorable.
     </p>
 
-    <div style="background-color:#f1f6f9; border-radius:8px; padding:2rem; box-shadow:0 2px 5px rgba(0,0,0,0.1);">
-      <a href="warm-nights/" style="display:block; background:#fff; border-radius:8px; padding:1.5rem; text-decoration:none; color:inherit; box-shadow:0 1px 3px rgba(0,0,0,0.1);">
-        <h3 style="margin-top:0; margin-bottom:0.5rem;">Two Weeks of Warm Nights</h3>
-        <p style="margin:0; line-height:1.6;">
-          Explore where European summer nights now remain warm for at least two weeks at a time.
-          The map shows how sustained warm-night conditions have expanded between 1981–2000 and 2005–2024.
-        </p>
-      </a>
-      <a href="https://seasonalforecastsfornorway.shinyapps.io/RShiny_for_MarineHeatwaves/" target="_blank" rel="noopener" style="display:block; background:#fff; border-radius:8px; padding:1.5rem; margin-top:1rem; text-decoration:none; color:inherit; box-shadow:0 1px 3px rgba(0,0,0,0.1);">
-        <h3 style="margin-top:0; margin-bottom:0.5rem;">Marine Heatwave Seasonal Forecasts</h3>
-        <p style="margin:0; line-height:1.6;">
+    <div class="tool-grid">
+      <article class="tool-card">
+        <h3>Marine Heatwave Seasonal Forecasts</h3>
+        <p>
           A prototype that estimates the probability of marine heatwaves above chosen category thresholds
           up to six months ahead. This can be customised for aquaculture operators, fish farms, insurers,
           and coastal planners.
         </p>
-      </a>
-      <a href="https://climatecompass.shinyapps.io/Snow_Depth_Forecast/" target="_blank" rel="noopener" style="display:block; background:#fff; border-radius:8px; padding:1.5rem; margin-top:1rem; text-decoration:none; color:inherit; box-shadow:0 1px 3px rgba(0,0,0,0.1);">
-        <h3 style="margin-top:0; margin-bottom:0.5rem;">Snow Forecasts for Nordic Ski Centres</h3>
-        <p style="margin:0; line-height:1.6;">
+        <button class="tool-toggle" type="button" data-tool-target="marine-heatwaves" data-tool-src="https://seasonalforecastsfornorway.shinyapps.io/RShiny_for_MarineHeatwaves/">
+          Try the tool
+        </button>
+        <div class="tool-frame-wrap" id="marine-heatwaves" hidden></div>
+      </article>
+
+      <article class="tool-card">
+        <h3>Snow Forecasts for Nordic Ski Centres</h3>
+        <p>
           A seasonal snow-depth dashboard concept for ski centres and travel operators. A paid version can
           include named resorts, business thresholds, custom climate metrics, and decision support for
           pricing, staffing, marketing, and risk planning.
         </p>
-      </a>
+        <button class="tool-toggle" type="button" data-tool-target="snow-forecasts" data-tool-src="https://climatecompass.shinyapps.io/Snow_Depth_Forecast/">
+          Try the tool
+        </button>
+        <div class="tool-frame-wrap" id="snow-forecasts" hidden></div>
+      </article>
+
+      <article class="tool-card">
+        <h3>Reisa National Park Climate Explorer</h3>
+        <p>
+          A protected-area planning tool that connects local climate futures with conservation priorities,
+          scenario choices, and traffic-light risk categories for practical adaptation decisions.
+        </p>
+        <button class="tool-toggle" type="button" data-tool-target="reisa-explorer" data-tool-src="https://seasonalforecastsfornorway.shinyapps.io/Reisa_app/">
+          Try the tool
+        </button>
+        <div class="tool-frame-wrap" id="reisa-explorer" hidden></div>
+      </article>
+
+      <article class="tool-card">
+        <h3>Two Weeks of Warm Nights</h3>
+        <p>
+          Explore where European summer nights now remain warm for at least two weeks at a time.
+          The map shows how sustained warm-night conditions have expanded between 1981–2000 and 2005–2024.
+        </p>
+        <button class="tool-toggle" type="button" data-tool-target="warm-nights-tool" data-tool-src="warm-nights/">
+          Try the tool
+        </button>
+        <div class="tool-frame-wrap" id="warm-nights-tool" hidden></div>
+      </article>
     </div>
   </section>
+
+  <script>
+    document.querySelectorAll(".tool-toggle").forEach((button) => {
+      button.addEventListener("click", () => {
+        const target = document.getElementById(button.dataset.toolTarget);
+        if (!target) return;
+
+        const isOpening = target.hidden;
+        document.querySelectorAll(".tool-frame-wrap").forEach((wrap) => {
+          wrap.hidden = true;
+        });
+        document.querySelectorAll(".tool-toggle").forEach((toggle) => {
+          toggle.textContent = "Try the tool";
+          toggle.setAttribute("aria-expanded", "false");
+        });
+
+        if (!target.querySelector("iframe")) {
+          const frame = document.createElement("iframe");
+          frame.src = button.dataset.toolSrc;
+          frame.title = button.closest(".tool-card").querySelector("h3").textContent;
+          frame.loading = "lazy";
+          frame.allowFullscreen = true;
+          target.appendChild(frame);
+        }
+
+        target.hidden = !isOpening;
+        button.textContent = isOpening ? "Hide the tool" : "Try the tool";
+        button.setAttribute("aria-expanded", String(isOpening));
+        if (isOpening) {
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+    });
+  </script>
 
   <footer>
     <p>&copy; 2025 Climate Compass. All rights reserved.</p>

@@ -56,16 +56,20 @@ header {
   background-color: #17494D;
   padding: 0.5rem 4rem;
 }
-.navbar a {
+.navbar a,
+.navbar summary {
   color: #fff;
   font-weight: 500;
   padding: 0.5rem 0.75rem;
   transition: opacity 0.3s;
+  cursor: pointer;
 }
-.navbar a:hover {
+.navbar a:hover,
+.navbar summary:hover {
   opacity: 0.8;
 }
-.navbar a.active {
+.navbar a.active,
+.navbar summary.active {
   text-decoration: underline;
 }
 
@@ -143,6 +147,38 @@ header {
 }
 .hero-cta:hover {
   opacity: 0.8;
+}
+
+.breadcrumb {
+  max-width: 1000px;
+  margin: 1.5rem auto 0;
+  padding: 0 1rem;
+  color: #17494D;
+  font-size: 0.95rem;
+}
+.breadcrumb a {
+  color: #17494D;
+  text-decoration: underline;
+}
+.scraper-summary,
+.commercial-focus {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  line-height: 1.6;
+  background-color: #ffffff;
+  border-left: 5px solid #17494D;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+}
+.scraper-summary h2,
+.commercial-focus h2 {
+  margin-bottom: 0.75rem;
+}
+.commercial-focus ul {
+  margin: 1rem 0 0 1.25rem;
+}
+.commercial-focus li {
+  margin: 0.5rem 0;
 }
 
 /* Home Page Video Section */
@@ -404,10 +440,16 @@ header {
 }
 
 /* Make Data Viz look exactly like the other navbar links */
-.navbar .nav-dropdown > .nav-dropbtn {
+.navbar .nav-dropdown > .nav-dropbtn,
+.navbar .nav-dropdown > summary {
   display: inline-block;
-  color: inherit;
+  color: #fff;
   text-decoration: none;
+  list-style: none;
+}
+
+.navbar .nav-dropdown > summary::-webkit-details-marker {
+  display: none;
 }
 
 /* Dropdown panel */

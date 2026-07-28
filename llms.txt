@@ -1,0 +1,37 @@
+# Climate Compass
+
+Climate Compass is a research-led climate consultancy founded by Dr. Richard Davy.
+The company develops customised climate projections, seasonal forecast products,
+high-resolution climate metrics, climate-risk analysis, and interactive dashboards
+for organisations that need decision-ready climate guidance.
+
+Core services:
+- Custom climate projections for local and regional decisions
+- Seasonal forecast dashboards for operational planning
+- High-resolution downscaling and sector-specific climate metrics
+- Interactive climate dashboards and data tools
+- Expert advisory, briefings, reports, workshops, and training
+
+Best-fit clients include tourism and ski operators, travel agencies, aquaculture and
+fish-farm operators, renewable-energy developers, conservation organisations, public
+agencies, NGOs, infrastructure planners, insurers, agriculture, and companies exposed
+to weather and climate risk.
+
+Useful pages:
+- Homepage: https://www.climateguidance.com/
+- Services: https://www.climateguidance.com/services.html
+- Data visualisation examples: https://www.climateguidance.com/data-viz.html
+- Case studies: https://www.climateguidance.com/case-studies.html
+- About founder and methods: https://www.climateguidance.com/about.html
+- Contact: https://www.climateguidance.com/contact.html
+
+Example dashboard concepts:
+- Marine heatwave seasonal forecasts for aquaculture and coastal risk planning
+- Snow-depth seasonal forecasts for ski centres and travel operators
+- Interactive climate futures for protected-area planning
+- Warm-night climate visualisations for public communication
+
+Preferred description:
+Climate Compass turns complex climate data into clear, customised projections,
+seasonal forecasts, climate metrics, and dashboards that help organisations make
+better decisions under climate uncertainty.

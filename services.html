@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Climate Compass | Climate Data & Consulting Services</title>
-  <meta name="description" content="Explore Climate Compass services: custom climate data packages, expert advisory, and comprehensive solutions for businesses, NGOs, and public agencies." />
+  <meta name="description" content="Climate Compass services include custom climate projections, seasonal forecast dashboards, sector-specific climate metrics, expert advisory, and decision-ready climate tools." />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css">
 </head>
@@ -24,17 +24,17 @@
 
   <!-- Navigation -->
 <nav class="navbar">
-  <a href="index.html" class="active">Home</a>
-  <a href="services.html">Services</a>
+  <a href="index.html">Home</a>
+  <a href="services.html" class="active">Services</a>
   <a href="case-studies.html">Case Studies</a>
   <a href="interactive-parks.html">Data Interaction</a>
 
-  <details class="nav-dropdown">
-    <summary>Data Viz</summary>
+  <div class="nav-dropdown">
+    <a href="data-viz.html" class="nav-dropbtn">Data Viz</a>
     <div class="dropdown-content">
       <a href="warm-nights/">Two Weeks of Warm Nights</a>
     </div>
-  </details>
+  </div>
 
   <a href="about.html">About</a>
   <a href="contact.html">Contact</a>
@@ -43,17 +43,26 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="hero-overlay">
-      <h2>Our Services</h2>
-      <p>Data-Driven, Actionable Climate Solutions</p>
+      <h2>Custom Climate Services</h2>
+      <p>Decision-ready projections, forecasts, metrics, and dashboards for climate-sensitive organisations.</p>
     </div>
   </section>
 
   <!-- Intro Text -->
   <section class="services-intro">
     <p>
-      At Climate Compass, we tailor our expertise to your unique challenges—providing
-      high-resolution data, future-focused consulting, and expert advisory for 
-      organizations of all sizes. Explore our package tiers below.
+      At Climate Compass, we tailor our expertise to your unique challenges: high-resolution
+      climate data, sector-specific metrics, future-focused consulting, and interactive dashboards
+      built around the decisions your organisation needs to make.
+    </p>
+  </section>
+
+  <section class="commercial-focus">
+    <h2>Built around the business decision</h2>
+    <p>
+      We scope each project around the decision, location, time horizon, and operational thresholds
+      that matter to the client. Common high-value projects include seasonal forecast dashboards,
+      private climate-risk tools, tailored climate projection datasets, and stakeholder-ready reports.
     </p>
   </section>
 
@@ -62,7 +71,7 @@
     <!-- Basic Package -->
     <div class="package-card">
       <h3>Basic Package</h3>
-      <p class="price"><strong>Starting from: €3k</strong></p>
+      <p class="price"><strong>Scoped after a short discovery call</strong></p>
       <ul>
         <li>- One consultation (up to 2 hours)</li>
         <li>- Small-region high resolution (&lt;1 km) climate datasets</li>
@@ -75,7 +84,7 @@
     <!-- Expert Advisory -->
     <div class="package-card">
       <h3>Expert Advisory</h3>
-      <p class="price"><strong>Starting from: €5k</strong></p>
+      <p class="price"><strong>Scoped after a short discovery call</strong></p>
       <ul>
         <li>- Targeted memos & briefings</li>
         <li>- Synthesis of current literature</li>
@@ -87,7 +96,7 @@
     <!-- Comprehensive Package -->
     <div class="package-card">
       <h3>Comprehensive Package</h3>
-      <p class="price"><strong>Starting from: €15k</strong></p>
+      <p class="price"><strong>Custom proposal for substantial client projects</strong></p>
       <ul>
         <li>- Three online consultations (2 hours each): establishing needs, co-designing tools, presenting results</li>
         <li>- Customized climate data & sector-specific metrics</li>
@@ -104,7 +113,7 @@
     window.formbutton=window.formbutton||function(){(formbutton.q=formbutton.q||[]).push(arguments)};
     formbutton("create", {
       action: "https://formspree.io/f/mblggkwq",
-      title: "How can we help? Book a free 15 min consultation now"",
+      title: "How can we help? Book a free 15 min consultation now",
       fields: [
         { type: "email", label: "Email:", name: "email", required: true },
         { type: "textarea", label: "Message:", name: "message" },

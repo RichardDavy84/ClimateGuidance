@@ -4,37 +4,49 @@
 
   <url>
     <loc>https://climateguidance.com/</loc>
-    <lastmod>2025-04-08</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <priority>1.0</priority>
   </url>
 
   <url>
     <loc>https://climateguidance.com/services.html</loc>
-    <lastmod>2025-04-08</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://climateguidance.com/case-studies.html</loc>
-    <lastmod>2025-04-08</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://climateguidance.com/interactive-parks.html</loc>
-    <lastmod>2025-04-08</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://climateguidance.com/about.html</loc>
-    <lastmod>2025-04-08</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://climateguidance.com/contact.html</loc>
-    <lastmod>2025-04-08</lastmod>
+    <lastmod>2026-07-28</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://climateguidance.com/data-viz.html</loc>
+    <lastmod>2026-07-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://climateguidance.com/warm-nights/</loc>
+    <lastmod>2026-07-28</lastmod>
     <priority>0.7</priority>
   </url>
 

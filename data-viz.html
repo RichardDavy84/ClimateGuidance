@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Data Viz | Climate Compass</title>
-  <meta name="description" content="Interactive climate visualizations and dashboard examples from Climate Compass, including tools that turn climate projections and seasonal forecasts into decision-ready insights." />
+  <title>Data Viz | Climate Guidance</title>
+  <meta name="description" content="Interactive climate visualizations and dashboard examples from Climate Guidance, including tools that turn climate projections and seasonal forecasts into decision-ready insights." />
   <meta name="keywords" content="climate dashboard examples, climate data visualization, seasonal forecast dashboard, climate projections, marine heatwaves, snow forecasts, climate tools" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css">
@@ -17,7 +17,7 @@
 
   <header>
     <div class="logo">
-      <h1>Climate Compass</h1>
+      <h1>Climate Guidance</h1>
     </div>
   </header>
 
@@ -44,19 +44,21 @@
   <section class="commercial-focus">
     <h2>Dashboard examples for climate-sensitive decisions</h2>
     <p>
-      These examples show how Climate Compass turns complex datasets into readable interfaces for
+      These examples show how Climate Guidance turns complex datasets into readable interfaces for
       specific decisions. The same approach can be customised for paid client dashboards, including
       bespoke metrics, private locations, operational thresholds, alert categories, and stakeholder-ready
       reporting.
+      To discuss a custom seasonal forecast or dashboard pilot, email
+      <a href="mailto:forecasts@climateguidance.com" style="text-decoration:underline;">forecasts@climateguidance.com</a>.
     </p>
   </section>
 
-  <section style="max-width:1000px; margin:3rem auto; padding:1rem;">
+  <section style="max-width:var(--content-width); margin:3rem auto; padding:1rem;">
     <h2 style="text-align:center; font-size:2.4rem; margin-bottom:1rem;">
       Interactive Examples
     </h2>
 
-    <p style="max-width:720px; margin:0 auto 2rem auto; text-align:center; line-height:1.6;">
+    <p style="max-width:900px; margin:0 auto 2rem auto; text-align:center; line-height:1.6;">
       Interactive climate data stories built from reanalysis, observations, and climate-model output.
       Each tool turns a specific climate question into something explorable.
     </p>
@@ -69,7 +71,7 @@
           up to six months ahead. This can be customised for aquaculture operators, fish farms, insurers,
           and coastal planners.
         </p>
-        <button class="tool-toggle" type="button" data-tool-target="marine-heatwaves" data-tool-src="https://seasonalforecastsfornorway.shinyapps.io/RShiny_for_MarineHeatwaves/">
+        <button class="tool-toggle" type="button" data-tool-target="marine-heatwaves" data-tool-src="https://seasonalforecastsfornorway.shinyapps.io/MarineHeatwaves/" aria-expanded="false">
           Try the tool
         </button>
         <div class="tool-frame-wrap" id="marine-heatwaves" hidden></div>
@@ -82,7 +84,7 @@
           include named resorts, business thresholds, custom climate metrics, and decision support for
           pricing, staffing, marketing, and risk planning.
         </p>
-        <button class="tool-toggle" type="button" data-tool-target="snow-forecasts" data-tool-src="https://climatecompass.shinyapps.io/Snow_Depth_Forecast/">
+        <button class="tool-toggle" type="button" data-tool-target="snow-forecasts" data-tool-src="https://climatecompass.shinyapps.io/Snow_Depth_Forecast/" aria-expanded="false">
           Try the tool
         </button>
         <div class="tool-frame-wrap" id="snow-forecasts" hidden></div>
@@ -94,7 +96,7 @@
           A protected-area planning tool that connects local climate futures with conservation priorities,
           scenario choices, and traffic-light risk categories for practical adaptation decisions.
         </p>
-        <button class="tool-toggle" type="button" data-tool-target="reisa-explorer" data-tool-src="https://seasonalforecastsfornorway.shinyapps.io/Reisa_app/">
+        <button class="tool-toggle" type="button" data-tool-target="reisa-explorer" data-tool-src="https://seasonalforecastsfornorway.shinyapps.io/Reisa_app/" aria-expanded="false">
           Try the tool
         </button>
         <div class="tool-frame-wrap" id="reisa-explorer" hidden></div>
@@ -106,7 +108,7 @@
           Explore where European summer nights now remain warm for at least two weeks at a time.
           The map shows how sustained warm-night conditions have expanded between 1981–2000 and 2005–2024.
         </p>
-        <button class="tool-toggle" type="button" data-tool-target="warm-nights-tool" data-tool-src="warm-nights/">
+        <button class="tool-toggle" type="button" data-tool-target="warm-nights-tool" data-tool-src="warm-nights/" aria-expanded="false">
           Try the tool
         </button>
         <div class="tool-frame-wrap" id="warm-nights-tool" hidden></div>
@@ -115,9 +117,38 @@
   </section>
 
   <script>
-    document.querySelectorAll(".tool-toggle").forEach((button) => {
+    const toolButtons = Array.from(document.querySelectorAll(".tool-toggle"));
+
+    function ensureToolFrame(button) {
+      const target = document.getElementById(button.dataset.toolTarget);
+      if (!target || target.querySelector("iframe")) return target;
+
+      const frame = document.createElement("iframe");
+      frame.src = button.dataset.toolSrc;
+      frame.title = button.closest(".tool-card").querySelector("h3").textContent;
+      frame.loading = "eager";
+      frame.allowFullscreen = true;
+      target.appendChild(frame);
+      return target;
+    }
+
+    function preloadToolFrames() {
+      toolButtons.forEach((button, index) => {
+        window.setTimeout(() => ensureToolFrame(button), index * 1200);
+      });
+    }
+
+    window.addEventListener("load", () => {
+      if ("requestIdleCallback" in window) {
+        window.requestIdleCallback(preloadToolFrames, { timeout: 2500 });
+      } else {
+        window.setTimeout(preloadToolFrames, 1000);
+      }
+    });
+
+    toolButtons.forEach((button) => {
       button.addEventListener("click", () => {
-        const target = document.getElementById(button.dataset.toolTarget);
+        const target = ensureToolFrame(button);
         if (!target) return;
 
         const isOpening = target.hidden;
@@ -128,15 +159,6 @@
           toggle.textContent = "Try the tool";
           toggle.setAttribute("aria-expanded", "false");
         });
-
-        if (!target.querySelector("iframe")) {
-          const frame = document.createElement("iframe");
-          frame.src = button.dataset.toolSrc;
-          frame.title = button.closest(".tool-card").querySelector("h3").textContent;
-          frame.loading = "lazy";
-          frame.allowFullscreen = true;
-          target.appendChild(frame);
-        }
 
         target.hidden = !isOpening;
         button.textContent = isOpening ? "Hide the tool" : "Try the tool";
@@ -149,18 +171,7 @@
   </script>
 
   <footer>
-    <p>&copy; 2025 Climate Compass. All rights reserved.</p>
-    <div class="social-bottom-logos" style="margin-top:1rem; display:flex; gap:0.75rem; justify-content:center;">
-      <a href="https://www.linkedin.com/in/richard-davy-9261a430/" target="_blank">
-        <img src="LinkedIn_logo.png" alt="LinkedIn" style="width:24px;">
-      </a>
-      <a href="https://x.com/RDavy84" target="_blank">
-        <img src="X_logo.png" alt="Twitter/X" style="width:24px;">
-      </a>
-      <a href="https://bsky.app/profile/davyclimate.bsky.social" target="_blank">
-        <img src="BlueSky_logo.png" alt="BlueSky" style="width:24px;">
-      </a>
-    </div>
+    <p>&copy; 2025 Climate Guidance. All rights reserved.</p>
   </footer>
 
 </body>

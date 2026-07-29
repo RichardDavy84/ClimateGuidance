@@ -1,6 +1,6 @@
 /* -------------------------------------------------------------
    style.css
-   A modern, responsive style for "Climate Compass"
+   A modern, responsive style for "Climate Guidance"
    Using Montserrat for a clean, contemporary look
 -------------------------------------------------------------- */
 
@@ -17,6 +17,7 @@ body {
   font-family: 'Montserrat', sans-serif;
   background-color: #f9f9f9;
   color: #333;
+  --content-width: 1120px;
 }
 img {
   max-width: 100%;
@@ -122,7 +123,8 @@ header {
 }
 .hero-overlay {
   background-color: rgba(0, 0, 0, 0.6);
-  padding: 2rem;
+  width: min(var(--content-width), calc(100% - 2rem));
+  padding: 2.5rem;
   border-radius: 4px;
   display: flex;
   flex-direction: column;
@@ -130,11 +132,12 @@ header {
   justify-content: center;
 }
 .hero-overlay h2 {
-  font-size: 2rem;
+  font-size: 2.65rem;
   margin-bottom: 1rem;
 }
 .hero-overlay p {
-  font-size: 1.2rem;
+  font-size: 1.35rem;
+  line-height: 1.45;
   margin-bottom: 1rem;
 }
 .hero-cta {
@@ -150,7 +153,7 @@ header {
 }
 
 .breadcrumb {
-  max-width: 1000px;
+  max-width: var(--content-width);
   margin: 1.5rem auto 0;
   padding: 0 1rem;
   color: #17494D;
@@ -162,7 +165,7 @@ header {
 }
 .scraper-summary,
 .commercial-focus {
-  max-width: 1000px;
+  max-width: var(--content-width);
   margin: 2rem auto;
   padding: 1.5rem;
   line-height: 1.6;
@@ -233,7 +236,7 @@ header {
 }
 .home-video video {
   width: 80%;
-  max-width: 1000px;
+  max-width: var(--content-width);
   display: block;
   margin: 0 auto;
 }
@@ -241,7 +244,7 @@ header {
 /* Services Page */
 .services-intro {
   text-align: center;
-  max-width: 800px;
+  max-width: var(--content-width);
   margin: 2rem auto;
   line-height: 1.5;
 }
@@ -302,7 +305,7 @@ header {
 /* Case Studies */
 .case-studies-intro {
   text-align: center;
-  max-width: 700px;
+  max-width: var(--content-width);
   margin: 2rem auto;
 }
 
@@ -328,7 +331,7 @@ header {
   background-color: rgba(0,0,0,0.4);
   padding: 3rem;
   border-radius: 4px;
-  max-width: 800px;
+  max-width: var(--content-width);
   margin: 0 auto;
 }
 .case-content h3 {
@@ -340,24 +343,24 @@ header {
 }
 
 /* About Page */
-.founder-section {
+.expertise-section {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
   margin: 2rem;
   align-items: flex-start;
 }
-.founder-image {
+.expertise-image {
   flex: 1 1 300px;
   max-width: 300px;
 }
-.founder-image img {
+.expertise-image img {
   border-radius: 6px;
 }
-.founder-details {
+.expertise-details {
   flex: 1 1 400px;
 }
-.founder-details ul {
+.expertise-details ul {
   list-style: none;
   padding: 0;
   margin: 1rem 0;
@@ -420,6 +423,16 @@ header {
 .contact-box label {
   font-weight: 600;
 }
+.contact-email {
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.contact-email a {
+  color: #17494D;
+  text-decoration: underline;
+  font-weight: 600;
+}
 .contact-box input,
 .contact-box textarea {
   padding: 0.75rem;
@@ -465,6 +478,15 @@ header {
   }
   .hero {
     padding-top: 10rem;
+  }
+  .hero-overlay {
+    padding: 1.5rem;
+  }
+  .hero-overlay h2 {
+    font-size: 2rem;
+  }
+  .hero-overlay p {
+    font-size: 1.1rem;
   }
 }
 

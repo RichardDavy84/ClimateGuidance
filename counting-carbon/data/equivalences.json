@@ -1,0 +1,2993 @@
+{
+  "version": "2026-10-08",
+  "items": [
+    {
+      "id": "trees",
+      "label": "Trees planted — annualised over 30 years",
+      "group": "Trees and forests",
+      "kind": "trees",
+      "gas": "CO₂",
+      "aliases": "tree saplings seedlings planting reforestation forest",
+      "source": "/counting-carbon/",
+      "year": "Book scenario",
+      "scope": "Illustrative tree biomass accumulation; average annual capture over the first 30 years.",
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "forest",
+      "label": "Hectares of regrowing forest — annual uptake",
+      "group": "Trees and forests",
+      "kind": "forest",
+      "gas": "CO₂",
+      "source": "https://www.nature.com/articles/s41586-020-2686-x",
+      "year": 2020,
+      "scope": "User-supplied site-specific annual biomass accumulation. No universal forest-hectare factor is assumed.",
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "kg",
+      "label": "Kilograms of CO₂",
+      "group": "Carbon units",
+      "factor": 0.001,
+      "gas": "CO₂",
+      "scope": "Mass conversion; elemental carbon is converted using 44/12.",
+      "source": "/counting-carbon/",
+      "year": "Unit definition",
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "tonne",
+      "label": "Tonnes of CO₂",
+      "group": "Carbon units",
+      "factor": 1,
+      "gas": "CO₂",
+      "scope": "Mass conversion; elemental carbon is converted using 44/12.",
+      "source": "/counting-carbon/",
+      "year": "Unit definition",
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "kt",
+      "label": "Kilotonnes of CO₂",
+      "group": "Carbon units",
+      "factor": 1000,
+      "gas": "CO₂",
+      "scope": "Mass conversion; elemental carbon is converted using 44/12.",
+      "source": "/counting-carbon/",
+      "year": "Unit definition",
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "mt",
+      "label": "Megatonnes of CO₂",
+      "group": "Carbon units",
+      "factor": 1000000.0,
+      "gas": "CO₂",
+      "scope": "Mass conversion; elemental carbon is converted using 44/12.",
+      "source": "/counting-carbon/",
+      "year": "Unit definition",
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "gt",
+      "label": "Gigatonnes of CO₂",
+      "group": "Carbon units",
+      "factor": 1000000000.0,
+      "gas": "CO₂",
+      "scope": "Mass conversion; elemental carbon is converted using 44/12.",
+      "source": "/counting-carbon/",
+      "year": "Unit definition",
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "carbon",
+      "label": "Tonnes of elemental carbon (C)",
+      "group": "Carbon units",
+      "factor": 3.6666666666666665,
+      "gas": "CO₂",
+      "scope": "Mass conversion; elemental carbon is converted using 44/12.",
+      "source": "/counting-carbon/",
+      "year": "Unit definition",
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "petrol-km",
+      "label": "Petrol car kilometres",
+      "group": "Transport",
+      "factor": 0.00016084,
+      "gas": "CO₂",
+      "scope": "UK reporting factor: CO₂ component only; excludes upstream supply-chain emissions. Per km.",
+      "source": "https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2026",
+      "year": 2026,
+      "rowId": "25_301_3070_4_2",
+      "aliases": "vehicle driving transport",
+      "factorKg": 0.16084,
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "diesel-km",
+      "label": "Diesel car kilometres",
+      "group": "Transport",
+      "factor": 0.00017097,
+      "gas": "CO₂",
+      "scope": "UK reporting factor: CO₂ component only; excludes upstream supply-chain emissions. Per km.",
+      "source": "https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2026",
+      "year": 2026,
+      "rowId": "25_301_3069_4_2",
+      "aliases": "vehicle driving transport",
+      "factorKg": 0.17097,
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "car-km",
+      "label": "Average car kilometres",
+      "group": "Transport",
+      "factor": 0.00016474,
+      "gas": "CO₂",
+      "scope": "UK reporting factor: CO₂ component only; excludes upstream supply-chain emissions. Per km.",
+      "source": "https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2026",
+      "year": 2026,
+      "rowId": "25_301_3074_4_2",
+      "aliases": "vehicle driving transport",
+      "factorKg": 0.16474,
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "car-mile",
+      "label": "Average car miles",
+      "group": "Transport",
+      "factor": 0.00026512000000000004,
+      "gas": "CO₂",
+      "scope": "UK reporting factor: CO₂ component only; excludes upstream supply-chain emissions. Per miles.",
+      "source": "https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2026",
+      "year": 2026,
+      "rowId": "25_301_3074_9_2",
+      "aliases": "vehicle driving transport",
+      "factorKg": 0.26512,
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "rail",
+      "label": "National rail passenger-kilometres",
+      "group": "Transport",
+      "factor": 3.056e-05,
+      "gas": "CO₂",
+      "scope": "UK reporting factor: CO₂ component only; excludes upstream supply-chain emissions. Per passenger.km.",
+      "source": "https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2026",
+      "year": 2026,
+      "rowId": "25_315_3147_11_2",
+      "aliases": "vehicle driving transport",
+      "factorKg": 0.03056,
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "bus",
+      "label": "Average bus passenger-kilometres",
+      "group": "Transport",
+      "factor": 0.00010077,
+      "gas": "CO₂",
+      "scope": "UK reporting factor: CO₂ component only; excludes upstream supply-chain emissions. Per passenger.km.",
+      "source": "https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2026",
+      "year": 2026,
+      "rowId": "25_314_3145_11_2",
+      "aliases": "vehicle driving transport",
+      "factorKg": 0.10077,
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "coach",
+      "label": "Coach passenger-kilometres",
+      "group": "Transport",
+      "factor": 3.899e-05,
+      "gas": "CO₂",
+      "scope": "UK reporting factor: CO₂ component only; excludes upstream supply-chain emissions. Per passenger.km.",
+      "source": "https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2026",
+      "year": 2026,
+      "rowId": "25_314_3146_11_2",
+      "aliases": "vehicle driving transport",
+      "factorKg": 0.03899,
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "ferry-foot",
+      "label": "Ferry passenger-kilometres — foot passenger",
+      "group": "Transport",
+      "factor": 1.848e-05,
+      "gas": "CO₂",
+      "scope": "UK reporting factor: CO₂ component only; excludes upstream supply-chain emissions. Per passenger.km.",
+      "source": "https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2026",
+      "year": 2026,
+      "rowId": "23_318_3188_11_2",
+      "aliases": "vehicle driving transport",
+      "factorKg": 0.01848,
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "ferry-car",
+      "label": "Ferry passenger-kilometres — car passenger",
+      "group": "Transport",
+      "factor": 0.00012774,
+      "gas": "CO₂",
+      "scope": "UK reporting factor: CO₂ component only; excludes upstream supply-chain emissions. Per passenger.km.",
+      "source": "https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2026",
+      "year": 2026,
+      "rowId": "23_318_3189_11_2",
+      "aliases": "vehicle driving transport",
+      "factorKg": 0.12774,
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "petrol-litres",
+      "label": "Litres of petrol — UK blend",
+      "group": "Fuel and energy",
+      "factor": 0.00206107,
+      "gas": "CO₂",
+      "scope": "UK reporting factor: CO₂ component only; excludes upstream supply-chain emissions. Per litres.",
+      "source": "https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2026",
+      "year": 2026,
+      "rowId": "1_101_1017_8_2",
+      "aliases": "power energy fuel",
+      "factorKg": 2.06107,
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "diesel-litres",
+      "label": "Litres of diesel — UK blend",
+      "group": "Fuel and energy",
+      "factor": 0.00255035,
+      "gas": "CO₂",
+      "scope": "UK reporting factor: CO₂ component only; excludes upstream supply-chain emissions. Per litres.",
+      "source": "https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2026",
+      "year": 2026,
+      "rowId": "1_101_1011_8_2",
+      "aliases": "power energy fuel",
+      "factorKg": 2.55035,
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "coal",
+      "label": "Tonnes of industrial coal burned",
+      "group": "Fuel and energy",
+      "factor": 2.3904699999999997,
+      "gas": "CO₂",
+      "scope": "UK reporting factor: CO₂ component only; excludes upstream supply-chain emissions. Per tonnes.",
+      "source": "https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2026",
+      "year": 2026,
+      "rowId": "1_102_1025_15_2",
+      "aliases": "power energy fuel",
+      "factorKg": 2390.47,
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "gas-m3",
+      "label": "Cubic metres of natural gas burned",
+      "group": "Fuel and energy",
+      "factor": 0.0020223100000000003,
+      "gas": "CO₂",
+      "scope": "UK reporting factor: CO₂ component only; excludes upstream supply-chain emissions. Per cubic metres.",
+      "source": "https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2026",
+      "year": 2026,
+      "rowId": "1_100_1004_1_2",
+      "aliases": "power energy fuel",
+      "factorKg": 2.02231,
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "gas-kwh",
+      "label": "kWh of natural gas — gross calorific value",
+      "group": "Fuel and energy",
+      "factor": 0.00018193999999999998,
+      "gas": "CO₂",
+      "scope": "UK reporting factor: CO₂ component only; excludes upstream supply-chain emissions. Per kWh (Gross CV).",
+      "source": "https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2026",
+      "year": 2026,
+      "rowId": "1_100_1004_6_2",
+      "aliases": "power energy fuel",
+      "factorKg": 0.18194,
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "electricity",
+      "label": "kWh of UK electricity generated",
+      "group": "Electricity",
+      "factor": 0.00012942999999999999,
+      "gas": "CO₂",
+      "scope": "UK reporting factor: CO₂ component only; excludes upstream supply-chain emissions. Generation only; excludes transmission and distribution losses.",
+      "source": "https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2026",
+      "year": 2026,
+      "rowId": "7_400_4000_5_2",
+      "aliases": "power energy fuel",
+      "factorKg": 0.12943,
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "flight-3161",
+      "label": "Domestic flight — average passenger",
+      "group": "Flights",
+      "factor": 0.00013395,
+      "gas": "CO₂",
+      "scope": "UK 2026 flight factor, without radiative forcing. CO₂ only; excludes contrails, other non-CO₂ effects and upstream fuel production. Distance is an editable illustrative assumption, not a named route.",
+      "source": "https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2026",
+      "year": 2026,
+      "kind": "flight",
+      "distance": 500,
+      "rowId": "21_316_3161_11_2",
+      "aliases": "plane aviation air travel flying return trip",
+      "factorKg": 0.13395,
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "flight-3165",
+      "label": "Short-haul flight — economy passenger",
+      "group": "Flights",
+      "factor": 7.344e-05,
+      "gas": "CO₂",
+      "scope": "UK 2026 flight factor, without radiative forcing. CO₂ only; excludes contrails, other non-CO₂ effects and upstream fuel production. Distance is an editable illustrative assumption, not a named route.",
+      "source": "https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2026",
+      "year": 2026,
+      "kind": "flight",
+      "distance": 1500,
+      "rowId": "21_316_3165_11_2",
+      "aliases": "plane aviation air travel flying return trip",
+      "factorKg": 0.07344,
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "flight-3167",
+      "label": "Short-haul flight — business passenger",
+      "group": "Flights",
+      "factor": 0.00011015999999999999,
+      "gas": "CO₂",
+      "scope": "UK 2026 flight factor, without radiative forcing. CO₂ only; excludes contrails, other non-CO₂ effects and upstream fuel production. Distance is an editable illustrative assumption, not a named route.",
+      "source": "https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2026",
+      "year": 2026,
+      "kind": "flight",
+      "distance": 1500,
+      "rowId": "21_316_3167_11_2",
+      "aliases": "plane aviation air travel flying return trip",
+      "factorKg": 0.11016,
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "flight-3171",
+      "label": "Long-haul flight — economy passenger",
+      "group": "Flights",
+      "factor": 6.826e-05,
+      "gas": "CO₂",
+      "scope": "UK 2026 flight factor, without radiative forcing. CO₂ only; excludes contrails, other non-CO₂ effects and upstream fuel production. Distance is an editable illustrative assumption, not a named route.",
+      "source": "https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2026",
+      "year": 2026,
+      "kind": "flight",
+      "distance": 8000,
+      "rowId": "21_316_3171_11_2",
+      "aliases": "plane aviation air travel flying return trip",
+      "factorKg": 0.06826,
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "flight-3173",
+      "label": "Long-haul flight — premium economy passenger",
+      "group": "Flights",
+      "factor": 0.00010922,
+      "gas": "CO₂",
+      "scope": "UK 2026 flight factor, without radiative forcing. CO₂ only; excludes contrails, other non-CO₂ effects and upstream fuel production. Distance is an editable illustrative assumption, not a named route.",
+      "source": "https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2026",
+      "year": 2026,
+      "kind": "flight",
+      "distance": 8000,
+      "rowId": "21_316_3173_11_2",
+      "aliases": "plane aviation air travel flying return trip",
+      "factorKg": 0.10922,
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "flight-3175",
+      "label": "Long-haul flight — business passenger",
+      "group": "Flights",
+      "factor": 0.00019795,
+      "gas": "CO₂",
+      "scope": "UK 2026 flight factor, without radiative forcing. CO₂ only; excludes contrails, other non-CO₂ effects and upstream fuel production. Distance is an editable illustrative assumption, not a named route.",
+      "source": "https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2026",
+      "year": 2026,
+      "kind": "flight",
+      "distance": 8000,
+      "rowId": "21_316_3175_11_2",
+      "aliases": "plane aviation air travel flying return trip",
+      "factorKg": 0.19795,
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "flight-3177",
+      "label": "Long-haul flight — first-class passenger",
+      "group": "Flights",
+      "factor": 0.00027304,
+      "gas": "CO₂",
+      "scope": "UK 2026 flight factor, without radiative forcing. CO₂ only; excludes contrails, other non-CO₂ effects and upstream fuel production. Distance is an editable illustrative assumption, not a named route.",
+      "source": "https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2026",
+      "year": 2026,
+      "kind": "flight",
+      "distance": 8000,
+      "rowId": "21_316_3177_11_2",
+      "aliases": "plane aviation air travel flying return trip",
+      "factorKg": 0.27304,
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "us-car",
+      "label": "US passenger vehicles driven for one year",
+      "group": "Transport",
+      "factor": 4.29,
+      "gas": "CO₂e",
+      "scope": "Annual US vehicle-use greenhouse gases; includes CH₄ and N₂O. This is CO₂-equivalent, not pure CO₂.",
+      "source": "https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator-calculations-and-references",
+      "year": 2022,
+      "aliases": "car vehicle driving",
+      "reference": "EPA equivalencies reference; underlying data year varies by factor",
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "us-home-electric",
+      "label": "US homes’ electricity for one year",
+      "group": "Homes",
+      "factor": 4.798,
+      "gas": "CO₂",
+      "scope": "US residential electricity average; not the full household footprint.",
+      "source": "https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator-calculations-and-references",
+      "year": 2022,
+      "aliases": "house household home",
+      "reference": "EPA equivalencies reference; underlying data year varies by factor",
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "us-home-energy",
+      "label": "US homes’ energy use for one year",
+      "group": "Homes",
+      "factor": 7.45,
+      "gas": "CO₂",
+      "scope": "US household electricity and heating fuels; excludes goods, food and personal transport.",
+      "source": "https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator-calculations-and-references",
+      "year": 2022,
+      "aliases": "house household home",
+      "reference": "EPA equivalencies reference; underlying data year varies by factor",
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "us-gasoline",
+      "label": "US gallons of gasoline burned",
+      "group": "Fuel and energy",
+      "factor": 0.008887,
+      "gas": "CO₂",
+      "scope": "Direct combustion CO₂; US gallons, not imperial gallons. Excludes upstream fuel production.",
+      "source": "https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator-calculations-and-references",
+      "year": 2024,
+      "aliases": "us gallons of gasoline burned",
+      "reference": "EPA equivalencies reference; underlying data year varies by factor",
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "us-diesel",
+      "label": "US gallons of diesel burned",
+      "group": "Fuel and energy",
+      "factor": 0.01018,
+      "gas": "CO₂",
+      "scope": "Direct combustion CO₂; US gallons, not imperial gallons. Excludes upstream fuel production.",
+      "source": "https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator-calculations-and-references",
+      "year": 2024,
+      "aliases": "us gallons of diesel burned",
+      "reference": "EPA equivalencies reference; underlying data year varies by factor",
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "oil-barrel",
+      "label": "Barrels of oil consumed",
+      "group": "Fuel and energy",
+      "factor": 0.43,
+      "gas": "CO₂",
+      "scope": "EPA reference barrel fuel-combustion comparison; not a lifecycle assessment.",
+      "source": "https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator-calculations-and-references",
+      "year": 2024,
+      "aliases": "barrels of oil consumed",
+      "reference": "EPA equivalencies reference; underlying data year varies by factor",
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "railcar-coal",
+      "label": "Railcars of coal burned",
+      "group": "Fuel and energy",
+      "factor": 180.4,
+      "gas": "CO₂",
+      "scope": "EPA reference railcar carrying 90.89 metric tonnes of coal; direct combustion.",
+      "source": "https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator-calculations-and-references",
+      "year": 2024,
+      "aliases": "railcars of coal burned",
+      "reference": "EPA equivalencies reference; underlying data year varies by factor",
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "custom",
+      "label": "Custom claim factor",
+      "group": "Your own assumption",
+      "kind": "custom",
+      "gas": "CO₂",
+      "scope": "Enter a documented factor from the claim or its source. The tool cannot validate a user-supplied factor.",
+      "source": null,
+      "year": "User supplied",
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "flight-atlantic",
+      "label": "Transatlantic flight — economy, illustrative distance",
+      "group": "Flights",
+      "factor": 6.826e-05,
+      "gas": "CO₂",
+      "scope": "UK 2026 flight factor, without radiative forcing. CO₂ only; excludes contrails, other non-CO₂ effects and upstream fuel production. Distance is an editable illustrative assumption, not a named route.",
+      "source": "https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2026",
+      "year": 2026,
+      "kind": "flight",
+      "distance": 5600,
+      "rowId": "21_316_3171_11_2",
+      "aliases": "plane aviation air travel flying return trip",
+      "factorKg": 0.06826,
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "flight-pkm",
+      "label": "Long-haul economy passenger-kilometres flown",
+      "group": "Flights",
+      "factor": 6.826e-05,
+      "gas": "CO₂",
+      "scope": "UK 2026 flight factor, without radiative forcing. CO₂ only; excludes contrails, other non-CO₂ effects and upstream fuel production. Distance is an editable illustrative assumption, not a named route.",
+      "source": "https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2026",
+      "year": 2026,
+      "kind": "fixed",
+      "distance": 8000,
+      "rowId": "21_316_3171_11_2",
+      "aliases": "plane aviation air travel flying return trip",
+      "factorKg": 0.06826,
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "petrol-journey",
+      "label": "Petrol car journeys",
+      "group": "Transport",
+      "factor": 0.00016084,
+      "gas": "CO₂",
+      "scope": "UK reporting factor: CO₂ component only; excludes upstream supply-chain emissions. Per km.",
+      "source": "https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2026",
+      "year": 2026,
+      "rowId": "25_301_3070_4_2",
+      "aliases": "vehicle driving transport",
+      "factorKg": 0.16084,
+      "kind": "journey",
+      "distance": 100,
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "diesel-journey",
+      "label": "Diesel car journeys",
+      "group": "Transport",
+      "factor": 0.00017097,
+      "gas": "CO₂",
+      "scope": "UK reporting factor: CO₂ component only; excludes upstream supply-chain emissions. Per km.",
+      "source": "https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2026",
+      "year": 2026,
+      "rowId": "25_301_3069_4_2",
+      "aliases": "vehicle driving transport",
+      "factorKg": 0.17097,
+      "kind": "journey",
+      "distance": 100,
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "coal-kg",
+      "label": "Kilograms of industrial coal burned",
+      "group": "Fuel and energy",
+      "factor": 0.0023904699999999996,
+      "gas": "CO₂",
+      "scope": "Direct combustion CO₂. One kilogram is 0.001 tonnes of coal.",
+      "source": "https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2026",
+      "year": 2026,
+      "aliases": "power energy fuel",
+      "factorKg": 2.3904699999999997,
+      "derivedFromRow": "1_102_1025_15_2",
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "electricity-mwh",
+      "label": "MWh of UK electricity generated",
+      "group": "Electricity",
+      "factor": 0.12943,
+      "gas": "CO₂",
+      "scope": "UK 2026 generation CO₂ factor multiplied by 1,000 kWh/MWh; excludes upstream emissions and transmission losses.",
+      "source": "https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2026",
+      "year": 2026,
+      "aliases": "power energy fuel",
+      "factorKg": 129.42999999999998,
+      "derivedFromRow": "7_400_4000_5_2",
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "gas-therm",
+      "label": "Therms of natural gas burned",
+      "group": "Fuel and energy",
+      "factor": 0.005332133773999999,
+      "gas": "CO₂",
+      "scope": "One therm is approximately 29.3071 gross kWh. Direct combustion CO₂; excludes upstream fuel production.",
+      "source": "https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2026",
+      "year": 2026,
+      "aliases": "power energy fuel",
+      "factorKg": 5.332133773999999,
+      "derivedFromRow": "1_100_1004_6_2",
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "forest-acre",
+      "label": "Acres of regrowing forest — annual uptake",
+      "group": "Trees and forests",
+      "kind": "forest",
+      "gas": "CO₂",
+      "source": "https://www.nature.com/articles/s41586-020-2686-x",
+      "year": 2020,
+      "scope": "User-supplied site-specific annual biomass accumulation. No universal forest-hectare factor is assumed.",
+      "areaMultiplier": 0.40468564224,
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "carbon-kg",
+      "label": "Kilograms of elemental carbon (C)",
+      "group": "Carbon units",
+      "factor": 0.0036666666666666666,
+      "gas": "CO₂",
+      "scope": "Mass conversion; elemental carbon is converted using 44/12.",
+      "source": "/counting-carbon/",
+      "year": "Unit definition",
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "carbon-mt",
+      "label": "Megatonnes of elemental carbon (C)",
+      "group": "Carbon units",
+      "factor": 3666666.6666666665,
+      "gas": "CO₂",
+      "scope": "Mass conversion; elemental carbon is converted using 44/12.",
+      "source": "/counting-carbon/",
+      "year": "Unit definition",
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "carbon-gt",
+      "label": "Gigatonnes of elemental carbon (C)",
+      "group": "Carbon units",
+      "factor": 3666666666.6666665,
+      "gas": "CO₂",
+      "scope": "Mass conversion; elemental carbon is converted using 44/12.",
+      "source": "/counting-carbon/",
+      "year": "Unit definition",
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "kg-co2e",
+      "label": "Kilograms of CO₂-equivalent",
+      "group": "Carbon units",
+      "factor": 0.001,
+      "gas": "CO₂e",
+      "scope": "A metric mass conversion within CO₂-equivalent units; this does not convert it to physical CO₂.",
+      "source": "/counting-carbon/",
+      "year": "Unit definition",
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "tonne-co2e",
+      "label": "Tonnes of CO₂-equivalent",
+      "group": "Carbon units",
+      "factor": 1,
+      "gas": "CO₂e",
+      "scope": "A metric mass conversion within CO₂-equivalent units; this does not convert it to physical CO₂.",
+      "source": "/counting-carbon/",
+      "year": "Unit definition",
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "kt-co2e",
+      "label": "Kilotonnes of CO₂-equivalent",
+      "group": "Carbon units",
+      "factor": 1000,
+      "gas": "CO₂e",
+      "scope": "A metric mass conversion within CO₂-equivalent units; this does not convert it to physical CO₂.",
+      "source": "/counting-carbon/",
+      "year": "Unit definition",
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "mt-co2e",
+      "label": "Megatonnes of CO₂-equivalent",
+      "group": "Carbon units",
+      "factor": 1000000.0,
+      "gas": "CO₂e",
+      "scope": "A metric mass conversion within CO₂-equivalent units; this does not convert it to physical CO₂.",
+      "source": "/counting-carbon/",
+      "year": "Unit definition",
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "gt-co2e",
+      "label": "Gigatonnes of CO₂-equivalent",
+      "group": "Carbon units",
+      "factor": 1000000000.0,
+      "gas": "CO₂e",
+      "scope": "A metric mass conversion within CO₂-equivalent units; this does not convert it to physical CO₂.",
+      "source": "/counting-carbon/",
+      "year": "Unit definition",
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "phone",
+      "label": "Smartphones charged — EPA reference",
+      "group": "Common comparisons",
+      "factor": 1.24e-05,
+      "gas": "CO₂",
+      "scope": "US EPA comparison using 0.019 kWh per charge and a marginal electricity factor. An avoided-electricity comparison, not a universal phone footprint.",
+      "source": "https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator-calculations-and-references",
+      "year": "2024 calculation; 2022 electricity",
+      "aliases": "smartphone mobile phone charge",
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "wind",
+      "label": "Wind turbine operating for one year — EPA reference",
+      "group": "Common comparisons",
+      "factor": 3348,
+      "gas": "CO₂",
+      "scope": "Avoided US grid CO₂ under EPA assumptions: 1.76 MW turbine, 36% capacity factor and displaced marginal electricity. Avoided emissions, not atmospheric removal.",
+      "source": "https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator-calculations-and-references",
+      "year": "2022 reference",
+      "aliases": "turbine renewable electricity windmill",
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "forest-protection",
+      "label": "Acres of forest protected from conversion — EPA reference",
+      "group": "Common comparisons",
+      "factor": 167.36,
+      "gas": "CO₂",
+      "scope": "Avoided release in one hypothetical conversion event. Depends on the conversion counterfactual; not repeated annual sequestration or an automatic credit.",
+      "source": "https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator-calculations-and-references",
+      "year": "EPA reference",
+      "aliases": "forest conservation protection avoided deforestation",
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "us-electricity",
+      "label": "kWh of US electricity delivered — EPA reference",
+      "group": "Electricity",
+      "factor": 0.000394,
+      "gas": "CO₂",
+      "scope": "US average electricity CO₂ including delivery losses. Different scope and data year from the UK generation-only factor.",
+      "source": "https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator-calculations-and-references",
+      "year": 2022,
+      "aliases": "electricity power energy USA grid",
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "person-territorial",
+      "label": "Annual territorial CO₂ per person",
+      "group": "Homes and people",
+      "kind": "person",
+      "rates": [
+        {
+          "id": "AFG",
+          "name": "Afghanistan",
+          "factor": 0.254
+        },
+        {
+          "id": "ALB",
+          "name": "Albania",
+          "factor": 1.571
+        },
+        {
+          "id": "DZA",
+          "name": "Algeria",
+          "factor": 4.394
+        },
+        {
+          "id": "AND",
+          "name": "Andorra",
+          "factor": 5.17
+        },
+        {
+          "id": "AGO",
+          "name": "Angola",
+          "factor": 0.59
+        },
+        {
+          "id": "AIA",
+          "name": "Anguilla",
+          "factor": 9.879
+        },
+        {
+          "id": "ATA",
+          "name": "Antarctica",
+          "factor": null
+        },
+        {
+          "id": "ATG",
+          "name": "Antigua and Barbuda",
+          "factor": 6.863
+        },
+        {
+          "id": "ARG",
+          "name": "Argentina",
+          "factor": 3.918
+        },
+        {
+          "id": "ARM",
+          "name": "Armenia",
+          "factor": 2.524
+        },
+        {
+          "id": "ABW",
+          "name": "Aruba",
+          "factor": 8.213
+        },
+        {
+          "id": "AUS",
+          "name": "Australia",
+          "factor": 14.529
+        },
+        {
+          "id": "AUT",
+          "name": "Austria",
+          "factor": 6.233
+        },
+        {
+          "id": "AZE",
+          "name": "Azerbaijan",
+          "factor": 4.143
+        },
+        {
+          "id": "BHS",
+          "name": "Bahamas",
+          "factor": 7.4
+        },
+        {
+          "id": "BHR",
+          "name": "Bahrain",
+          "factor": 24.71
+        },
+        {
+          "id": "BGD",
+          "name": "Bangladesh",
+          "factor": 0.61
+        },
+        {
+          "id": "BRB",
+          "name": "Barbados",
+          "factor": 4.664
+        },
+        {
+          "id": "BLR",
+          "name": "Belarus",
+          "factor": 6.114
+        },
+        {
+          "id": "BEL",
+          "name": "Belgium",
+          "factor": 7.232
+        },
+        {
+          "id": "BLZ",
+          "name": "Belize",
+          "factor": 1.864
+        },
+        {
+          "id": "BEN",
+          "name": "Benin",
+          "factor": 0.42
+        },
+        {
+          "id": "BMU",
+          "name": "Bermuda",
+          "factor": 8.184
+        },
+        {
+          "id": "BTN",
+          "name": "Bhutan",
+          "factor": 2.072
+        },
+        {
+          "id": "BOL",
+          "name": "Bolivia",
+          "factor": 2.011
+        },
+        {
+          "id": "BES",
+          "name": "Bonaire Sint Eustatius and Saba",
+          "factor": 4.889
+        },
+        {
+          "id": "BIH",
+          "name": "Bosnia and Herzegovina",
+          "factor": 6.242
+        },
+        {
+          "id": "BWA",
+          "name": "Botswana",
+          "factor": 2.923
+        },
+        {
+          "id": "BRA",
+          "name": "Brazil",
+          "factor": 2.292
+        },
+        {
+          "id": "VGB",
+          "name": "British Virgin Islands",
+          "factor": 4.752
+        },
+        {
+          "id": "BRN",
+          "name": "Brunei",
+          "factor": 27.241
+        },
+        {
+          "id": "BGR",
+          "name": "Bulgaria",
+          "factor": 5.077
+        },
+        {
+          "id": "BFA",
+          "name": "Burkina Faso",
+          "factor": 0.274
+        },
+        {
+          "id": "BDI",
+          "name": "Burundi",
+          "factor": 0.066
+        },
+        {
+          "id": "KHM",
+          "name": "Cambodia",
+          "factor": 1.229
+        },
+        {
+          "id": "CMR",
+          "name": "Cameroon",
+          "factor": 0.342
+        },
+        {
+          "id": "CAN",
+          "name": "Canada",
+          "factor": 13.88
+        },
+        {
+          "id": "CPV",
+          "name": "Cape Verde",
+          "factor": 1.094
+        },
+        {
+          "id": "CAF",
+          "name": "Central African Republic",
+          "factor": 0.076
+        },
+        {
+          "id": "TCD",
+          "name": "Chad",
+          "factor": 0.147
+        },
+        {
+          "id": "CHL",
+          "name": "Chile",
+          "factor": 3.948
+        },
+        {
+          "id": "CHN",
+          "name": "China",
+          "factor": 8.556
+        },
+        {
+          "id": "CXR",
+          "name": "Christmas Island",
+          "factor": null
+        },
+        {
+          "id": "COL",
+          "name": "Colombia",
+          "factor": 1.72
+        },
+        {
+          "id": "COM",
+          "name": "Comoros",
+          "factor": 0.638
+        },
+        {
+          "id": "COG",
+          "name": "Congo",
+          "factor": 1.338
+        },
+        {
+          "id": "COK",
+          "name": "Cook Islands",
+          "factor": 5.376
+        },
+        {
+          "id": "CRI",
+          "name": "Costa Rica",
+          "factor": 1.659
+        },
+        {
+          "id": "CIV",
+          "name": "Cote d'Ivoire",
+          "factor": 0.451
+        },
+        {
+          "id": "HRV",
+          "name": "Croatia",
+          "factor": 4.74
+        },
+        {
+          "id": "CUB",
+          "name": "Cuba",
+          "factor": 2.13
+        },
+        {
+          "id": "CUW",
+          "name": "Curacao",
+          "factor": 11.89
+        },
+        {
+          "id": "CYP",
+          "name": "Cyprus",
+          "factor": 5.344
+        },
+        {
+          "id": "CZE",
+          "name": "Czechia",
+          "factor": 7.7
+        },
+        {
+          "id": "COD",
+          "name": "Democratic Republic of Congo",
+          "factor": 0.056
+        },
+        {
+          "id": "DNK",
+          "name": "Denmark",
+          "factor": 4.847
+        },
+        {
+          "id": "DJI",
+          "name": "Djibouti",
+          "factor": 0.484
+        },
+        {
+          "id": "DMA",
+          "name": "Dominica",
+          "factor": 2.473
+        },
+        {
+          "id": "DOM",
+          "name": "Dominican Republic",
+          "factor": 2.809
+        },
+        {
+          "id": "TLS",
+          "name": "East Timor",
+          "factor": 0.46
+        },
+        {
+          "id": "ECU",
+          "name": "Ecuador",
+          "factor": 2.481
+        },
+        {
+          "id": "EGY",
+          "name": "Egypt",
+          "factor": 2.185
+        },
+        {
+          "id": "SLV",
+          "name": "El Salvador",
+          "factor": 1.374
+        },
+        {
+          "id": "GNQ",
+          "name": "Equatorial Guinea",
+          "factor": 3.742
+        },
+        {
+          "id": "ERI",
+          "name": "Eritrea",
+          "factor": 0.211
+        },
+        {
+          "id": "EST",
+          "name": "Estonia",
+          "factor": 6.396
+        },
+        {
+          "id": "SWZ",
+          "name": "Eswatini",
+          "factor": 0.837
+        },
+        {
+          "id": "ETH",
+          "name": "Ethiopia",
+          "factor": 0.137
+        },
+        {
+          "id": "FRO",
+          "name": "Faroe Islands",
+          "factor": 13.038
+        },
+        {
+          "id": "FJI",
+          "name": "Fiji",
+          "factor": 1.496
+        },
+        {
+          "id": "FIN",
+          "name": "Finland",
+          "factor": 5.677
+        },
+        {
+          "id": "FRA",
+          "name": "France",
+          "factor": 4.068
+        },
+        {
+          "id": "PYF",
+          "name": "French Polynesia",
+          "factor": 3.139
+        },
+        {
+          "id": "GAB",
+          "name": "Gabon",
+          "factor": 2.141
+        },
+        {
+          "id": "GMB",
+          "name": "Gambia",
+          "factor": 0.286
+        },
+        {
+          "id": "GEO",
+          "name": "Georgia",
+          "factor": 3.131
+        },
+        {
+          "id": "DEU",
+          "name": "Germany",
+          "factor": 7.023
+        },
+        {
+          "id": "GHA",
+          "name": "Ghana",
+          "factor": 0.596
+        },
+        {
+          "id": "GRC",
+          "name": "Greece",
+          "factor": 5.076
+        },
+        {
+          "id": "GRL",
+          "name": "Greenland",
+          "factor": 10.884
+        },
+        {
+          "id": "GRD",
+          "name": "Grenada",
+          "factor": 3.1
+        },
+        {
+          "id": "GTM",
+          "name": "Guatemala",
+          "factor": 1.089
+        },
+        {
+          "id": "GIN",
+          "name": "Guinea",
+          "factor": 0.269
+        },
+        {
+          "id": "GNB",
+          "name": "Guinea-Bissau",
+          "factor": 0.153
+        },
+        {
+          "id": "GUY",
+          "name": "Guyana",
+          "factor": 5.299
+        },
+        {
+          "id": "HTI",
+          "name": "Haiti",
+          "factor": 0.246
+        },
+        {
+          "id": "HND",
+          "name": "Honduras",
+          "factor": 1.165
+        },
+        {
+          "id": "HKG",
+          "name": "Hong Kong",
+          "factor": 4.428
+        },
+        {
+          "id": "HUN",
+          "name": "Hungary",
+          "factor": 4.165
+        },
+        {
+          "id": "ISL",
+          "name": "Iceland",
+          "factor": 9.052
+        },
+        {
+          "id": "IND",
+          "name": "India",
+          "factor": 2.13
+        },
+        {
+          "id": "IDN",
+          "name": "Indonesia",
+          "factor": 2.711
+        },
+        {
+          "id": "IRN",
+          "name": "Iran",
+          "factor": 8.715
+        },
+        {
+          "id": "IRQ",
+          "name": "Iraq",
+          "factor": 5.056
+        },
+        {
+          "id": "IRL",
+          "name": "Ireland",
+          "factor": 6.46
+        },
+        {
+          "id": "ISR",
+          "name": "Israel",
+          "factor": 5.983
+        },
+        {
+          "id": "ITA",
+          "name": "Italy",
+          "factor": 5.249
+        },
+        {
+          "id": "JAM",
+          "name": "Jamaica",
+          "factor": 2.841
+        },
+        {
+          "id": "JPN",
+          "name": "Japan",
+          "factor": 7.935
+        },
+        {
+          "id": "JOR",
+          "name": "Jordan",
+          "factor": 2.021
+        },
+        {
+          "id": "KAZ",
+          "name": "Kazakhstan",
+          "factor": 14.076
+        },
+        {
+          "id": "KEN",
+          "name": "Kenya",
+          "factor": 0.383
+        },
+        {
+          "id": "KIR",
+          "name": "Kiribati",
+          "factor": 0.523
+        },
+        {
+          "id": "KWT",
+          "name": "Kuwait",
+          "factor": 25.454
+        },
+        {
+          "id": "KGZ",
+          "name": "Kyrgyzstan",
+          "factor": 1.576
+        },
+        {
+          "id": "LAO",
+          "name": "Laos",
+          "factor": 3.152
+        },
+        {
+          "id": "LVA",
+          "name": "Latvia",
+          "factor": 3.501
+        },
+        {
+          "id": "LBN",
+          "name": "Lebanon",
+          "factor": 2.695
+        },
+        {
+          "id": "LSO",
+          "name": "Lesotho",
+          "factor": 1.079
+        },
+        {
+          "id": "LBR",
+          "name": "Liberia",
+          "factor": 0.152
+        },
+        {
+          "id": "LBY",
+          "name": "Libya",
+          "factor": 8.79
+        },
+        {
+          "id": "LIE",
+          "name": "Liechtenstein",
+          "factor": 3.312
+        },
+        {
+          "id": "LTU",
+          "name": "Lithuania",
+          "factor": 4.382
+        },
+        {
+          "id": "LUX",
+          "name": "Luxembourg",
+          "factor": 10.285
+        },
+        {
+          "id": "MAC",
+          "name": "Macao",
+          "factor": 1.461
+        },
+        {
+          "id": "MDG",
+          "name": "Madagascar",
+          "factor": 0.143
+        },
+        {
+          "id": "MWI",
+          "name": "Malawi",
+          "factor": 0.088
+        },
+        {
+          "id": "MYS",
+          "name": "Malaysia",
+          "factor": 7.866
+        },
+        {
+          "id": "MDV",
+          "name": "Maldives",
+          "factor": 4.193
+        },
+        {
+          "id": "MLI",
+          "name": "Mali",
+          "factor": 0.284
+        },
+        {
+          "id": "MLT",
+          "name": "Malta",
+          "factor": 3.317
+        },
+        {
+          "id": "MHL",
+          "name": "Marshall Islands",
+          "factor": 3.802
+        },
+        {
+          "id": "MRT",
+          "name": "Mauritania",
+          "factor": 1.003
+        },
+        {
+          "id": "MUS",
+          "name": "Mauritius",
+          "factor": 3.602
+        },
+        {
+          "id": "MEX",
+          "name": "Mexico",
+          "factor": 3.532
+        },
+        {
+          "id": "FSM",
+          "name": "Micronesia (country)",
+          "factor": 1.279
+        },
+        {
+          "id": "MDA",
+          "name": "Moldova",
+          "factor": 1.738
+        },
+        {
+          "id": "MCO",
+          "name": "Monaco",
+          "factor": null
+        },
+        {
+          "id": "MNG",
+          "name": "Mongolia",
+          "factor": 12.874
+        },
+        {
+          "id": "MNE",
+          "name": "Montenegro",
+          "factor": 3.799
+        },
+        {
+          "id": "MSR",
+          "name": "Montserrat",
+          "factor": 5.765
+        },
+        {
+          "id": "MAR",
+          "name": "Morocco",
+          "factor": 1.829
+        },
+        {
+          "id": "MOZ",
+          "name": "Mozambique",
+          "factor": 0.27
+        },
+        {
+          "id": "MMR",
+          "name": "Myanmar",
+          "factor": 0.587
+        },
+        {
+          "id": "NAM",
+          "name": "Namibia",
+          "factor": 1.162
+        },
+        {
+          "id": "NRU",
+          "name": "Nauru",
+          "factor": 4.933
+        },
+        {
+          "id": "NPL",
+          "name": "Nepal",
+          "factor": 0.618
+        },
+        {
+          "id": "NLD",
+          "name": "Netherlands",
+          "factor": 6.468
+        },
+        {
+          "id": "NCL",
+          "name": "New Caledonia",
+          "factor": 17.483
+        },
+        {
+          "id": "NZL",
+          "name": "New Zealand",
+          "factor": 6.101
+        },
+        {
+          "id": "NIC",
+          "name": "Nicaragua",
+          "factor": 0.796
+        },
+        {
+          "id": "NER",
+          "name": "Niger",
+          "factor": 0.12
+        },
+        {
+          "id": "NGA",
+          "name": "Nigeria",
+          "factor": 0.568
+        },
+        {
+          "id": "NIU",
+          "name": "Niue",
+          "factor": 3.961
+        },
+        {
+          "id": "PRK",
+          "name": "North Korea",
+          "factor": 2.348
+        },
+        {
+          "id": "MKD",
+          "name": "North Macedonia",
+          "factor": 4.006
+        },
+        {
+          "id": "NOR",
+          "name": "Norway",
+          "factor": 7.043
+        },
+        {
+          "id": "OMN",
+          "name": "Oman",
+          "factor": 15.806
+        },
+        {
+          "id": "PAK",
+          "name": "Pakistan",
+          "factor": 0.755
+        },
+        {
+          "id": "PLW",
+          "name": "Palau",
+          "factor": 12.18
+        },
+        {
+          "id": "PSE",
+          "name": "Palestine",
+          "factor": 0.879
+        },
+        {
+          "id": "PAN",
+          "name": "Panama",
+          "factor": 2.916
+        },
+        {
+          "id": "PNG",
+          "name": "Papua New Guinea",
+          "factor": 0.804
+        },
+        {
+          "id": "PRY",
+          "name": "Paraguay",
+          "factor": 1.117
+        },
+        {
+          "id": "PER",
+          "name": "Peru",
+          "factor": 1.952
+        },
+        {
+          "id": "PHL",
+          "name": "Philippines",
+          "factor": 1.401
+        },
+        {
+          "id": "POL",
+          "name": "Poland",
+          "factor": 7.307
+        },
+        {
+          "id": "PRT",
+          "name": "Portugal",
+          "factor": 3.607
+        },
+        {
+          "id": "QAT",
+          "name": "Qatar",
+          "factor": 40.128
+        },
+        {
+          "id": "ROU",
+          "name": "Romania",
+          "factor": 3.55
+        },
+        {
+          "id": "RUS",
+          "name": "Russia",
+          "factor": 11.916
+        },
+        {
+          "id": "RWA",
+          "name": "Rwanda",
+          "factor": 0.144
+        },
+        {
+          "id": "SHN",
+          "name": "Saint Helena",
+          "factor": 2.064
+        },
+        {
+          "id": "KNA",
+          "name": "Saint Kitts and Nevis",
+          "factor": 5.347
+        },
+        {
+          "id": "LCA",
+          "name": "Saint Lucia",
+          "factor": 2.884
+        },
+        {
+          "id": "SPM",
+          "name": "Saint Pierre and Miquelon",
+          "factor": 9.335
+        },
+        {
+          "id": "VCT",
+          "name": "Saint Vincent and the Grenadines",
+          "factor": 2.43
+        },
+        {
+          "id": "WSM",
+          "name": "Samoa",
+          "factor": 1.084
+        },
+        {
+          "id": "SMR",
+          "name": "San Marino",
+          "factor": null
+        },
+        {
+          "id": "STP",
+          "name": "Sao Tome and Principe",
+          "factor": 0.606
+        },
+        {
+          "id": "SAU",
+          "name": "Saudi Arabia",
+          "factor": 20.365
+        },
+        {
+          "id": "SEN",
+          "name": "Senegal",
+          "factor": 0.779
+        },
+        {
+          "id": "SRB",
+          "name": "Serbia",
+          "factor": 6.335
+        },
+        {
+          "id": "SYC",
+          "name": "Seychelles",
+          "factor": 5.012
+        },
+        {
+          "id": "SLE",
+          "name": "Sierra Leone",
+          "factor": 0.163
+        },
+        {
+          "id": "SGP",
+          "name": "Singapore",
+          "factor": 8.821
+        },
+        {
+          "id": "SXM",
+          "name": "Sint Maarten (Dutch part)",
+          "factor": 16.157
+        },
+        {
+          "id": "SVK",
+          "name": "Slovakia",
+          "factor": 5.576
+        },
+        {
+          "id": "SVN",
+          "name": "Slovenia",
+          "factor": 5.67
+        },
+        {
+          "id": "SLB",
+          "name": "Solomon Islands",
+          "factor": 0.352
+        },
+        {
+          "id": "SOM",
+          "name": "Somalia",
+          "factor": 0.071
+        },
+        {
+          "id": "ZAF",
+          "name": "South Africa",
+          "factor": 6.907
+        },
+        {
+          "id": "KOR",
+          "name": "South Korea",
+          "factor": 11.385
+        },
+        {
+          "id": "SSD",
+          "name": "South Sudan",
+          "factor": 0.145
+        },
+        {
+          "id": "ESP",
+          "name": "Spain",
+          "factor": 4.497
+        },
+        {
+          "id": "LKA",
+          "name": "Sri Lanka",
+          "factor": 0.834
+        },
+        {
+          "id": "SDN",
+          "name": "Sudan",
+          "factor": 0.354
+        },
+        {
+          "id": "SUR",
+          "name": "Suriname",
+          "factor": 4.561
+        },
+        {
+          "id": "SWE",
+          "name": "Sweden",
+          "factor": 3.479
+        },
+        {
+          "id": "CHE",
+          "name": "Switzerland",
+          "factor": 3.605
+        },
+        {
+          "id": "SYR",
+          "name": "Syria",
+          "factor": 1.342
+        },
+        {
+          "id": "TWN",
+          "name": "Taiwan",
+          "factor": 11.456
+        },
+        {
+          "id": "TJK",
+          "name": "Tajikistan",
+          "factor": 0.988
+        },
+        {
+          "id": "TZA",
+          "name": "Tanzania",
+          "factor": 0.305
+        },
+        {
+          "id": "THA",
+          "name": "Thailand",
+          "factor": 3.692
+        },
+        {
+          "id": "TGO",
+          "name": "Togo",
+          "factor": 0.325
+        },
+        {
+          "id": "TON",
+          "name": "Tonga",
+          "factor": 1.394
+        },
+        {
+          "id": "TTO",
+          "name": "Trinidad and Tobago",
+          "factor": 23.644
+        },
+        {
+          "id": "TUN",
+          "name": "Tunisia",
+          "factor": 2.601
+        },
+        {
+          "id": "TUR",
+          "name": "Turkey",
+          "factor": 5.58
+        },
+        {
+          "id": "TKM",
+          "name": "Turkmenistan",
+          "factor": 12.957
+        },
+        {
+          "id": "TCA",
+          "name": "Turks and Caicos Islands",
+          "factor": 7.893
+        },
+        {
+          "id": "TUV",
+          "name": "Tuvalu",
+          "factor": 1.112
+        },
+        {
+          "id": "UGA",
+          "name": "Uganda",
+          "factor": 0.128
+        },
+        {
+          "id": "UKR",
+          "name": "Ukraine",
+          "factor": 3.692
+        },
+        {
+          "id": "ARE",
+          "name": "United Arab Emirates",
+          "factor": 19.773
+        },
+        {
+          "id": "GBR",
+          "name": "United Kingdom",
+          "factor": 4.482
+        },
+        {
+          "id": "USA",
+          "name": "United States",
+          "factor": 14.319
+        },
+        {
+          "id": "URY",
+          "name": "Uruguay",
+          "factor": 2.251
+        },
+        {
+          "id": "UZB",
+          "name": "Uzbekistan",
+          "factor": 3.446
+        },
+        {
+          "id": "VUT",
+          "name": "Vanuatu",
+          "factor": 0.588
+        },
+        {
+          "id": "VAT",
+          "name": "Vatican",
+          "factor": null
+        },
+        {
+          "id": "VEN",
+          "name": "Venezuela",
+          "factor": 4.226
+        },
+        {
+          "id": "VNM",
+          "name": "Vietnam",
+          "factor": 3.462
+        },
+        {
+          "id": "WLF",
+          "name": "Wallis and Futuna",
+          "factor": 2.56
+        },
+        {
+          "id": "YEM",
+          "name": "Yemen",
+          "factor": 0.257
+        },
+        {
+          "id": "ZMB",
+          "name": "Zambia",
+          "factor": 0.571
+        },
+        {
+          "id": "ZWE",
+          "name": "Zimbabwe",
+          "factor": 0.823
+        }
+      ],
+      "gas": "CO₂",
+      "scope": "Fossil-fuel and industrial CO₂ per person, excluding land-use change. Assigned where emitted, not where goods are consumed.",
+      "source": "https://github.com/owid/co2-data",
+      "year": 2023,
+      "aliases": "person people individual capita footprint territorial",
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "person-consumption",
+      "label": "Annual consumption CO₂ per person",
+      "group": "Homes and people",
+      "kind": "person",
+      "rates": [
+        {
+          "id": "AFG",
+          "name": "Afghanistan",
+          "factor": null
+        },
+        {
+          "id": "ALB",
+          "name": "Albania",
+          "factor": 1.914
+        },
+        {
+          "id": "DZA",
+          "name": "Algeria",
+          "factor": null
+        },
+        {
+          "id": "AND",
+          "name": "Andorra",
+          "factor": null
+        },
+        {
+          "id": "AGO",
+          "name": "Angola",
+          "factor": null
+        },
+        {
+          "id": "AIA",
+          "name": "Anguilla",
+          "factor": null
+        },
+        {
+          "id": "ATA",
+          "name": "Antarctica",
+          "factor": null
+        },
+        {
+          "id": "ATG",
+          "name": "Antigua and Barbuda",
+          "factor": null
+        },
+        {
+          "id": "ARG",
+          "name": "Argentina",
+          "factor": 4.077
+        },
+        {
+          "id": "ARM",
+          "name": "Armenia",
+          "factor": 2.607
+        },
+        {
+          "id": "ABW",
+          "name": "Aruba",
+          "factor": null
+        },
+        {
+          "id": "AUS",
+          "name": "Australia",
+          "factor": 14.069
+        },
+        {
+          "id": "AUT",
+          "name": "Austria",
+          "factor": 8.375
+        },
+        {
+          "id": "AZE",
+          "name": "Azerbaijan",
+          "factor": 3.958
+        },
+        {
+          "id": "BHS",
+          "name": "Bahamas",
+          "factor": null
+        },
+        {
+          "id": "BHR",
+          "name": "Bahrain",
+          "factor": 14.056
+        },
+        {
+          "id": "BGD",
+          "name": "Bangladesh",
+          "factor": 0.979
+        },
+        {
+          "id": "BRB",
+          "name": "Barbados",
+          "factor": null
+        },
+        {
+          "id": "BLR",
+          "name": "Belarus",
+          "factor": 6.862
+        },
+        {
+          "id": "BEL",
+          "name": "Belgium",
+          "factor": 16.785
+        },
+        {
+          "id": "BLZ",
+          "name": "Belize",
+          "factor": null
+        },
+        {
+          "id": "BEN",
+          "name": "Benin",
+          "factor": 0.598
+        },
+        {
+          "id": "BMU",
+          "name": "Bermuda",
+          "factor": null
+        },
+        {
+          "id": "BTN",
+          "name": "Bhutan",
+          "factor": null
+        },
+        {
+          "id": "BOL",
+          "name": "Bolivia",
+          "factor": 2.093
+        },
+        {
+          "id": "BES",
+          "name": "Bonaire Sint Eustatius and Saba",
+          "factor": null
+        },
+        {
+          "id": "BIH",
+          "name": "Bosnia and Herzegovina",
+          "factor": null
+        },
+        {
+          "id": "BWA",
+          "name": "Botswana",
+          "factor": 5.85
+        },
+        {
+          "id": "BRA",
+          "name": "Brazil",
+          "factor": 2.226
+        },
+        {
+          "id": "VGB",
+          "name": "British Virgin Islands",
+          "factor": null
+        },
+        {
+          "id": "BRN",
+          "name": "Brunei",
+          "factor": 19.34
+        },
+        {
+          "id": "BGR",
+          "name": "Bulgaria",
+          "factor": 5.196
+        },
+        {
+          "id": "BFA",
+          "name": "Burkina Faso",
+          "factor": 0.252
+        },
+        {
+          "id": "BDI",
+          "name": "Burundi",
+          "factor": null
+        },
+        {
+          "id": "KHM",
+          "name": "Cambodia",
+          "factor": 2.242
+        },
+        {
+          "id": "CMR",
+          "name": "Cameroon",
+          "factor": 0.366
+        },
+        {
+          "id": "CAN",
+          "name": "Canada",
+          "factor": 13.23
+        },
+        {
+          "id": "CPV",
+          "name": "Cape Verde",
+          "factor": null
+        },
+        {
+          "id": "CAF",
+          "name": "Central African Republic",
+          "factor": null
+        },
+        {
+          "id": "TCD",
+          "name": "Chad",
+          "factor": null
+        },
+        {
+          "id": "CHL",
+          "name": "Chile",
+          "factor": 4.484
+        },
+        {
+          "id": "CHN",
+          "name": "China",
+          "factor": 7.632
+        },
+        {
+          "id": "CXR",
+          "name": "Christmas Island",
+          "factor": null
+        },
+        {
+          "id": "COL",
+          "name": "Colombia",
+          "factor": 1.997
+        },
+        {
+          "id": "COM",
+          "name": "Comoros",
+          "factor": null
+        },
+        {
+          "id": "COG",
+          "name": "Congo",
+          "factor": null
+        },
+        {
+          "id": "COK",
+          "name": "Cook Islands",
+          "factor": null
+        },
+        {
+          "id": "CRI",
+          "name": "Costa Rica",
+          "factor": 2.878
+        },
+        {
+          "id": "CIV",
+          "name": "Cote d'Ivoire",
+          "factor": 0.573
+        },
+        {
+          "id": "HRV",
+          "name": "Croatia",
+          "factor": 6.086
+        },
+        {
+          "id": "CUB",
+          "name": "Cuba",
+          "factor": null
+        },
+        {
+          "id": "CUW",
+          "name": "Curacao",
+          "factor": null
+        },
+        {
+          "id": "CYP",
+          "name": "Cyprus",
+          "factor": 6.412
+        },
+        {
+          "id": "CZE",
+          "name": "Czechia",
+          "factor": 9.253
+        },
+        {
+          "id": "COD",
+          "name": "Democratic Republic of Congo",
+          "factor": null
+        },
+        {
+          "id": "DNK",
+          "name": "Denmark",
+          "factor": 8.317
+        },
+        {
+          "id": "DJI",
+          "name": "Djibouti",
+          "factor": null
+        },
+        {
+          "id": "DMA",
+          "name": "Dominica",
+          "factor": null
+        },
+        {
+          "id": "DOM",
+          "name": "Dominican Republic",
+          "factor": 3.569
+        },
+        {
+          "id": "TLS",
+          "name": "East Timor",
+          "factor": null
+        },
+        {
+          "id": "ECU",
+          "name": "Ecuador",
+          "factor": 2.72
+        },
+        {
+          "id": "EGY",
+          "name": "Egypt",
+          "factor": 2.213
+        },
+        {
+          "id": "SLV",
+          "name": "El Salvador",
+          "factor": 1.784
+        },
+        {
+          "id": "GNQ",
+          "name": "Equatorial Guinea",
+          "factor": null
+        },
+        {
+          "id": "ERI",
+          "name": "Eritrea",
+          "factor": null
+        },
+        {
+          "id": "EST",
+          "name": "Estonia",
+          "factor": 9.205
+        },
+        {
+          "id": "SWZ",
+          "name": "Eswatini",
+          "factor": null
+        },
+        {
+          "id": "ETH",
+          "name": "Ethiopia",
+          "factor": 0.181
+        },
+        {
+          "id": "FRO",
+          "name": "Faroe Islands",
+          "factor": null
+        },
+        {
+          "id": "FJI",
+          "name": "Fiji",
+          "factor": null
+        },
+        {
+          "id": "FIN",
+          "name": "Finland",
+          "factor": 8.474
+        },
+        {
+          "id": "FRA",
+          "name": "France",
+          "factor": 6.131
+        },
+        {
+          "id": "PYF",
+          "name": "French Polynesia",
+          "factor": null
+        },
+        {
+          "id": "GAB",
+          "name": "Gabon",
+          "factor": null
+        },
+        {
+          "id": "GMB",
+          "name": "Gambia",
+          "factor": null
+        },
+        {
+          "id": "GEO",
+          "name": "Georgia",
+          "factor": 4.036
+        },
+        {
+          "id": "DEU",
+          "name": "Germany",
+          "factor": 9.089
+        },
+        {
+          "id": "GHA",
+          "name": "Ghana",
+          "factor": 0.781
+        },
+        {
+          "id": "GRC",
+          "name": "Greece",
+          "factor": 6.56
+        },
+        {
+          "id": "GRL",
+          "name": "Greenland",
+          "factor": null
+        },
+        {
+          "id": "GRD",
+          "name": "Grenada",
+          "factor": null
+        },
+        {
+          "id": "GTM",
+          "name": "Guatemala",
+          "factor": 1.404
+        },
+        {
+          "id": "GIN",
+          "name": "Guinea",
+          "factor": 0.444
+        },
+        {
+          "id": "GNB",
+          "name": "Guinea-Bissau",
+          "factor": null
+        },
+        {
+          "id": "GUY",
+          "name": "Guyana",
+          "factor": null
+        },
+        {
+          "id": "HTI",
+          "name": "Haiti",
+          "factor": null
+        },
+        {
+          "id": "HND",
+          "name": "Honduras",
+          "factor": 0.982
+        },
+        {
+          "id": "HKG",
+          "name": "Hong Kong",
+          "factor": 19.37
+        },
+        {
+          "id": "HUN",
+          "name": "Hungary",
+          "factor": 5.856
+        },
+        {
+          "id": "ISL",
+          "name": "Iceland",
+          "factor": null
+        },
+        {
+          "id": "IND",
+          "name": "India",
+          "factor": 1.768
+        },
+        {
+          "id": "IDN",
+          "name": "Indonesia",
+          "factor": 2.59
+        },
+        {
+          "id": "IRN",
+          "name": "Iran",
+          "factor": 7.379
+        },
+        {
+          "id": "IRQ",
+          "name": "Iraq",
+          "factor": null
+        },
+        {
+          "id": "IRL",
+          "name": "Ireland",
+          "factor": 7.858
+        },
+        {
+          "id": "ISR",
+          "name": "Israel",
+          "factor": 9.542
+        },
+        {
+          "id": "ITA",
+          "name": "Italy",
+          "factor": 7.21
+        },
+        {
+          "id": "JAM",
+          "name": "Jamaica",
+          "factor": 2.935
+        },
+        {
+          "id": "JPN",
+          "name": "Japan",
+          "factor": 9.185
+        },
+        {
+          "id": "JOR",
+          "name": "Jordan",
+          "factor": 2.781
+        },
+        {
+          "id": "KAZ",
+          "name": "Kazakhstan",
+          "factor": 10.46
+        },
+        {
+          "id": "KEN",
+          "name": "Kenya",
+          "factor": 0.632
+        },
+        {
+          "id": "KIR",
+          "name": "Kiribati",
+          "factor": null
+        },
+        {
+          "id": "KWT",
+          "name": "Kuwait",
+          "factor": 25.284
+        },
+        {
+          "id": "KGZ",
+          "name": "Kyrgyzstan",
+          "factor": 2.713
+        },
+        {
+          "id": "LAO",
+          "name": "Laos",
+          "factor": 1.934
+        },
+        {
+          "id": "LVA",
+          "name": "Latvia",
+          "factor": 7.098
+        },
+        {
+          "id": "LBN",
+          "name": "Lebanon",
+          "factor": null
+        },
+        {
+          "id": "LSO",
+          "name": "Lesotho",
+          "factor": null
+        },
+        {
+          "id": "LBR",
+          "name": "Liberia",
+          "factor": null
+        },
+        {
+          "id": "LBY",
+          "name": "Libya",
+          "factor": null
+        },
+        {
+          "id": "LIE",
+          "name": "Liechtenstein",
+          "factor": null
+        },
+        {
+          "id": "LTU",
+          "name": "Lithuania",
+          "factor": 7.189
+        },
+        {
+          "id": "LUX",
+          "name": "Luxembourg",
+          "factor": 11.024
+        },
+        {
+          "id": "MAC",
+          "name": "Macao",
+          "factor": null
+        },
+        {
+          "id": "MDG",
+          "name": "Madagascar",
+          "factor": 0.206
+        },
+        {
+          "id": "MWI",
+          "name": "Malawi",
+          "factor": 0.153
+        },
+        {
+          "id": "MYS",
+          "name": "Malaysia",
+          "factor": 8.157
+        },
+        {
+          "id": "MDV",
+          "name": "Maldives",
+          "factor": null
+        },
+        {
+          "id": "MLI",
+          "name": "Mali",
+          "factor": null
+        },
+        {
+          "id": "MLT",
+          "name": "Malta",
+          "factor": 26.824
+        },
+        {
+          "id": "MHL",
+          "name": "Marshall Islands",
+          "factor": null
+        },
+        {
+          "id": "MRT",
+          "name": "Mauritania",
+          "factor": null
+        },
+        {
+          "id": "MUS",
+          "name": "Mauritius",
+          "factor": 6.213
+        },
+        {
+          "id": "MEX",
+          "name": "Mexico",
+          "factor": 4.355
+        },
+        {
+          "id": "FSM",
+          "name": "Micronesia (country)",
+          "factor": null
+        },
+        {
+          "id": "MDA",
+          "name": "Moldova",
+          "factor": null
+        },
+        {
+          "id": "MCO",
+          "name": "Monaco",
+          "factor": null
+        },
+        {
+          "id": "MNG",
+          "name": "Mongolia",
+          "factor": 10.666
+        },
+        {
+          "id": "MNE",
+          "name": "Montenegro",
+          "factor": null
+        },
+        {
+          "id": "MSR",
+          "name": "Montserrat",
+          "factor": null
+        },
+        {
+          "id": "MAR",
+          "name": "Morocco",
+          "factor": 1.854
+        },
+        {
+          "id": "MOZ",
+          "name": "Mozambique",
+          "factor": 0.429
+        },
+        {
+          "id": "MMR",
+          "name": "Myanmar",
+          "factor": null
+        },
+        {
+          "id": "NAM",
+          "name": "Namibia",
+          "factor": 3.255
+        },
+        {
+          "id": "NRU",
+          "name": "Nauru",
+          "factor": null
+        },
+        {
+          "id": "NPL",
+          "name": "Nepal",
+          "factor": 1.592
+        },
+        {
+          "id": "NLD",
+          "name": "Netherlands",
+          "factor": 8.299
+        },
+        {
+          "id": "NCL",
+          "name": "New Caledonia",
+          "factor": null
+        },
+        {
+          "id": "NZL",
+          "name": "New Zealand",
+          "factor": 8.003
+        },
+        {
+          "id": "NIC",
+          "name": "Nicaragua",
+          "factor": 1.051
+        },
+        {
+          "id": "NER",
+          "name": "Niger",
+          "factor": null
+        },
+        {
+          "id": "NGA",
+          "name": "Nigeria",
+          "factor": 0.585
+        },
+        {
+          "id": "NIU",
+          "name": "Niue",
+          "factor": null
+        },
+        {
+          "id": "PRK",
+          "name": "North Korea",
+          "factor": null
+        },
+        {
+          "id": "MKD",
+          "name": "North Macedonia",
+          "factor": null
+        },
+        {
+          "id": "NOR",
+          "name": "Norway",
+          "factor": 7.061
+        },
+        {
+          "id": "OMN",
+          "name": "Oman",
+          "factor": 16.509
+        },
+        {
+          "id": "PAK",
+          "name": "Pakistan",
+          "factor": 0.889
+        },
+        {
+          "id": "PLW",
+          "name": "Palau",
+          "factor": null
+        },
+        {
+          "id": "PSE",
+          "name": "Palestine",
+          "factor": null
+        },
+        {
+          "id": "PAN",
+          "name": "Panama",
+          "factor": 4.377
+        },
+        {
+          "id": "PNG",
+          "name": "Papua New Guinea",
+          "factor": null
+        },
+        {
+          "id": "PRY",
+          "name": "Paraguay",
+          "factor": 1.918
+        },
+        {
+          "id": "PER",
+          "name": "Peru",
+          "factor": 2.331
+        },
+        {
+          "id": "PHL",
+          "name": "Philippines",
+          "factor": 1.842
+        },
+        {
+          "id": "POL",
+          "name": "Poland",
+          "factor": 7.065
+        },
+        {
+          "id": "PRT",
+          "name": "Portugal",
+          "factor": 4.55
+        },
+        {
+          "id": "QAT",
+          "name": "Qatar",
+          "factor": 27.602
+        },
+        {
+          "id": "ROU",
+          "name": "Romania",
+          "factor": 4.093
+        },
+        {
+          "id": "RUS",
+          "name": "Russia",
+          "factor": 9.667
+        },
+        {
+          "id": "RWA",
+          "name": "Rwanda",
+          "factor": 0.252
+        },
+        {
+          "id": "SHN",
+          "name": "Saint Helena",
+          "factor": null
+        },
+        {
+          "id": "KNA",
+          "name": "Saint Kitts and Nevis",
+          "factor": null
+        },
+        {
+          "id": "LCA",
+          "name": "Saint Lucia",
+          "factor": null
+        },
+        {
+          "id": "SPM",
+          "name": "Saint Pierre and Miquelon",
+          "factor": null
+        },
+        {
+          "id": "VCT",
+          "name": "Saint Vincent and the Grenadines",
+          "factor": null
+        },
+        {
+          "id": "WSM",
+          "name": "Samoa",
+          "factor": null
+        },
+        {
+          "id": "SMR",
+          "name": "San Marino",
+          "factor": null
+        },
+        {
+          "id": "STP",
+          "name": "Sao Tome and Principe",
+          "factor": null
+        },
+        {
+          "id": "SAU",
+          "name": "Saudi Arabia",
+          "factor": 19.664
+        },
+        {
+          "id": "SEN",
+          "name": "Senegal",
+          "factor": 1.053
+        },
+        {
+          "id": "SRB",
+          "name": "Serbia",
+          "factor": null
+        },
+        {
+          "id": "SYC",
+          "name": "Seychelles",
+          "factor": null
+        },
+        {
+          "id": "SLE",
+          "name": "Sierra Leone",
+          "factor": null
+        },
+        {
+          "id": "SGP",
+          "name": "Singapore",
+          "factor": 32.289
+        },
+        {
+          "id": "SXM",
+          "name": "Sint Maarten (Dutch part)",
+          "factor": null
+        },
+        {
+          "id": "SVK",
+          "name": "Slovakia",
+          "factor": 6.349
+        },
+        {
+          "id": "SVN",
+          "name": "Slovenia",
+          "factor": 9.316
+        },
+        {
+          "id": "SLB",
+          "name": "Solomon Islands",
+          "factor": null
+        },
+        {
+          "id": "SOM",
+          "name": "Somalia",
+          "factor": null
+        },
+        {
+          "id": "ZAF",
+          "name": "South Africa",
+          "factor": 5.147
+        },
+        {
+          "id": "KOR",
+          "name": "South Korea",
+          "factor": 13.698
+        },
+        {
+          "id": "SSD",
+          "name": "South Sudan",
+          "factor": null
+        },
+        {
+          "id": "ESP",
+          "name": "Spain",
+          "factor": 5.44
+        },
+        {
+          "id": "LKA",
+          "name": "Sri Lanka",
+          "factor": 2.022
+        },
+        {
+          "id": "SDN",
+          "name": "Sudan",
+          "factor": null
+        },
+        {
+          "id": "SUR",
+          "name": "Suriname",
+          "factor": null
+        },
+        {
+          "id": "SWE",
+          "name": "Sweden",
+          "factor": 5.85
+        },
+        {
+          "id": "CHE",
+          "name": "Switzerland",
+          "factor": 13.34
+        },
+        {
+          "id": "SYR",
+          "name": "Syria",
+          "factor": null
+        },
+        {
+          "id": "TWN",
+          "name": "Taiwan",
+          "factor": 12.643
+        },
+        {
+          "id": "TJK",
+          "name": "Tajikistan",
+          "factor": 1.253
+        },
+        {
+          "id": "TZA",
+          "name": "Tanzania",
+          "factor": 0.387
+        },
+        {
+          "id": "THA",
+          "name": "Thailand",
+          "factor": 4.262
+        },
+        {
+          "id": "TGO",
+          "name": "Togo",
+          "factor": 1.051
+        },
+        {
+          "id": "TON",
+          "name": "Tonga",
+          "factor": null
+        },
+        {
+          "id": "TTO",
+          "name": "Trinidad and Tobago",
+          "factor": 14.872
+        },
+        {
+          "id": "TUN",
+          "name": "Tunisia",
+          "factor": 2.474
+        },
+        {
+          "id": "TUR",
+          "name": "Turkey",
+          "factor": 5.535
+        },
+        {
+          "id": "TKM",
+          "name": "Turkmenistan",
+          "factor": null
+        },
+        {
+          "id": "TCA",
+          "name": "Turks and Caicos Islands",
+          "factor": null
+        },
+        {
+          "id": "TUV",
+          "name": "Tuvalu",
+          "factor": null
+        },
+        {
+          "id": "UGA",
+          "name": "Uganda",
+          "factor": 0.181
+        },
+        {
+          "id": "UKR",
+          "name": "Ukraine",
+          "factor": 4.407
+        },
+        {
+          "id": "ARE",
+          "name": "United Arab Emirates",
+          "factor": 23.31
+        },
+        {
+          "id": "GBR",
+          "name": "United Kingdom",
+          "factor": 7.092
+        },
+        {
+          "id": "USA",
+          "name": "United States",
+          "factor": 15.814
+        },
+        {
+          "id": "URY",
+          "name": "Uruguay",
+          "factor": 3.182
+        },
+        {
+          "id": "UZB",
+          "name": "Uzbekistan",
+          "factor": null
+        },
+        {
+          "id": "VUT",
+          "name": "Vanuatu",
+          "factor": null
+        },
+        {
+          "id": "VAT",
+          "name": "Vatican",
+          "factor": null
+        },
+        {
+          "id": "VEN",
+          "name": "Venezuela",
+          "factor": 3.552
+        },
+        {
+          "id": "VNM",
+          "name": "Vietnam",
+          "factor": 2.469
+        },
+        {
+          "id": "WLF",
+          "name": "Wallis and Futuna",
+          "factor": null
+        },
+        {
+          "id": "YEM",
+          "name": "Yemen",
+          "factor": null
+        },
+        {
+          "id": "ZMB",
+          "name": "Zambia",
+          "factor": 0.613
+        },
+        {
+          "id": "ZWE",
+          "name": "Zimbabwe",
+          "factor": 0.938
+        }
+      ],
+      "gas": "CO₂",
+      "scope": "Fossil-fuel and industrial CO₂ per person, excluding land-use change. Adjusted for trade in goods and services.",
+      "source": "https://github.com/owid/co2-data",
+      "year": 2023,
+      "aliases": "person people individual capita footprint consumption",
+      "retrieved": "2026-10-08"
+    },
+    {
+      "id": "household-footprint",
+      "label": "Annual household footprint — supplied factor",
+      "group": "Homes and people",
+      "kind": "custom",
+      "annualised": true,
+      "gas": "CO₂e",
+      "scope": "A household footprint supplied by the reader, with its own scope and geography; no universal household factor is assumed.",
+      "source": null,
+      "year": "User supplied",
+      "aliases": "home house family consumption footprint",
+      "retrieved": "2026-10-08"
+    }
+  ]
+}

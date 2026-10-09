@@ -1,0 +1,10 @@
+# Publish the website through the existing GitHub Pages branch build.
+exclude:
+  - docs
+  - scripts
+  - server
+  - tests
+  - package.json
+  - package-lock.json
+  - private-products
+  - dist

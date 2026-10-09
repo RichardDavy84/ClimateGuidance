@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Carbon Management Potential</title>
+  <meta name="description" content="Explore carbon removal approaches, change the assumptions and compare their potential.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='6' y='6' width='8' height='22' fill='%23bd4545'/%3E%3Crect x='19' y='15' width='8' height='13' fill='%23287952'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="/counting-carbon/navigation.css"><link rel="stylesheet" href="integration.css"><link rel="canonical" href="https://www.climateguidance.com/counting-carbon/carbon-management/"><script src="/counting-carbon/navigation.js" defer></script></head>
+<body>
+<a class="skip" href="#main">Skip to content</a><input type="checkbox" id="menu-toggle"><label for="menu-toggle" class="hamburger"><img src="/menu-icon.png" alt="Open navigation"></label><header><div class="logo"><a href="/index.html"><h1>Climate Guidance</h1></a></div></header><nav class="navbar" aria-label="Main navigation"><a href="/index.html">Home</a><a href="/services.html">Services</a><a href="/case-studies.html">Case Studies</a><a href="/data-viz.html">Data Viz</a><a href="/about.html">About</a><a href="/contact.html">Contact</a><details class="cc-nav"><summary>Counting Carbon</summary><div><a href="/counting-carbon/">The Book</a><a href="/counting-carbon/carbon-management/">Carbon Management</a><a href="/counting-carbon/claim-checker/">Claim Checker</a><a href="/counting-carbon/carbon-time-machine/">Carbon Time Machine</a></div></details></nav>  <section class="intro"><h1>How much carbon could we capture?</h1><p>Explore the approaches, change their assumptions, and see how they add up.</p><p class="secondary">Compare Practical Scenario, IPCC-assessed potential and Physical Limits. See the book for the evidence and full discussion.</p></section>
+  <div class="presets"><button id="practical-preset" aria-pressed="true">PRACTICAL SCENARIO</button><button id="ipcc-preset" aria-pressed="false">IPCC ASSESSED</button><button id="physical_limit-preset" aria-pressed="false">PHYSICAL LIMIT</button></div>
+  <nav aria-label="Zoom navigation"><button id="back" hidden>ZOOM OUT</button><span id="location">OVERALL</span><span id="preset-state">Practical Scenario</span></nav>
+  <main id="main">
+    <div id="compact-view">
+      <div class="compact-comparison"><p>Atmospheric increase <strong>19 GtCO₂/yr</strong></p><div class="compact-track"><div id="compact-reference"></div></div><p>Additional removal <strong id="compact-total"></strong></p><div class="compact-track" id="compact-stack"></div></div>
+      <label for="compact-method">Explore an approach</label><select id="compact-method"><option value="">All approaches</option></select>
+      <p id="compact-method-value" aria-live="polite"></p>
+      <div id="compact-primary"></div>
+      <div id="compact-direct"><label for="compact-direct-value">Choose potential directly (GtCO₂e/yr)</label><input id="compact-direct-value" type="range" min="0" step="0.001"><button id="compact-resume">Use these assumptions</button><div id="compact-presets"><span>Reset this method</span><button data-compact-preset="practical_scenario">Practical Scenario</button><button data-compact-preset="ipcc">IPCC</button><button data-compact-preset="physical_limit">Physical Limit</button></div></div>
+    </div>
+    <div id="world"><svg id="scene" viewBox="0 0 1280 720" role="group" aria-label="Carbon management approaches and linked vertical comparison bars">
+      <g id="global-bars" class="moving" style="transform:translate(525px,165px)">
+        <text x="0" y="-90" class="chart-label">Reference</text><text x="130" y="-90" class="chart-label">Potential</text>
+        <text x="0" y="-60" id="target-number" class="big-number"></text><text x="130" y="-60" id="total-number" class="big-number"></text>
+        <text x="0" y="-36" class="units">GtCO₂/yr</text><text x="130" y="-36" class="units">GtCO₂e/yr*</text>
+        <g id="axis"></g><rect id="reference-bar" x="0" width="66" fill="#bd4545"></rect>
+        <g id="potential-stack"></g><g id="highlight-marker" pointer-events="none"></g>
+        <text x="33" y="335" text-anchor="middle" class="bar-label">Atmospheric</text><text x="33" y="355" text-anchor="middle" class="bar-label">increase</text>
+        <text x="163" y="335" text-anchor="middle" class="bar-label">Additional</text><text x="163" y="355" text-anchor="middle" class="bar-label">removal</text>
+      </g>
+      <g id="cluster-titles"></g><g id="connections" pointer-events="none"></g><g id="method-orbs"></g>
+      <g id="hover-copy" pointer-events="none"><text id="hover-name" x="640" y="29" text-anchor="middle" class="hover-name"></text><text id="hover-value" x="640" y="55" text-anchor="middle" class="hover-value"></text></g>
+      <g id="detail-heading" hidden><text id="detail-name" x="830" y="51" text-anchor="middle" class="detail-name"></text><text id="detail-subtitle" x="830" y="79" text-anchor="middle" class="units"></text></g>
+      <g id="method-bar" hidden></g><foreignObject id="mode-control" x="380" y="575" width="470" height="40" hidden><div xmlns="http://www.w3.org/1999/xhtml"><button id="resume-assumptions">Use these assumptions</button></div></foreignObject>
+      <foreignObject id="local-presets" x="340" y="615" width="650" height="90" hidden><div xmlns="http://www.w3.org/1999/xhtml" class="local-presets"><span>This method</span><button data-local="practical_scenario">Practical Scenario</button><button data-local="ipcc">IPCC</button><button data-local="physical_limit">Physical Limit</button></div></foreignObject>
+      <g id="constraint-controls" hidden></g>
+    </svg></div>
+    <p id="view-hint" class="scope">Hover an orb or family. Click to zoom in. Orb size has no quantitative meaning.</p>
+    <p id="scenario-note" class="scope"></p>
+    <details id="secondary-controls" hidden><summary>More assumptions</summary><div id="secondary-body"></div></details>
+    <details id="evidence"><summary>How is this calculated?</summary><div id="evidence-body"></div></details>
+    <details id="sources"><summary>Evidence, sources and limitations</summary><div id="sources-body"></div><p><a href="data/scientific-review.json" target="_blank">Scientific review record</a> · <a href="data/approaches.json" target="_blank">Full data</a></p></details>
+    <p id="status" class="sr-only" aria-live="polite"></p>
+  </main>
+  <script type="module" src="app.js"></script>
+<footer>Counting Carbon · <a href="/counting-carbon/">The book</a></footer></body>
+</html>

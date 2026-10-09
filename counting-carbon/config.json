@@ -1,0 +1,48 @@
+{
+  "title": "Counting Carbon",
+  "subtitle": "A Practical Guide to Carbon Budgets, Sinks and Removal",
+  "cover": "/counting-carbon/assets/cover.webp",
+  "version": 14,
+  "checkoutApi": "",
+  "paymentMode": "test",
+  "products": [
+    {
+      "id": "digital",
+      "name": "Digital edition",
+      "description": "PDF + EPUB together. One purchase, both formats.",
+      "price": 20,
+      "currency": "EUR",
+      "purchaseUrl": null,
+      "fulfilment": "private_download",
+      "formats": [
+        "pdf",
+        "epub"
+      ],
+      "checkoutMode": null,
+      "availability": "coming_soon"
+    },
+    {
+      "id": "hardcopy",
+      "name": "Printed edition",
+      "description": "A printed edition is planned.",
+      "price": null,
+      "currency": "EUR",
+      "purchaseUrl": null,
+      "availability": "coming_soon"
+    }
+  ],
+  "defaults": {
+    "carbonManagement": "practical_scenario",
+    "timeUnit": "Gt"
+  },
+  "dataVersions": {
+    "management": "Counting Carbon v13",
+    "equivalences": "2026-10-07",
+    "atmosphere": "NOAA annual Mauna Loa",
+    "emissions": "OWID/GCP snapshot 2026-10-07"
+  },
+  "analytics": null,
+  "paymentProvider": "stripe_managed_payments",
+  "taxPresentation": "Digital price includes applicable VAT.",
+  "salesStatus": "coming_soon"
+}

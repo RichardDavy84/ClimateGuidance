@@ -1,0 +1,3001 @@
+{
+  "schema_version": "0.2.0",
+  "book_version": 13,
+  "reference": {
+    "value": 19,
+    "unit": "GtCO₂/yr",
+    "label": "Atmospheric increase",
+    "description": "Book reference: 40 human emissions − 21 natural uptake. The 10-Gt ambition is confined to the book’s conclusion."
+  },
+  "clusters": [
+    {
+      "id": "land",
+      "name": "LAND"
+    },
+    {
+      "id": "ocean",
+      "name": "OCEAN"
+    },
+    {
+      "id": "engineered",
+      "name": "ENGINEERED"
+    }
+  ],
+  "aggregation": {
+    "strategy": "naive_standalone_sum",
+    "warning": "Standalone sum; shared resources are not reconciled.",
+    "coordinated_book_practical_scenario": 7.183244284363208,
+    "shared_resource_rules": [
+      {
+        "resource": "attribution",
+        "status": "not_enforced_in_v0",
+        "affected_methods": [
+          "algae",
+          "pump",
+          "alkalinity",
+          "doc"
+        ]
+      },
+      {
+        "resource": "biomass",
+        "status": "not_enforced_in_v0",
+        "affected_methods": [
+          "biochar",
+          "beccs"
+        ]
+      },
+      {
+        "resource": "coastal-area",
+        "status": "not_enforced_in_v0",
+        "affected_methods": [
+          "coast"
+        ]
+      },
+      {
+        "resource": "energy",
+        "status": "not_enforced_in_v0",
+        "affected_methods": [
+          "biochar",
+          "alkalinity",
+          "doc",
+          "beccs",
+          "dac",
+          "weather"
+        ]
+      },
+      {
+        "resource": "geological-storage",
+        "status": "not_enforced_in_v0",
+        "affected_methods": [
+          "doc",
+          "beccs",
+          "dac"
+        ]
+      },
+      {
+        "resource": "land",
+        "status": "not_enforced_in_v0",
+        "affected_methods": [
+          "forest",
+          "soil",
+          "peat",
+          "grass",
+          "biochar",
+          "beccs",
+          "weather"
+        ]
+      },
+      {
+        "resource": "minerals",
+        "status": "not_enforced_in_v0",
+        "affected_methods": [
+          "alkalinity",
+          "weather"
+        ]
+      },
+      {
+        "resource": "nutrients",
+        "status": "not_enforced_in_v0",
+        "affected_methods": [
+          "forest",
+          "soil",
+          "algae",
+          "pump"
+        ]
+      },
+      {
+        "resource": "ocean-area",
+        "status": "not_enforced_in_v0",
+        "affected_methods": [
+          "algae",
+          "pump",
+          "alkalinity"
+        ]
+      },
+      {
+        "resource": "oxygen",
+        "status": "not_enforced_in_v0",
+        "affected_methods": [
+          "pump"
+        ]
+      },
+      {
+        "resource": "retention",
+        "status": "not_enforced_in_v0",
+        "affected_methods": [
+          "forest",
+          "soil",
+          "peat",
+          "grass",
+          "coast",
+          "algae"
+        ]
+      },
+      {
+        "resource": "seawater-flow",
+        "status": "not_enforced_in_v0",
+        "affected_methods": [
+          "doc"
+        ]
+      },
+      {
+        "resource": "water",
+        "status": "not_enforced_in_v0",
+        "affected_methods": [
+          "forest",
+          "peat",
+          "grass"
+        ]
+      }
+    ],
+    "pipeline": [
+      "evaluate_method",
+      "apply_method_bound",
+      "reconcile_shared_resources",
+      "sum_clusters",
+      "sum_overall"
+    ]
+  },
+  "approaches": [
+    {
+      "approach_id": "forest",
+      "approach_name": "Forests and trees",
+      "short_name": "Forests",
+      "cluster": "land",
+      "description": "Standalone annual chapter scenario; shared resource deductions are not yet applied in this prototype.",
+      "unit": "GtCO₂e/yr",
+      "physical_quantity": "Annual credited additional removal; CO₂e where mixed-gas or net-delivery deductions apply.",
+      "practical_scenario_potential": 4.32,
+      "physical_limit_potential": 21.6,
+      "potential_bound_kind": "book_idealised_resource_case",
+      "constraints": [
+        {
+          "constraint_id": "suitable_share",
+          "name": "How much land is suitable?",
+          "description": "Share retained at this stage of the book calculation.",
+          "unit": "%",
+          "minimum": 0,
+          "maximum": 100,
+          "step": 5,
+          "control_type": "continuous",
+          "default_practical_scenario": 50,
+          "default_physical_limit": 100,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part II · Forests and Trees; reference calculation and resource case",
+          "primary": true
+        },
+        {
+          "constraint_id": "annual_uptake",
+          "name": "How fast do trees take up carbon?",
+          "description": "Annual uptake on the 2.16-billion-hectare teaching wedge.",
+          "unit": "tCO₂/ha/yr",
+          "minimum": 0,
+          "maximum": 10,
+          "step": 0.5,
+          "control_type": "continuous",
+          "default_practical_scenario": 5,
+          "default_physical_limit": 10,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part II · Forests and Trees; reference calculation and resource case",
+          "primary": true
+        },
+        {
+          "constraint_id": "success_share",
+          "name": "How much is successfully delivered?",
+          "description": "Share retained at this stage of the book calculation.",
+          "unit": "%",
+          "minimum": 0,
+          "maximum": 100,
+          "step": 5,
+          "control_type": "continuous",
+          "default_practical_scenario": 80,
+          "default_physical_limit": 100,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part II · Forests and Trees; reference calculation and resource case",
+          "primary": true
+        }
+      ],
+      "deferred_constraint_families": [
+        "land",
+        "water",
+        "nutrients",
+        "retention"
+      ],
+      "calculation_method": "book_factor_product",
+      "equation": "2.16 billion ha × 50% × 5 tCO2/ha/yr × 80%",
+      "constants": {
+        "land_wedge_billion_ha": 2.16
+      },
+      "references": [
+        {
+          "title": "Counting Carbon v13",
+          "location": "Part II · Forests and Trees",
+          "page": 44,
+          "kind": "book_scenario"
+        }
+      ],
+      "book_chapter": "Part II · Forests and Trees",
+      "verification_status": "Book-derived equation; endpoint arithmetic checked; deployment feasibility not verified.",
+      "known_reconciliation_issue": "Standalone case overlaps with shared resource allocations; not an independent additive global supply.",
+      "outputs": {
+        "removal": {
+          "practical_scenario": 4.32,
+          "physical_limit": 21.6
+        },
+        "avoided_natural_releases": {
+          "practical_scenario": 2.96,
+          "physical_limit": null,
+          "included_in_v0_total": false
+        },
+        "capacity": {
+          "status": "deferred_to_next_iteration"
+        },
+        "timeline": {
+          "book_shape": {
+            "r": 33.7,
+            "d": 3,
+            "b": 60,
+            "f": 20,
+            "pulse": 0.1
+          },
+          "status": "stored_not_evaluated_in_v0"
+        },
+        "permanence": {
+          "status": "method_specific_not_equated_across_approaches"
+        }
+      },
+      "resource_dependencies": [
+        "land",
+        "water",
+        "nutrients",
+        "retention"
+      ],
+      "physical_limit_definition": "Book upper physical/resource scenario under explicitly permissive assumptions; not a harmonised universal limit.",
+      "model": {
+        "coefficient": 2.16,
+        "terms": [
+          {
+            "id": "suitable_share",
+            "scale": 0.01
+          },
+          {
+            "id": "annual_uptake",
+            "scale": 1
+          },
+          {
+            "id": "success_share",
+            "scale": 0.01
+          }
+        ]
+      },
+      "physical_limit_calculation": {
+        "method": "book_resource_scenario",
+        "value": 21.6,
+        "qualification": "Applied as the explicit book endpoint. Where resource boundaries change, it is not reverse-engineered into technical-case sliders.",
+        "equation": "2.16 billion ha × 10 tCO₂/ha/yr"
+      },
+      "controls_status": "Principal book factors are adjustable; remaining book quantities and conversion factors are recorded as fixed inputs.",
+      "physical_controls_supported": true,
+      "ipcc": {
+        "lower": 0.5,
+        "upper": 10,
+        "midpoint": 5.25,
+        "unit": "GtCO₂/yr",
+        "source_report": "IPCC AR6 WGIII (2022)",
+        "source_url": "https://www.ipcc.ch/report/ar6/wg3/chapter/chapter-12/",
+        "location": "Table 12.6",
+        "category": "Afforestation/reforestation",
+        "qualification": "A/R comparator; does not include every forest-management intervention.",
+        "status": "verified_range",
+        "midpoint_definition": "Arithmetic midpoint (lower + upper)/2; not an IPCC mean",
+        "control_mapping": "No unique IPCC parameter settings; assessment-reference mode preserves the book assumptions.",
+        "verified_date": "2026-10-07",
+        "applied_preset_value": 5.25
+      },
+      "review_issues": []
+    },
+    {
+      "approach_id": "soil",
+      "approach_name": "Soil carbon management",
+      "short_name": "Soils",
+      "cluster": "land",
+      "description": "Standalone annual chapter scenario; shared resource deductions are not yet applied in this prototype.",
+      "unit": "GtCO₂e/yr",
+      "physical_quantity": "Annual credited additional removal; CO₂e where mixed-gas or net-delivery deductions apply.",
+      "practical_scenario_potential": 1.2800000000000002,
+      "physical_limit_potential": 6.4,
+      "potential_bound_kind": "book_idealised_resource_case",
+      "constraints": [
+        {
+          "constraint_id": "eligible",
+          "name": "How much cropland can improve?",
+          "description": "Share retained at this stage of the book calculation.",
+          "unit": "%",
+          "minimum": 0,
+          "maximum": 100,
+          "step": 5,
+          "control_type": "continuous",
+          "default_practical_scenario": 50,
+          "default_physical_limit": 100,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part II · Soil Carbon Management; reference calculation and resource case",
+          "primary": true
+        },
+        {
+          "constraint_id": "uptake",
+          "name": "Annual soil-carbon gain",
+          "description": "Gain on the fixed 1.6-billion-hectare cropland resource.",
+          "unit": "tCO₂/ha/yr",
+          "minimum": 0,
+          "maximum": 4,
+          "step": 0.2,
+          "control_type": "continuous",
+          "default_practical_scenario": 2,
+          "default_physical_limit": 4,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part II · Soil Carbon Management; reference calculation and resource case",
+          "primary": true
+        },
+        {
+          "constraint_id": "delivery",
+          "name": "Net benefit after deductions",
+          "description": "Share retained at this stage of the book calculation.",
+          "unit": "%",
+          "minimum": 0,
+          "maximum": 100,
+          "step": 5,
+          "control_type": "continuous",
+          "default_practical_scenario": 80,
+          "default_physical_limit": 100,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part II · Soil Carbon Management; reference calculation and resource case",
+          "primary": true
+        }
+      ],
+      "deferred_constraint_families": [
+        "land",
+        "nutrients",
+        "retention"
+      ],
+      "calculation_method": "book_factor_product",
+      "equation": "1.6 billion ha × 50% × 2 tCO2/ha/yr × 80%",
+      "constants": {},
+      "references": [
+        {
+          "title": "Counting Carbon v13",
+          "location": "Part II · Soil Carbon Management",
+          "page": 68,
+          "kind": "book_scenario"
+        }
+      ],
+      "book_chapter": "Part II · Soil Carbon Management",
+      "verification_status": "Book-derived equation; endpoint arithmetic checked; deployment feasibility not verified.",
+      "known_reconciliation_issue": "Standalone case overlaps with shared resource allocations; not an independent additive global supply.",
+      "outputs": {
+        "removal": {
+          "practical_scenario": 1.2800000000000002,
+          "physical_limit": 6.4
+        },
+        "avoided_natural_releases": {
+          "practical_scenario": 0,
+          "physical_limit": null,
+          "included_in_v0_total": false
+        },
+        "capacity": {
+          "status": "deferred_to_next_iteration"
+        },
+        "timeline": {
+          "book_shape": {
+            "r": 10,
+            "d": 2,
+            "b": 27.05,
+            "f": 20,
+            "pulse": 0.05
+          },
+          "status": "stored_not_evaluated_in_v0"
+        },
+        "permanence": {
+          "status": "method_specific_not_equated_across_approaches"
+        }
+      },
+      "resource_dependencies": [
+        "land",
+        "nutrients",
+        "retention"
+      ],
+      "physical_limit_definition": "Book upper physical/resource scenario under explicitly permissive assumptions; not a harmonised universal limit.",
+      "model": {
+        "coefficient": 1.6,
+        "terms": [
+          {
+            "id": "eligible",
+            "scale": 0.01
+          },
+          {
+            "id": "uptake",
+            "scale": 1
+          },
+          {
+            "id": "delivery",
+            "scale": 0.01
+          }
+        ]
+      },
+      "physical_limit_calculation": {
+        "method": "book_resource_scenario",
+        "value": 6.4,
+        "qualification": "Applied as the explicit book endpoint. Where resource boundaries change, it is not reverse-engineered into technical-case sliders.",
+        "equation": "1.6 billion ha × 4 tCO₂/ha/yr"
+      },
+      "controls_status": "Principal book factors are adjustable; remaining book quantities and conversion factors are recorded as fixed inputs.",
+      "physical_controls_supported": true,
+      "ipcc": {
+        "lower": 0.4,
+        "upper": 6.8,
+        "midpoint": 3.6,
+        "unit": "GtCO₂/yr",
+        "source_report": "IPCC AR6 WGIII (2022)",
+        "source_url": "https://www.ipcc.ch/report/ar6/wg3/chapter/chapter-7/",
+        "location": "§7.4.3.1",
+        "category": "Cropland soil carbon management",
+        "qualification": "Technical potential, medium confidence; separate from grassland soil.",
+        "status": "verified_range",
+        "midpoint_definition": "Arithmetic midpoint (lower + upper)/2; not an IPCC mean",
+        "control_mapping": "No unique IPCC parameter settings; assessment-reference mode preserves the book assumptions.",
+        "verified_date": "2026-10-07",
+        "applied_preset_value": 3.6
+      },
+      "review_issues": [
+        "Book Physical Limit is below IPCC upper bound; the resource definitions differ."
+      ]
+    },
+    {
+      "approach_id": "peat",
+      "approach_name": "Peatlands and organic soils",
+      "short_name": "Peat",
+      "cluster": "land",
+      "description": "Standalone annual chapter scenario; shared resource deductions are not yet applied in this prototype.",
+      "unit": "GtCO₂e/yr",
+      "physical_quantity": "Annual credited additional removal; CO₂e where mixed-gas or net-delivery deductions apply.",
+      "practical_scenario_potential": 0.030600000000000002,
+      "physical_limit_potential": 0.153,
+      "potential_bound_kind": "book_idealised_resource_case",
+      "constraints": [
+        {
+          "constraint_id": "recovery",
+          "name": "How much peatland becomes a sink?",
+          "description": "Share retained at this stage of the book calculation.",
+          "unit": "%",
+          "minimum": 0,
+          "maximum": 100,
+          "step": 5,
+          "control_type": "continuous",
+          "default_practical_scenario": 50,
+          "default_physical_limit": 100,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part II · Peatlands and Organic Soils; reference calculation and resource case",
+          "primary": true
+        },
+        {
+          "constraint_id": "uptake",
+          "name": "New peat accumulation",
+          "description": "New accumulation on 51 million hectares; avoided oxidation is separate.",
+          "unit": "tCO₂/ha/yr",
+          "minimum": 0,
+          "maximum": 3,
+          "step": 0.1,
+          "control_type": "continuous",
+          "default_practical_scenario": 1.5,
+          "default_physical_limit": 3,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part II · Peatlands and Organic Soils; reference calculation and resource case",
+          "primary": true
+        },
+        {
+          "constraint_id": "delivery",
+          "name": "Net benefit after deductions",
+          "description": "Share retained at this stage of the book calculation.",
+          "unit": "%",
+          "minimum": 0,
+          "maximum": 100,
+          "step": 5,
+          "control_type": "continuous",
+          "default_practical_scenario": 80,
+          "default_physical_limit": 100,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part II · Peatlands and Organic Soils; reference calculation and resource case",
+          "primary": true
+        }
+      ],
+      "deferred_constraint_families": [
+        "land",
+        "water",
+        "retention"
+      ],
+      "calculation_method": "book_factor_product",
+      "equation": "0.051 billion ha × 50% × 1.5 tCO2/ha/yr × 80%",
+      "constants": {},
+      "references": [
+        {
+          "title": "Counting Carbon v13",
+          "location": "Part II · Peatlands and Organic Soils",
+          "page": 89,
+          "kind": "book_scenario"
+        }
+      ],
+      "book_chapter": "Part II · Peatlands and Organic Soils",
+      "verification_status": "Book-derived equation; endpoint arithmetic checked; deployment feasibility not verified.",
+      "known_reconciliation_issue": "Standalone case overlaps with shared resource allocations; not an independent additive global supply.",
+      "outputs": {
+        "removal": {
+          "practical_scenario": 0.030600000000000002,
+          "physical_limit": 0.153
+        },
+        "avoided_natural_releases": {
+          "practical_scenario": 0.84,
+          "physical_limit": null,
+          "included_in_v0_total": false
+        },
+        "capacity": {
+          "status": "deferred_to_next_iteration"
+        },
+        "timeline": {
+          "book_shape": {
+            "r": 10,
+            "d": 0,
+            "b": null,
+            "f": 0,
+            "pulse": 0
+          },
+          "status": "stored_not_evaluated_in_v0"
+        },
+        "permanence": {
+          "status": "method_specific_not_equated_across_approaches"
+        }
+      },
+      "resource_dependencies": [
+        "land",
+        "water",
+        "retention"
+      ],
+      "physical_limit_definition": "Book upper physical/resource scenario under explicitly permissive assumptions; not a harmonised universal limit.",
+      "model": {
+        "coefficient": 0.051,
+        "terms": [
+          {
+            "id": "recovery",
+            "scale": 0.01
+          },
+          {
+            "id": "uptake",
+            "scale": 1
+          },
+          {
+            "id": "delivery",
+            "scale": 0.01
+          }
+        ]
+      },
+      "physical_limit_calculation": {
+        "method": "book_resource_scenario",
+        "value": 0.153,
+        "qualification": "Applied as the explicit book endpoint. Where resource boundaries change, it is not reverse-engineered into technical-case sliders.",
+        "equation": "0.051 billion ha × 3 tCO₂/ha/yr"
+      },
+      "controls_status": "Principal book factors are adjustable; remaining book quantities and conversion factors are recorded as fixed inputs.",
+      "physical_controls_supported": true,
+      "ipcc": {
+        "lower": null,
+        "upper": null,
+        "midpoint": null,
+        "unit": "GtCO₂/yr",
+        "status": "no_applicable_range",
+        "source_report": "IPCC AR6 WGIII (2022)",
+        "source_url": "https://www.ipcc.ch/report/ar6/wg3/chapter/chapter-12/",
+        "location": "Table 12.6 and §12.3.2",
+        "qualification": "Combined peatland/coastal restoration range (0.5–2.1 in §12.3.2) cannot be assigned to new peat alone; includes different benefits.",
+        "control_mapping": null
+      },
+      "review_issues": [
+        "Combined peatland/coastal restoration range (0.5–2.1 in §12.3.2) cannot be assigned to new peat alone; includes different benefits."
+      ]
+    },
+    {
+      "approach_id": "grass",
+      "approach_name": "Grasslands and savannas",
+      "short_name": "Grasslands",
+      "cluster": "land",
+      "description": "Standalone annual chapter scenario; shared resource deductions are not yet applied in this prototype.",
+      "unit": "GtCO₂e/yr",
+      "physical_quantity": "Annual credited additional removal; CO₂e where mixed-gas or net-delivery deductions apply.",
+      "practical_scenario_potential": 0.5760000000000001,
+      "physical_limit_potential": 3.2,
+      "potential_bound_kind": "book_idealised_resource_case",
+      "constraints": [
+        {
+          "constraint_id": "eligible",
+          "name": "How much grassland can improve?",
+          "description": "Share retained at this stage of the book calculation.",
+          "unit": "%",
+          "minimum": 0,
+          "maximum": 100,
+          "step": 5,
+          "control_type": "continuous",
+          "default_practical_scenario": 40,
+          "default_physical_limit": 100,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part II · Grasslands and Savannas; reference calculation and resource case",
+          "primary": true
+        },
+        {
+          "constraint_id": "uptake",
+          "name": "Annual soil-carbon gain",
+          "description": "Annual gain on the 3.2-billion-hectare grassland resource.",
+          "unit": "tCO₂/ha/yr",
+          "minimum": 0,
+          "maximum": 1,
+          "step": 0.05,
+          "control_type": "continuous",
+          "default_practical_scenario": 0.6,
+          "default_physical_limit": 1,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part II · Grasslands and Savannas; reference calculation and resource case",
+          "primary": true
+        },
+        {
+          "constraint_id": "delivery",
+          "name": "Net benefit after deductions",
+          "description": "Share retained at this stage of the book calculation.",
+          "unit": "%",
+          "minimum": 0,
+          "maximum": 100,
+          "step": 5,
+          "control_type": "continuous",
+          "default_practical_scenario": 75,
+          "default_physical_limit": 100,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part II · Grasslands and Savannas; reference calculation and resource case",
+          "primary": true
+        }
+      ],
+      "deferred_constraint_families": [
+        "land",
+        "water",
+        "retention"
+      ],
+      "calculation_method": "book_factor_product",
+      "equation": "3.2 billion ha × 40% × 0.6 tCO2/ha/yr × 75%",
+      "constants": {},
+      "references": [
+        {
+          "title": "Counting Carbon v13",
+          "location": "Part II · Grasslands and Savannas",
+          "page": 112,
+          "kind": "book_scenario"
+        }
+      ],
+      "book_chapter": "Part II · Grasslands and Savannas",
+      "verification_status": "Book-derived equation; endpoint arithmetic checked; deployment feasibility not verified.",
+      "known_reconciliation_issue": "Standalone case overlaps with shared resource allocations; not an independent additive global supply.",
+      "outputs": {
+        "removal": {
+          "practical_scenario": 0.5760000000000001,
+          "physical_limit": 3.2
+        },
+        "avoided_natural_releases": {
+          "practical_scenario": 0.2,
+          "physical_limit": null,
+          "included_in_v0_total": false
+        },
+        "capacity": {
+          "status": "deferred_to_next_iteration"
+        },
+        "timeline": {
+          "book_shape": {
+            "r": 10,
+            "d": 2,
+            "b": 27.05,
+            "f": 20,
+            "pulse": 0.05
+          },
+          "status": "stored_not_evaluated_in_v0"
+        },
+        "permanence": {
+          "status": "method_specific_not_equated_across_approaches"
+        }
+      },
+      "resource_dependencies": [
+        "land",
+        "water",
+        "retention"
+      ],
+      "physical_limit_definition": "Book upper physical/resource scenario under explicitly permissive assumptions; not a harmonised universal limit.",
+      "model": {
+        "coefficient": 3.2,
+        "terms": [
+          {
+            "id": "eligible",
+            "scale": 0.01
+          },
+          {
+            "id": "uptake",
+            "scale": 1
+          },
+          {
+            "id": "delivery",
+            "scale": 0.01
+          }
+        ]
+      },
+      "physical_limit_calculation": {
+        "method": "book_resource_scenario",
+        "value": 3.2,
+        "qualification": "Applied as the explicit book endpoint. Where resource boundaries change, it is not reverse-engineered into technical-case sliders.",
+        "equation": "3.2 billion ha × 1 tCO₂/ha/yr"
+      },
+      "controls_status": "Principal book factors are adjustable; remaining book quantities and conversion factors are recorded as fixed inputs.",
+      "physical_controls_supported": true,
+      "ipcc": {
+        "lower": 0.2,
+        "upper": 2.6,
+        "midpoint": 1.4000000000000001,
+        "unit": "GtCO₂/yr",
+        "source_report": "IPCC AR6 WGIII (2022)",
+        "source_url": "https://www.ipcc.ch/report/ar6/wg3/chapter/chapter-7/",
+        "location": "§7.4.3.1",
+        "category": "Grassland soil carbon management",
+        "qualification": "Technical potential, medium confidence; separate from cropland soil.",
+        "status": "verified_range",
+        "midpoint_definition": "Arithmetic midpoint (lower + upper)/2; not an IPCC mean",
+        "control_mapping": "No unique IPCC parameter settings; assessment-reference mode preserves the book assumptions.",
+        "verified_date": "2026-10-07",
+        "applied_preset_value": 1.4000000000000001
+      },
+      "review_issues": []
+    },
+    {
+      "approach_id": "biochar",
+      "approach_name": "Biochar",
+      "short_name": "Biochar",
+      "cluster": "land",
+      "description": "Standalone annual chapter scenario; shared resource deductions are not yet applied in this prototype.",
+      "unit": "GtCO₂e/yr",
+      "physical_quantity": "Annual credited additional removal; CO₂e where mixed-gas or net-delivery deductions apply.",
+      "practical_scenario_potential": 0.7480000000000001,
+      "physical_limit_potential": 3.1166667,
+      "potential_bound_kind": "book_idealised_resource_case",
+      "constraints": [
+        {
+          "constraint_id": "biomass",
+          "name": "Biomass available for biochar",
+          "description": "The book allocates 1.5 Gt from a shared 2-Gt budget; its standalone upper case uses 4 Gt.",
+          "unit": "Gt dry matter/yr",
+          "minimum": 0,
+          "maximum": 4,
+          "step": 0.1,
+          "control_type": "continuous",
+          "default_practical_scenario": 1.5,
+          "default_physical_limit": 4,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part II · Biochar; reference calculation and resource case",
+          "primary": true
+        },
+        {
+          "constraint_id": "retention",
+          "name": "Carbon retained in char",
+          "description": "Share retained at this stage of the book calculation.",
+          "unit": "%",
+          "minimum": 0,
+          "maximum": 50,
+          "step": 5,
+          "control_type": "continuous",
+          "default_practical_scenario": 40,
+          "default_physical_limit": 50,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part II · Biochar; reference calculation and resource case",
+          "primary": true
+        },
+        {
+          "constraint_id": "durability",
+          "name": "Char remaining in durable storage",
+          "description": "Share retained at this stage of the book calculation.",
+          "unit": "%",
+          "minimum": 0,
+          "maximum": 85,
+          "step": 5,
+          "control_type": "continuous",
+          "default_practical_scenario": 80,
+          "default_physical_limit": 85,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part II · Biochar; reference calculation and resource case",
+          "primary": true
+        },
+        {
+          "constraint_id": "carbon",
+          "name": "Carbon in dry biomass",
+          "description": "Share retained at this stage of the book calculation.",
+          "unit": "%",
+          "minimum": 0,
+          "maximum": 50,
+          "step": 5,
+          "control_type": "continuous",
+          "default_practical_scenario": 50,
+          "default_physical_limit": 50,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part II · Biochar; reference calculation and resource case",
+          "primary": false
+        },
+        {
+          "constraint_id": "delivery",
+          "name": "Net benefit after lifecycle emissions",
+          "description": "Share retained at this stage of the book calculation.",
+          "unit": "%",
+          "minimum": 0,
+          "maximum": 100,
+          "step": 5,
+          "control_type": "continuous",
+          "default_practical_scenario": 85,
+          "default_physical_limit": 100,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part II · Biochar; reference calculation and resource case",
+          "primary": false
+        }
+      ],
+      "deferred_constraint_families": [
+        "biomass",
+        "land",
+        "energy"
+      ],
+      "calculation_method": "book_factor_product",
+      "equation": "1.5 Gt dry matter × 50% carbon × 40% char retention × 80% durability × (44/12) × 85%",
+      "constants": {},
+      "references": [
+        {
+          "title": "Counting Carbon v13",
+          "location": "Part II · Biochar",
+          "page": 136,
+          "kind": "book_scenario"
+        }
+      ],
+      "book_chapter": "Part II · Biochar",
+      "verification_status": "Book-derived equation; endpoint arithmetic checked; deployment feasibility not verified.",
+      "known_reconciliation_issue": "Standalone case overlaps with shared resource allocations; not an independent additive global supply.",
+      "outputs": {
+        "removal": {
+          "practical_scenario": 0.7480000000000001,
+          "physical_limit": 3.1166667
+        },
+        "avoided_natural_releases": {
+          "practical_scenario": 0,
+          "physical_limit": null,
+          "included_in_v0_total": false
+        },
+        "capacity": {
+          "status": "deferred_to_next_iteration"
+        },
+        "timeline": {
+          "book_shape": {
+            "r": 10,
+            "d": 0,
+            "b": null,
+            "f": 0,
+            "pulse": 0
+          },
+          "status": "stored_not_evaluated_in_v0"
+        },
+        "permanence": {
+          "status": "method_specific_not_equated_across_approaches"
+        }
+      },
+      "resource_dependencies": [
+        "biomass",
+        "land",
+        "energy"
+      ],
+      "physical_limit_definition": "Book upper physical/resource scenario under explicitly permissive assumptions; not a harmonised universal limit.",
+      "model": {
+        "coefficient": 3.6666666666666665,
+        "terms": [
+          {
+            "id": "biomass",
+            "scale": 1
+          },
+          {
+            "id": "retention",
+            "scale": 0.01
+          },
+          {
+            "id": "durability",
+            "scale": 0.01
+          },
+          {
+            "id": "carbon",
+            "scale": 0.01
+          },
+          {
+            "id": "delivery",
+            "scale": 0.01
+          }
+        ]
+      },
+      "physical_limit_calculation": {
+        "method": "book_resource_scenario",
+        "value": 3.1166667,
+        "qualification": "Applied as the explicit book endpoint. Where resource boundaries change, it is not reverse-engineered into technical-case sliders.",
+        "equation": "4 Gt dry biomass × 50% C × 50% char retention × 85% durability × 44/12"
+      },
+      "controls_status": "Principal book factors are adjustable; remaining book quantities and conversion factors are recorded as fixed inputs.",
+      "physical_controls_supported": true,
+      "ipcc": {
+        "lower": 0.2,
+        "upper": 6.6,
+        "midpoint": 3.4,
+        "unit": "GtCO₂e/yr",
+        "source_report": "IPCC AR6 WGIII (2022)",
+        "source_url": "https://www.ipcc.ch/report/ar6/wg3/chapter/chapter-12/",
+        "location": "§12.3.2",
+        "category": "Biochar",
+        "qualification": "Technical potential in 2050, not a common deployment forecast.",
+        "status": "verified_range",
+        "midpoint_definition": "Arithmetic midpoint (lower + upper)/2; not an IPCC mean",
+        "control_mapping": "No unique IPCC parameter settings; assessment-reference mode preserves the book assumptions.",
+        "verified_date": "2026-10-07",
+        "applied_preset_value": 3.1166667
+      },
+      "review_issues": [
+        "Book Physical Limit is below IPCC upper bound; the resource definitions differ.",
+        "IPCC midpoint exceeds book ceiling. Preset result is explicitly capped; the unaltered midpoint remains a reference marker."
+      ]
+    },
+    {
+      "approach_id": "coast",
+      "approach_name": "Coastal blue carbon",
+      "short_name": "Coasts",
+      "cluster": "ocean",
+      "description": "Standalone annual chapter scenario; shared resource deductions are not yet applied in this prototype.",
+      "unit": "GtCO₂e/yr",
+      "physical_quantity": "Annual credited additional removal; CO₂e where mixed-gas or net-delivery deductions apply.",
+      "practical_scenario_potential": 0.01745,
+      "physical_limit_potential": 0.26,
+      "potential_bound_kind": "book_idealised_resource_case",
+      "constraints": [
+        {
+          "constraint_id": "mangrove_share",
+          "name": "Mangrove area that can be restored",
+          "description": "Share retained at this stage of the book calculation.",
+          "unit": "%",
+          "minimum": 0,
+          "maximum": 100,
+          "step": 5,
+          "control_type": "continuous",
+          "default_practical_scenario": 30,
+          "default_physical_limit": null,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part III · Coastal Blue Carbon; reference calculation and resource case",
+          "primary": true
+        },
+        {
+          "constraint_id": "marsh_share",
+          "name": "Salt marsh area that can be restored",
+          "description": "Share retained at this stage of the book calculation.",
+          "unit": "%",
+          "minimum": 0,
+          "maximum": 100,
+          "step": 5,
+          "control_type": "continuous",
+          "default_practical_scenario": 50,
+          "default_physical_limit": null,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part III · Coastal Blue Carbon; reference calculation and resource case",
+          "primary": true
+        },
+        {
+          "constraint_id": "seagrass_share",
+          "name": "Seagrass area that can be restored",
+          "description": "Share retained at this stage of the book calculation.",
+          "unit": "%",
+          "minimum": 0,
+          "maximum": 100,
+          "step": 5,
+          "control_type": "continuous",
+          "default_practical_scenario": 30,
+          "default_physical_limit": null,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part III · Coastal Blue Carbon; reference calculation and resource case",
+          "primary": true
+        },
+        {
+          "constraint_id": "mangrove_rate",
+          "name": "Mangrove annual uptake",
+          "description": "Book habitat-specific growth rates.",
+          "unit": "tCO₂/ha/yr",
+          "minimum": 0,
+          "maximum": 10,
+          "step": 0.5,
+          "control_type": "continuous",
+          "default_practical_scenario": 6,
+          "default_physical_limit": null,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part III · Coastal Blue Carbon; reference calculation and resource case",
+          "primary": false
+        },
+        {
+          "constraint_id": "mangrove_success",
+          "name": "Mangrove restoration success",
+          "description": "Share retained at this stage of the book calculation.",
+          "unit": "%",
+          "minimum": 0,
+          "maximum": 100,
+          "step": 5,
+          "control_type": "continuous",
+          "default_practical_scenario": 80,
+          "default_physical_limit": null,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part III · Coastal Blue Carbon; reference calculation and resource case",
+          "primary": false
+        },
+        {
+          "constraint_id": "marsh_rate",
+          "name": "Salt marsh annual uptake",
+          "description": "Book habitat-specific growth rates.",
+          "unit": "tCO₂/ha/yr",
+          "minimum": 0,
+          "maximum": 8,
+          "step": 0.5,
+          "control_type": "continuous",
+          "default_practical_scenario": 5,
+          "default_physical_limit": null,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part III · Coastal Blue Carbon; reference calculation and resource case",
+          "primary": false
+        },
+        {
+          "constraint_id": "marsh_success",
+          "name": "Salt marsh restoration success",
+          "description": "Share retained at this stage of the book calculation.",
+          "unit": "%",
+          "minimum": 0,
+          "maximum": 100,
+          "step": 5,
+          "control_type": "continuous",
+          "default_practical_scenario": 80,
+          "default_physical_limit": null,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part III · Coastal Blue Carbon; reference calculation and resource case",
+          "primary": false
+        },
+        {
+          "constraint_id": "seagrass_rate",
+          "name": "Seagrass annual uptake",
+          "description": "Book habitat-specific growth rates.",
+          "unit": "tCO₂/ha/yr",
+          "minimum": 0,
+          "maximum": 4,
+          "step": 0.5,
+          "control_type": "continuous",
+          "default_practical_scenario": 2,
+          "default_physical_limit": null,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part III · Coastal Blue Carbon; reference calculation and resource case",
+          "primary": false
+        },
+        {
+          "constraint_id": "seagrass_success",
+          "name": "Seagrass restoration success",
+          "description": "Share retained at this stage of the book calculation.",
+          "unit": "%",
+          "minimum": 0,
+          "maximum": 100,
+          "step": 5,
+          "control_type": "continuous",
+          "default_practical_scenario": 50,
+          "default_physical_limit": null,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part III · Coastal Blue Carbon; reference calculation and resource case",
+          "primary": false
+        }
+      ],
+      "deferred_constraint_families": [
+        "coastal-area",
+        "retention"
+      ],
+      "calculation_method": "coastal_habitat_sum",
+      "equation": "0.009×0.30×6×0.80 + 0.001×0.50×5×0.80 + 0.0083×0.30×2×0.50 (billion ha basis)",
+      "constants": {},
+      "references": [
+        {
+          "title": "Counting Carbon v13",
+          "location": "Part III · Coastal Blue Carbon",
+          "page": 187,
+          "kind": "book_scenario"
+        }
+      ],
+      "book_chapter": "Part III · Coastal Blue Carbon",
+      "verification_status": "Book-derived equation; endpoint arithmetic checked; deployment feasibility not verified.",
+      "known_reconciliation_issue": "Standalone case overlaps with shared resource allocations; not an independent additive global supply.",
+      "outputs": {
+        "removal": {
+          "practical_scenario": 0.01745,
+          "physical_limit": 0.26
+        },
+        "avoided_natural_releases": {
+          "practical_scenario": 0.17,
+          "physical_limit": null,
+          "included_in_v0_total": false
+        },
+        "capacity": {
+          "status": "deferred_to_next_iteration"
+        },
+        "timeline": {
+          "book_shape": {
+            "r": 10,
+            "d": 0,
+            "b": null,
+            "f": 0,
+            "pulse": 0
+          },
+          "status": "stored_not_evaluated_in_v0"
+        },
+        "permanence": {
+          "status": "method_specific_not_equated_across_approaches"
+        }
+      },
+      "resource_dependencies": [
+        "coastal-area",
+        "retention"
+      ],
+      "physical_limit_definition": "Book upper physical/resource scenario under explicitly permissive assumptions; not a harmonised universal limit.",
+      "model": {
+        "habitats": [
+          {
+            "share": "mangrove_share",
+            "area_billion_ha": 0.009,
+            "rate": 6,
+            "success": 0.8
+          },
+          {
+            "share": "marsh_share",
+            "area_billion_ha": 0.001,
+            "rate": 5,
+            "success": 0.8
+          },
+          {
+            "share": "seagrass_share",
+            "area_billion_ha": 0.0083,
+            "rate": 2,
+            "success": 0.5
+          }
+        ]
+      },
+      "physical_limit_calculation": {
+        "method": "book_resource_scenario",
+        "value": 0.26,
+        "qualification": "Applied as the explicit book endpoint. Where resource boundaries change, it is not reverse-engineered into technical-case sliders.",
+        "equation": "0.013 billion ha × 10 + 0.0032 billion ha × 8 + 0.0254 billion ha × 4 ≈ 0.26"
+      },
+      "controls_status": "Principal book factors are adjustable; remaining book quantities and conversion factors are recorded as fixed inputs.",
+      "physical_controls_supported": false,
+      "ipcc": {
+        "lower": null,
+        "upper": null,
+        "midpoint": null,
+        "unit": "GtCO₂/yr",
+        "status": "no_applicable_range",
+        "source_report": "IPCC AR6 WGIII (2022)",
+        "source_url": "https://www.ipcc.ch/report/ar6/wg3/chapter/chapter-12/",
+        "location": "Table 12.6 and §12.3.2",
+        "qualification": "Table 12.6 gives only <1, not a two-sided range; the combined wetland category cannot be allocated to coasts alone.",
+        "control_mapping": null
+      },
+      "review_issues": [
+        "Table 12.6 gives only <1, not a two-sided range; the combined wetland category cannot be allocated to coasts alone."
+      ]
+    },
+    {
+      "approach_id": "algae",
+      "approach_name": "Macroalgal carbon",
+      "short_name": "Macroalgae",
+      "cluster": "ocean",
+      "description": "Standalone annual chapter scenario; shared resource deductions are not yet applied in this prototype.",
+      "unit": "GtCO₂e/yr",
+      "physical_quantity": "Annual credited additional removal; CO₂e where mixed-gas or net-delivery deductions apply.",
+      "practical_scenario_potential": 0.005568749999999999,
+      "physical_limit_potential": 79.2,
+      "potential_bound_kind": "book_idealised_resource_case",
+      "constraints": [
+        {
+          "constraint_id": "area",
+          "name": "Area of seaweed farms",
+          "description": "Book technical area is 10 million ha; geometric upper resource is 4.8 billion ha.",
+          "unit": "billion ha",
+          "minimum": 0,
+          "maximum": 4.8,
+          "step": 0.01,
+          "control_type": "continuous",
+          "default_practical_scenario": 0.01,
+          "default_physical_limit": 4.8,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part III · Macroalgal Carbon; reference calculation and resource case",
+          "primary": true
+        },
+        {
+          "constraint_id": "air",
+          "name": "Carbon replaced from the atmosphere",
+          "description": "Share retained at this stage of the book calculation.",
+          "unit": "%",
+          "minimum": 0,
+          "maximum": 100,
+          "step": 5,
+          "control_type": "continuous",
+          "default_practical_scenario": 27,
+          "default_physical_limit": 100,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part III · Macroalgal Carbon; reference calculation and resource case",
+          "primary": true
+        },
+        {
+          "constraint_id": "storage",
+          "name": "Carbon reaching durable storage",
+          "description": "Share retained at this stage of the book calculation.",
+          "unit": "%",
+          "minimum": 0,
+          "maximum": 100,
+          "step": 5,
+          "control_type": "continuous",
+          "default_practical_scenario": 25,
+          "default_physical_limit": 100,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part III · Macroalgal Carbon; reference calculation and resource case",
+          "primary": true
+        },
+        {
+          "constraint_id": "yield",
+          "name": "Dry seaweed yield",
+          "description": "The book uses 10 dry tonnes per hectare in its technical case and 15 in its physical resource case.",
+          "unit": "t/ha/yr",
+          "minimum": 0,
+          "maximum": 15,
+          "step": 0.5,
+          "control_type": "continuous",
+          "default_practical_scenario": 10,
+          "default_physical_limit": 15,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part III · Macroalgal Carbon; reference calculation and resource case",
+          "primary": false
+        },
+        {
+          "constraint_id": "carbon",
+          "name": "Carbon in dry seaweed",
+          "description": "Share retained at this stage of the book calculation.",
+          "unit": "%",
+          "minimum": 0,
+          "maximum": 30,
+          "step": 5,
+          "control_type": "continuous",
+          "default_practical_scenario": 30,
+          "default_physical_limit": 30,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part III · Macroalgal Carbon; reference calculation and resource case",
+          "primary": false
+        },
+        {
+          "constraint_id": "delivery",
+          "name": "Net benefit after lifecycle emissions",
+          "description": "Share retained at this stage of the book calculation.",
+          "unit": "%",
+          "minimum": 0,
+          "maximum": 100,
+          "step": 5,
+          "control_type": "continuous",
+          "default_practical_scenario": 75,
+          "default_physical_limit": 100,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part III · Macroalgal Carbon; reference calculation and resource case",
+          "primary": false
+        }
+      ],
+      "deferred_constraint_families": [
+        "ocean-area",
+        "nutrients",
+        "attribution",
+        "retention"
+      ],
+      "calculation_method": "book_factor_product",
+      "equation": "0.010 billion ha × 10 dry t/ha × 30% carbon × (44/12) × 27% air attribution × 25% storage × 75%",
+      "constants": {},
+      "references": [
+        {
+          "title": "Counting Carbon v13",
+          "location": "Part III · Macroalgal Carbon",
+          "page": 218,
+          "kind": "book_scenario"
+        }
+      ],
+      "book_chapter": "Part III · Macroalgal Carbon",
+      "verification_status": "Book-derived equation; endpoint arithmetic checked; deployment feasibility not verified.",
+      "known_reconciliation_issue": "Standalone case overlaps with shared resource allocations; not an independent additive global supply.",
+      "outputs": {
+        "removal": {
+          "practical_scenario": 0.005568749999999999,
+          "physical_limit": 79.2
+        },
+        "avoided_natural_releases": {
+          "practical_scenario": 0,
+          "physical_limit": null,
+          "included_in_v0_total": false
+        },
+        "capacity": {
+          "status": "deferred_to_next_iteration"
+        },
+        "timeline": {
+          "book_shape": {
+            "r": 10,
+            "d": 0,
+            "b": null,
+            "f": 0,
+            "pulse": 0
+          },
+          "status": "stored_not_evaluated_in_v0"
+        },
+        "permanence": {
+          "status": "method_specific_not_equated_across_approaches"
+        }
+      },
+      "resource_dependencies": [
+        "ocean-area",
+        "nutrients",
+        "attribution",
+        "retention"
+      ],
+      "physical_limit_definition": "Book upper physical/resource scenario under explicitly permissive assumptions; not a harmonised universal limit.",
+      "model": {
+        "coefficient": 3.6666666666666665,
+        "terms": [
+          {
+            "id": "area",
+            "scale": 1
+          },
+          {
+            "id": "air",
+            "scale": 0.01
+          },
+          {
+            "id": "storage",
+            "scale": 0.01
+          },
+          {
+            "id": "yield",
+            "scale": 1
+          },
+          {
+            "id": "carbon",
+            "scale": 0.01
+          },
+          {
+            "id": "delivery",
+            "scale": 0.01
+          }
+        ]
+      },
+      "physical_limit_calculation": {
+        "method": "book_resource_scenario",
+        "value": 79.2,
+        "qualification": "Applied as the explicit book endpoint. Where resource boundaries change, it is not reverse-engineered into technical-case sliders.",
+        "equation": "4.8 billion ha × 15 t dry biomass/ha/yr × 30% C × 44/12"
+      },
+      "controls_status": "Principal book factors are adjustable; remaining book quantities and conversion factors are recorded as fixed inputs.",
+      "physical_controls_supported": true,
+      "ipcc": {
+        "lower": null,
+        "upper": null,
+        "midpoint": null,
+        "unit": "GtCO₂/yr",
+        "status": "no_applicable_range",
+        "source_report": "IPCC AR6 WGIII (2022)",
+        "source_url": "https://www.ipcc.ch/report/ar6/wg3/chapter/chapter-12/",
+        "location": "Table 12.6 and §12.3.2",
+        "qualification": "No separate macroalgae range identified in the book’s AR6 WGIII assessment table. National Academies values are not relabelled IPCC.",
+        "control_mapping": null
+      },
+      "review_issues": [
+        "No separate macroalgae range identified in the book’s AR6 WGIII assessment table. National Academies values are not relabelled IPCC."
+      ]
+    },
+    {
+      "approach_id": "pump",
+      "approach_name": "Ocean biological pump",
+      "short_name": "Biological pump",
+      "cluster": "ocean",
+      "description": "Standalone annual chapter scenario; shared resource deductions are not yet applied in this prototype.",
+      "unit": "GtCO₂e/yr",
+      "physical_quantity": "Annual credited additional removal; CO₂e where mixed-gas or net-delivery deductions apply.",
+      "practical_scenario_potential": 0.0176,
+      "physical_limit_potential": 36.7,
+      "potential_bound_kind": "book_idealised_resource_case",
+      "constraints": [
+        {
+          "constraint_id": "area",
+          "name": "Area receiving treatment",
+          "description": "Two million square kilometres in the book technical case; no justified area translation for its second-pump upper scenario.",
+          "unit": "million km²",
+          "minimum": 0,
+          "maximum": 2,
+          "step": 0.1,
+          "control_type": "continuous",
+          "default_practical_scenario": 2,
+          "default_physical_limit": null,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part III · Ocean Biological Pump; reference calculation and resource case",
+          "primary": true
+        },
+        {
+          "constraint_id": "production",
+          "name": "Extra annual carbon production",
+          "description": "Book increment; no assessed higher intervention range is assumed.",
+          "unit": "gC/m²/yr",
+          "minimum": 0,
+          "maximum": 30,
+          "step": 1,
+          "control_type": "continuous",
+          "default_practical_scenario": 30,
+          "default_physical_limit": null,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part III · Ocean Biological Pump; reference calculation and resource case",
+          "primary": true
+        },
+        {
+          "constraint_id": "export",
+          "name": "Production exported from surface water",
+          "description": "Share retained at this stage of the book calculation.",
+          "unit": "%",
+          "minimum": 0,
+          "maximum": 100,
+          "step": 5,
+          "control_type": "continuous",
+          "default_practical_scenario": 50,
+          "default_physical_limit": null,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part III · Ocean Biological Pump; reference calculation and resource case",
+          "primary": true
+        },
+        {
+          "constraint_id": "storage",
+          "name": "Export retained at depth",
+          "description": "Share retained at this stage of the book calculation.",
+          "unit": "%",
+          "minimum": 0,
+          "maximum": 100,
+          "step": 5,
+          "control_type": "continuous",
+          "default_practical_scenario": 40,
+          "default_physical_limit": null,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part III · Ocean Biological Pump; reference calculation and resource case",
+          "primary": false
+        },
+        {
+          "constraint_id": "air",
+          "name": "Carbon replaced from the atmosphere",
+          "description": "Share retained at this stage of the book calculation.",
+          "unit": "%",
+          "minimum": 0,
+          "maximum": 100,
+          "step": 5,
+          "control_type": "continuous",
+          "default_practical_scenario": 50,
+          "default_physical_limit": null,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part III · Ocean Biological Pump; reference calculation and resource case",
+          "primary": false
+        },
+        {
+          "constraint_id": "delivery",
+          "name": "Net benefit after deductions",
+          "description": "Share retained at this stage of the book calculation.",
+          "unit": "%",
+          "minimum": 0,
+          "maximum": 100,
+          "step": 5,
+          "control_type": "continuous",
+          "default_practical_scenario": 80,
+          "default_physical_limit": null,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part III · Ocean Biological Pump; reference calculation and resource case",
+          "primary": false
+        }
+      ],
+      "deferred_constraint_families": [
+        "ocean-area",
+        "nutrients",
+        "oxygen",
+        "attribution"
+      ],
+      "calculation_method": "book_factor_product",
+      "equation": "2e12 m2 × 30 gC/m2/yr / 1e15 g/Gt × (44/12) × 50% × 40% × 50% × 80%",
+      "constants": {},
+      "references": [
+        {
+          "title": "Counting Carbon v13",
+          "location": "Part III · Ocean Biological Pump",
+          "page": 247,
+          "kind": "book_scenario"
+        }
+      ],
+      "book_chapter": "Part III · Ocean Biological Pump",
+      "verification_status": "Book-derived equation; endpoint arithmetic checked; deployment feasibility not verified.",
+      "known_reconciliation_issue": "Standalone case overlaps with shared resource allocations; not an independent additive global supply.",
+      "outputs": {
+        "removal": {
+          "practical_scenario": 0.0176,
+          "physical_limit": 36.7
+        },
+        "avoided_natural_releases": {
+          "practical_scenario": 0,
+          "physical_limit": null,
+          "included_in_v0_total": false
+        },
+        "capacity": {
+          "status": "deferred_to_next_iteration"
+        },
+        "timeline": {
+          "book_shape": {
+            "r": 10,
+            "d": 0,
+            "b": null,
+            "f": 0,
+            "pulse": 0
+          },
+          "status": "stored_not_evaluated_in_v0"
+        },
+        "permanence": {
+          "status": "method_specific_not_equated_across_approaches"
+        }
+      },
+      "resource_dependencies": [
+        "ocean-area",
+        "nutrients",
+        "oxygen",
+        "attribution"
+      ],
+      "physical_limit_definition": "Book upper physical/resource scenario under explicitly permissive assumptions; not a harmonised universal limit.",
+      "model": {
+        "coefficient": 0.0036666666666666666,
+        "terms": [
+          {
+            "id": "area",
+            "scale": 1
+          },
+          {
+            "id": "production",
+            "scale": 1
+          },
+          {
+            "id": "export",
+            "scale": 0.01
+          },
+          {
+            "id": "storage",
+            "scale": 0.01
+          },
+          {
+            "id": "air",
+            "scale": 0.01
+          },
+          {
+            "id": "delivery",
+            "scale": 0.01
+          }
+        ]
+      },
+      "physical_limit_calculation": {
+        "method": "book_resource_scenario",
+        "value": 36.7,
+        "qualification": "Applied as the explicit book endpoint. Where resource boundaries change, it is not reverse-engineered into technical-case sliders.",
+        "equation": "10 GtC/yr × 3.67 = 36.7 (book rounded conversion)"
+      },
+      "controls_status": "Principal book factors are adjustable; remaining book quantities and conversion factors are recorded as fixed inputs.",
+      "physical_controls_supported": false,
+      "ipcc": {
+        "lower": 1,
+        "upper": 3,
+        "midpoint": 2.0,
+        "unit": "GtCO₂/yr",
+        "source_report": "IPCC AR6 WGIII (2022)",
+        "source_url": "https://www.ipcc.ch/report/ar6/wg3/chapter/chapter-12/",
+        "location": "Table 12.6",
+        "category": "Ocean fertilisation",
+        "qualification": "Comparator for fertilisation; not every biological-pump intervention.",
+        "status": "verified_range",
+        "midpoint_definition": "Arithmetic midpoint (lower + upper)/2; not an IPCC mean",
+        "control_mapping": "No unique IPCC parameter settings; assessment-reference mode preserves the book assumptions.",
+        "verified_date": "2026-10-07",
+        "applied_preset_value": 2.0
+      },
+      "review_issues": [
+        "Book Practical Scenario is outside the assessed range; compare resource and accounting boundaries."
+      ]
+    },
+    {
+      "approach_id": "alkalinity",
+      "approach_name": "Ocean alkalinity enhancement",
+      "short_name": "Alkalinity",
+      "cluster": "ocean",
+      "description": "Standalone annual chapter scenario; shared resource deductions are not yet applied in this prototype.",
+      "unit": "GtCO₂e/yr",
+      "physical_quantity": "Annual credited additional removal; CO₂e where mixed-gas or net-delivery deductions apply.",
+      "practical_scenario_potential": 0.05796226415094341,
+      "physical_limit_potential": 12.075471698113208,
+      "potential_bound_kind": "book_idealised_resource_case",
+      "constraints": [
+        {
+          "constraint_id": "material",
+          "name": "Annual alkaline material supply",
+          "description": "Same Mg(OH)₂-equivalent chemistry as the book annual resource case.",
+          "unit": "Gt Mg(OH)₂/yr",
+          "minimum": 0,
+          "maximum": 10,
+          "step": 0.05,
+          "control_type": "continuous",
+          "default_practical_scenario": 0.1,
+          "default_physical_limit": 10,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part III · Ocean Dissolved Inorganic Carbon and Alkalinity; reference calculation and resource case",
+          "primary": true
+        },
+        {
+          "constraint_id": "reaction",
+          "name": "Alkalinity successfully delivered",
+          "description": "Share retained at this stage of the book calculation.",
+          "unit": "%",
+          "minimum": 0,
+          "maximum": 100,
+          "step": 5,
+          "control_type": "continuous",
+          "default_practical_scenario": 80,
+          "default_physical_limit": 100,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part III · Ocean Dissolved Inorganic Carbon and Alkalinity; reference calculation and resource case",
+          "primary": true
+        },
+        {
+          "constraint_id": "air",
+          "name": "Atmospheric equilibration achieved",
+          "description": "Share retained at this stage of the book calculation.",
+          "unit": "%",
+          "minimum": 0,
+          "maximum": 100,
+          "step": 5,
+          "control_type": "continuous",
+          "default_practical_scenario": 80,
+          "default_physical_limit": 100,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part III · Ocean Dissolved Inorganic Carbon and Alkalinity; reference calculation and resource case",
+          "primary": true
+        },
+        {
+          "constraint_id": "delivery",
+          "name": "Net benefit after lifecycle emissions",
+          "description": "Share retained at this stage of the book calculation.",
+          "unit": "%",
+          "minimum": 0,
+          "maximum": 100,
+          "step": 5,
+          "control_type": "continuous",
+          "default_practical_scenario": 75,
+          "default_physical_limit": 100,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part III · Ocean Dissolved Inorganic Carbon and Alkalinity; reference calculation and resource case",
+          "primary": false
+        }
+      ],
+      "deferred_constraint_families": [
+        "minerals",
+        "energy",
+        "ocean-area",
+        "attribution"
+      ],
+      "calculation_method": "book_factor_product",
+      "equation": "0.1 Gt Mg(OH)2 / 0.0583 kg/mol × 2 eq/mol × 0.8 molCO2/eq × 0.044 kg/mol × 80% × 80% × 75%",
+      "constants": {},
+      "references": [
+        {
+          "title": "Counting Carbon v13",
+          "location": "Part III · Ocean Dissolved Inorganic Carbon and Alkalinity",
+          "page": 276,
+          "kind": "book_scenario"
+        }
+      ],
+      "book_chapter": "Part III · Ocean Dissolved Inorganic Carbon and Alkalinity",
+      "verification_status": "Book-derived equation; endpoint arithmetic checked; deployment feasibility not verified.",
+      "known_reconciliation_issue": "Standalone case overlaps with shared resource allocations; not an independent additive global supply.",
+      "outputs": {
+        "removal": {
+          "practical_scenario": 0.05796226415094341,
+          "physical_limit": 12.075471698113208
+        },
+        "avoided_natural_releases": {
+          "practical_scenario": 0,
+          "physical_limit": null,
+          "included_in_v0_total": false
+        },
+        "capacity": {
+          "status": "deferred_to_next_iteration"
+        },
+        "timeline": {
+          "book_shape": {
+            "r": 10,
+            "d": 0,
+            "b": null,
+            "f": 0,
+            "pulse": 0
+          },
+          "status": "stored_not_evaluated_in_v0"
+        },
+        "permanence": {
+          "status": "method_specific_not_equated_across_approaches"
+        }
+      },
+      "resource_dependencies": [
+        "minerals",
+        "energy",
+        "ocean-area",
+        "attribution"
+      ],
+      "physical_limit_definition": "Book upper physical/resource scenario under explicitly permissive assumptions; not a harmonised universal limit.",
+      "model": {
+        "coefficient": 1.207547169811321,
+        "terms": [
+          {
+            "id": "material",
+            "scale": 1
+          },
+          {
+            "id": "reaction",
+            "scale": 0.01
+          },
+          {
+            "id": "air",
+            "scale": 0.01
+          },
+          {
+            "id": "delivery",
+            "scale": 0.01
+          }
+        ]
+      },
+      "physical_limit_calculation": {
+        "method": "book_resource_scenario",
+        "value": 12.075471698113208,
+        "qualification": "Applied as the explicit book endpoint. Where resource boundaries change, it is not reverse-engineered into technical-case sliders.",
+        "equation": "10 Gt Mg(OH)₂ / 0.0583 × 2 × 0.8 × 0.044"
+      },
+      "controls_status": "Principal book factors are adjustable; remaining book quantities and conversion factors are recorded as fixed inputs.",
+      "physical_controls_supported": true,
+      "ipcc": {
+        "lower": 1,
+        "upper": 100,
+        "midpoint": 50.5,
+        "unit": "GtCO₂/yr",
+        "source_report": "IPCC AR6 WGIII (2022)",
+        "source_url": "https://www.ipcc.ch/report/ar6/wg3/chapter/chapter-12/",
+        "location": "Table 12.6",
+        "category": "Ocean alkalinity enhancement",
+        "qualification": "Broad potential; not limited to the book 10-Gt mineral-throughput case.",
+        "status": "verified_range",
+        "midpoint_definition": "Arithmetic midpoint (lower + upper)/2; not an IPCC mean",
+        "control_mapping": "No unique IPCC parameter settings; assessment-reference mode preserves the book assumptions.",
+        "verified_date": "2026-10-07",
+        "applied_preset_value": 12.075471698113208
+      },
+      "review_issues": [
+        "Book Practical Scenario is outside the assessed range; compare resource and accounting boundaries.",
+        "Book Physical Limit is below IPCC upper bound; the resource definitions differ.",
+        "IPCC midpoint exceeds book ceiling. Preset result is explicitly capped; the unaltered midpoint remains a reference marker."
+      ]
+    },
+    {
+      "approach_id": "doc",
+      "approach_name": "Direct ocean carbon removal",
+      "short_name": "Ocean capture",
+      "cluster": "ocean",
+      "description": "Standalone annual chapter scenario; shared resource deductions are not yet applied in this prototype.",
+      "unit": "GtCO₂e/yr",
+      "physical_quantity": "Annual credited additional removal; CO₂e where mixed-gas or net-delivery deductions apply.",
+      "practical_scenario_potential": 0.007645837499999998,
+      "physical_limit_potential": 16.2,
+      "potential_bound_kind": "book_idealised_resource_case",
+      "constraints": [
+        {
+          "constraint_id": "water",
+          "name": "Seawater processed each day",
+          "description": "Book technical throughput. The ocean-layer ceiling is a separate resource scenario, not a deployable pump range.",
+          "unit": "billion m³/day",
+          "minimum": 0,
+          "maximum": 1,
+          "step": 0.05,
+          "control_type": "continuous",
+          "default_practical_scenario": 1,
+          "default_physical_limit": null,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part III · Direct Ocean Carbon Removal; reference calculation and resource case",
+          "primary": true
+        },
+        {
+          "constraint_id": "refill",
+          "name": "Carbon replaced from the atmosphere",
+          "description": "Share retained at this stage of the book calculation.",
+          "unit": "%",
+          "minimum": 0,
+          "maximum": 100,
+          "step": 5,
+          "control_type": "continuous",
+          "default_practical_scenario": 70,
+          "default_physical_limit": null,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part III · Direct Ocean Carbon Removal; reference calculation and resource case",
+          "primary": true
+        },
+        {
+          "constraint_id": "storage",
+          "name": "Captured carbon safely stored",
+          "description": "Share retained at this stage of the book calculation.",
+          "unit": "%",
+          "minimum": 0,
+          "maximum": 100,
+          "step": 5,
+          "control_type": "continuous",
+          "default_practical_scenario": 95,
+          "default_physical_limit": null,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part III · Direct Ocean Carbon Removal; reference calculation and resource case",
+          "primary": true
+        },
+        {
+          "constraint_id": "delivery",
+          "name": "Net benefit after lifecycle emissions",
+          "description": "Share retained at this stage of the book calculation.",
+          "unit": "%",
+          "minimum": 0,
+          "maximum": 100,
+          "step": 5,
+          "control_type": "continuous",
+          "default_practical_scenario": 70,
+          "default_physical_limit": null,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part III · Direct Ocean Carbon Removal; reference calculation and resource case",
+          "primary": false
+        }
+      ],
+      "deferred_constraint_families": [
+        "energy",
+        "geological-storage",
+        "seawater-flow",
+        "attribution"
+      ],
+      "calculation_method": "book_factor_product",
+      "equation": "365e9 m3/yr × 0.045 kgCO2/m3 / 1e12 kg/Gt × 95% storage × 70% refill × 70%",
+      "constants": {},
+      "references": [
+        {
+          "title": "Counting Carbon v13",
+          "location": "Part III · Direct Ocean Carbon Removal",
+          "page": 307,
+          "kind": "book_scenario"
+        }
+      ],
+      "book_chapter": "Part III · Direct Ocean Carbon Removal",
+      "verification_status": "Book-derived equation; endpoint arithmetic checked; deployment feasibility not verified.",
+      "known_reconciliation_issue": "Standalone case overlaps with shared resource allocations; not an independent additive global supply.",
+      "outputs": {
+        "removal": {
+          "practical_scenario": 0.007645837499999998,
+          "physical_limit": 16.2
+        },
+        "avoided_natural_releases": {
+          "practical_scenario": 0,
+          "physical_limit": null,
+          "included_in_v0_total": false
+        },
+        "capacity": {
+          "status": "deferred_to_next_iteration"
+        },
+        "timeline": {
+          "book_shape": {
+            "r": 10,
+            "d": 0,
+            "b": null,
+            "f": 0,
+            "pulse": 0
+          },
+          "status": "stored_not_evaluated_in_v0"
+        },
+        "permanence": {
+          "status": "method_specific_not_equated_across_approaches"
+        }
+      },
+      "resource_dependencies": [
+        "energy",
+        "geological-storage",
+        "seawater-flow",
+        "attribution"
+      ],
+      "physical_limit_definition": "Book upper physical/resource scenario under explicitly permissive assumptions; not a harmonised universal limit.",
+      "model": {
+        "coefficient": 0.016425000000000002,
+        "terms": [
+          {
+            "id": "water",
+            "scale": 1
+          },
+          {
+            "id": "refill",
+            "scale": 0.01
+          },
+          {
+            "id": "storage",
+            "scale": 0.01
+          },
+          {
+            "id": "delivery",
+            "scale": 0.01
+          }
+        ]
+      },
+      "physical_limit_calculation": {
+        "method": "book_resource_scenario",
+        "value": 16.2,
+        "qualification": "Applied as the explicit book endpoint. Where resource boundaries change, it is not reverse-engineered into technical-case sliders.",
+        "equation": "361 trillion m³/yr × 0.045 kgCO₂/m³ / 1e12 ≈ 16.2 (rounded book endpoint)"
+      },
+      "controls_status": "Principal book factors are adjustable; remaining book quantities and conversion factors are recorded as fixed inputs.",
+      "physical_controls_supported": false,
+      "ipcc": {
+        "lower": null,
+        "upper": null,
+        "midpoint": null,
+        "unit": "GtCO₂/yr",
+        "status": "no_applicable_range",
+        "source_report": "IPCC AR6 WGIII (2022)",
+        "source_url": "https://www.ipcc.ch/report/ar6/wg3/chapter/chapter-12/",
+        "location": "Table 12.6 and §12.3.2",
+        "qualification": "No separate extraction-only range identified in the book’s AR6 WGIII table; electrochemical alkalinity is not direct extraction.",
+        "control_mapping": null
+      },
+      "review_issues": [
+        "No separate extraction-only range identified in the book’s AR6 WGIII table; electrochemical alkalinity is not direct extraction."
+      ]
+    },
+    {
+      "approach_id": "beccs",
+      "approach_name": "Bioenergy with carbon capture and storage",
+      "short_name": "BECCS",
+      "cluster": "engineered",
+      "description": "Standalone annual chapter scenario; shared resource deductions are not yet applied in this prototype.",
+      "unit": "GtCO₂e/yr",
+      "physical_quantity": "Annual credited additional removal; CO₂e where mixed-gas or net-delivery deductions apply.",
+      "practical_scenario_potential": 0.53295,
+      "physical_limit_potential": 206.8,
+      "potential_bound_kind": "book_idealised_resource_case",
+      "constraints": [
+        {
+          "constraint_id": "biomass",
+          "name": "Biomass available for BECCS",
+          "description": "The book reserves 0.5 Gt from the shared sustainable biomass budget; its biosphere upper scenario has a different boundary.",
+          "unit": "Gt dry matter/yr",
+          "minimum": 0,
+          "maximum": 0.5,
+          "step": 0.025,
+          "control_type": "continuous",
+          "default_practical_scenario": 0.5,
+          "default_physical_limit": null,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part IV · Bioenergy with Carbon Capture and Storage; reference calculation and resource case",
+          "primary": true
+        },
+        {
+          "constraint_id": "capture",
+          "name": "CO₂ captured at the plant",
+          "description": "Share retained at this stage of the book calculation.",
+          "unit": "%",
+          "minimum": 0,
+          "maximum": 100,
+          "step": 5,
+          "control_type": "continuous",
+          "default_practical_scenario": 90,
+          "default_physical_limit": null,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part IV · Bioenergy with Carbon Capture and Storage; reference calculation and resource case",
+          "primary": true
+        },
+        {
+          "constraint_id": "additionality",
+          "name": "Benefit beyond the no-harvest baseline",
+          "description": "Share retained at this stage of the book calculation.",
+          "unit": "%",
+          "minimum": 0,
+          "maximum": 100,
+          "step": 5,
+          "control_type": "continuous",
+          "default_practical_scenario": 80,
+          "default_physical_limit": null,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part IV · Bioenergy with Carbon Capture and Storage; reference calculation and resource case",
+          "primary": true
+        },
+        {
+          "constraint_id": "carbon",
+          "name": "Carbon in dry biomass",
+          "description": "Share retained at this stage of the book calculation.",
+          "unit": "%",
+          "minimum": 0,
+          "maximum": 50,
+          "step": 5,
+          "control_type": "continuous",
+          "default_practical_scenario": 50,
+          "default_physical_limit": null,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part IV · Bioenergy with Carbon Capture and Storage; reference calculation and resource case",
+          "primary": false
+        },
+        {
+          "constraint_id": "storage",
+          "name": "Captured carbon safely stored",
+          "description": "Share retained at this stage of the book calculation.",
+          "unit": "%",
+          "minimum": 0,
+          "maximum": 100,
+          "step": 5,
+          "control_type": "continuous",
+          "default_practical_scenario": 95,
+          "default_physical_limit": null,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part IV · Bioenergy with Carbon Capture and Storage; reference calculation and resource case",
+          "primary": false
+        },
+        {
+          "constraint_id": "delivery",
+          "name": "Net benefit after lifecycle emissions",
+          "description": "Share retained at this stage of the book calculation.",
+          "unit": "%",
+          "minimum": 0,
+          "maximum": 100,
+          "step": 5,
+          "control_type": "continuous",
+          "default_practical_scenario": 85,
+          "default_physical_limit": null,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part IV · Bioenergy with Carbon Capture and Storage; reference calculation and resource case",
+          "primary": false
+        }
+      ],
+      "deferred_constraint_families": [
+        "biomass",
+        "land",
+        "energy",
+        "geological-storage"
+      ],
+      "calculation_method": "book_factor_product",
+      "equation": "0.5 Gt dry matter × 50% carbon × (44/12) × 90% capture × 95% storage × 80% additionality × 85%",
+      "constants": {},
+      "references": [
+        {
+          "title": "Counting Carbon v13",
+          "location": "Part IV · Bioenergy with Carbon Capture and Storage",
+          "page": 360,
+          "kind": "book_scenario"
+        }
+      ],
+      "book_chapter": "Part IV · Bioenergy with Carbon Capture and Storage",
+      "verification_status": "Book-derived equation; endpoint arithmetic checked; deployment feasibility not verified.",
+      "known_reconciliation_issue": "Standalone case overlaps with shared resource allocations; not an independent additive global supply.",
+      "outputs": {
+        "removal": {
+          "practical_scenario": 0.53295,
+          "physical_limit": 206.8
+        },
+        "avoided_natural_releases": {
+          "practical_scenario": 0,
+          "physical_limit": null,
+          "included_in_v0_total": false
+        },
+        "capacity": {
+          "status": "deferred_to_next_iteration"
+        },
+        "timeline": {
+          "book_shape": {
+            "r": 10,
+            "d": 0,
+            "b": null,
+            "f": 0,
+            "pulse": 0
+          },
+          "status": "stored_not_evaluated_in_v0"
+        },
+        "permanence": {
+          "status": "method_specific_not_equated_across_approaches"
+        }
+      },
+      "resource_dependencies": [
+        "biomass",
+        "land",
+        "energy",
+        "geological-storage"
+      ],
+      "physical_limit_definition": "Book upper physical/resource scenario under explicitly permissive assumptions; not a harmonised universal limit.",
+      "model": {
+        "coefficient": 3.6666666666666665,
+        "terms": [
+          {
+            "id": "biomass",
+            "scale": 1
+          },
+          {
+            "id": "capture",
+            "scale": 0.01
+          },
+          {
+            "id": "additionality",
+            "scale": 0.01
+          },
+          {
+            "id": "carbon",
+            "scale": 0.01
+          },
+          {
+            "id": "storage",
+            "scale": 0.01
+          },
+          {
+            "id": "delivery",
+            "scale": 0.01
+          }
+        ]
+      },
+      "physical_limit_calculation": {
+        "method": "book_resource_scenario",
+        "value": 206.8,
+        "qualification": "Applied as the explicit book endpoint. Where resource boundaries change, it is not reverse-engineered into technical-case sliders.",
+        "equation": "56.4 GtC/yr terrestrial NPP × 44/12 = 206.8"
+      },
+      "controls_status": "Principal book factors are adjustable; remaining book quantities and conversion factors are recorded as fixed inputs.",
+      "physical_controls_supported": false,
+      "ipcc": {
+        "lower": 0.5,
+        "upper": 11,
+        "midpoint": 5.75,
+        "unit": "GtCO₂/yr",
+        "source_report": "IPCC AR6 WGIII (2022)",
+        "source_url": "https://www.ipcc.ch/report/ar6/wg3/chapter/chapter-12/",
+        "location": "Table 12.6",
+        "category": "BECCS",
+        "qualification": "Table range; §12.3.2 gives 0.5–11.3. This rounded table comparator excludes avoided fossil substitution.",
+        "status": "verified_range",
+        "midpoint_definition": "Arithmetic midpoint (lower + upper)/2; not an IPCC mean",
+        "control_mapping": "No unique IPCC parameter settings; assessment-reference mode preserves the book assumptions.",
+        "verified_date": "2026-10-07",
+        "applied_preset_value": 5.75
+      },
+      "review_issues": []
+    },
+    {
+      "approach_id": "dac",
+      "approach_name": "Direct air capture and storage",
+      "short_name": "DACCS",
+      "cluster": "engineered",
+      "description": "Standalone annual chapter scenario; shared resource deductions are not yet applied in this prototype.",
+      "unit": "GtCO₂e/yr",
+      "physical_quantity": "Annual credited additional removal; CO₂e where mixed-gas or net-delivery deductions apply.",
+      "practical_scenario_potential": 0.201875,
+      "physical_limit_potential": 230.15873,
+      "potential_bound_kind": "book_idealised_resource_case",
+      "constraints": [
+        {
+          "constraint_id": "electricity",
+          "name": "Clean electricity for capture",
+          "description": "Technical case: 200 TWh; book thermodynamic upper case appropriates 29,000 TWh.",
+          "unit": "TWh/yr",
+          "minimum": 0,
+          "maximum": 29000,
+          "step": 50,
+          "control_type": "continuous",
+          "default_practical_scenario": 200,
+          "default_physical_limit": null,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part IV · Direct Air Capture and Storage; reference calculation and resource case",
+          "primary": true
+        },
+        {
+          "constraint_id": "heat",
+          "name": "Useful low-carbon heat",
+          "description": "Technical case heat supply; no higher independent book heat resource is specified.",
+          "unit": "TWh/yr",
+          "minimum": 0,
+          "maximum": 300,
+          "step": 25,
+          "control_type": "continuous",
+          "default_practical_scenario": 300,
+          "default_physical_limit": null,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part IV · Direct Air Capture and Storage; reference calculation and resource case",
+          "primary": true
+        },
+        {
+          "constraint_id": "storage",
+          "name": "Captured carbon safely stored",
+          "description": "Share retained at this stage of the book calculation.",
+          "unit": "%",
+          "minimum": 0,
+          "maximum": 100,
+          "step": 5,
+          "control_type": "continuous",
+          "default_practical_scenario": 95,
+          "default_physical_limit": null,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part IV · Direct Air Capture and Storage; reference calculation and resource case",
+          "primary": true
+        },
+        {
+          "constraint_id": "delivery",
+          "name": "Net benefit after lifecycle emissions",
+          "description": "Share retained at this stage of the book calculation.",
+          "unit": "%",
+          "minimum": 0,
+          "maximum": 100,
+          "step": 5,
+          "control_type": "continuous",
+          "default_practical_scenario": 85,
+          "default_physical_limit": null,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part IV · Direct Air Capture and Storage; reference calculation and resource case",
+          "primary": false
+        }
+      ],
+      "deferred_constraint_families": [
+        "energy",
+        "geological-storage"
+      ],
+      "calculation_method": "dac_energy_minimum",
+      "equation": "min(200 TWh/0.8 MWh/t, 300 TWh/1.2 MWh/t) / 1000 × 95% × 85%",
+      "constants": {
+        "electricity_MWh_per_t": 0.8,
+        "heat_MWh_per_t": 1.2
+      },
+      "references": [
+        {
+          "title": "Counting Carbon v13",
+          "location": "Part IV · Direct Air Capture and Storage",
+          "page": 387,
+          "kind": "book_scenario"
+        }
+      ],
+      "book_chapter": "Part IV · Direct Air Capture and Storage",
+      "verification_status": "Book-derived equation; endpoint arithmetic checked; deployment feasibility not verified.",
+      "known_reconciliation_issue": "Standalone case overlaps with shared resource allocations; not an independent additive global supply.",
+      "outputs": {
+        "removal": {
+          "practical_scenario": 0.201875,
+          "physical_limit": 230.15873
+        },
+        "avoided_natural_releases": {
+          "practical_scenario": 0,
+          "physical_limit": null,
+          "included_in_v0_total": false
+        },
+        "capacity": {
+          "status": "deferred_to_next_iteration"
+        },
+        "timeline": {
+          "book_shape": {
+            "r": 10,
+            "d": 0,
+            "b": null,
+            "f": 0,
+            "pulse": 0
+          },
+          "status": "stored_not_evaluated_in_v0"
+        },
+        "permanence": {
+          "status": "method_specific_not_equated_across_approaches"
+        }
+      },
+      "resource_dependencies": [
+        "energy",
+        "geological-storage"
+      ],
+      "physical_limit_definition": "Book upper physical/resource scenario under explicitly permissive assumptions; not a harmonised universal limit.",
+      "model": {
+        "equation": "min(electricity/0.8, heat/1.2)/1000 × storage/100 × delivery/100"
+      },
+      "physical_limit_calculation": {
+        "method": "book_resource_scenario",
+        "value": 230.15873,
+        "qualification": "Applied as the explicit book endpoint. Where resource boundaries change, it is not reverse-engineered into technical-case sliders.",
+        "equation": "29000 TWh/yr / 0.126 MWh/t / 1000 ≈ 230.15873"
+      },
+      "controls_status": "Principal book factors are adjustable; remaining book quantities and conversion factors are recorded as fixed inputs.",
+      "physical_controls_supported": false,
+      "ipcc": {
+        "lower": 5,
+        "upper": 40,
+        "midpoint": 22.5,
+        "unit": "GtCO₂/yr",
+        "source_report": "IPCC AR6 WGIII (2022)",
+        "source_url": "https://www.ipcc.ch/report/ar6/wg3/chapter/chapter-12/",
+        "location": "Table 12.6",
+        "category": "DACCS",
+        "qualification": "Technical potential with energy and cost limitations; not current capacity.",
+        "status": "verified_range",
+        "midpoint_definition": "Arithmetic midpoint (lower + upper)/2; not an IPCC mean",
+        "control_mapping": "No unique IPCC parameter settings; assessment-reference mode preserves the book assumptions.",
+        "verified_date": "2026-10-07",
+        "applied_preset_value": 22.5
+      },
+      "review_issues": [
+        "Book Practical Scenario is outside the assessed range; compare resource and accounting boundaries."
+      ]
+    },
+    {
+      "approach_id": "weather",
+      "approach_name": "Enhanced weathering",
+      "short_name": "Weathering",
+      "cluster": "engineered",
+      "description": "Standalone annual chapter scenario; shared resource deductions are not yet applied in this prototype.",
+      "unit": "GtCO₂e/yr",
+      "physical_quantity": "Annual credited additional removal; CO₂e where mixed-gas or net-delivery deductions apply.",
+      "practical_scenario_potential": 0.20807999999999996,
+      "physical_limit_potential": 24,
+      "potential_bound_kind": "book_idealised_resource_case",
+      "constraints": [
+        {
+          "constraint_id": "area",
+          "name": "Cropland receiving rock",
+          "description": "Technical case: 150 million hectares. Upper case: all 1.6 billion hectares.",
+          "unit": "billion ha",
+          "minimum": 0,
+          "maximum": 1.6,
+          "step": 0.05,
+          "control_type": "continuous",
+          "default_practical_scenario": 0.15,
+          "default_physical_limit": 1.6,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part IV · Enhanced Weathering; reference calculation and resource case",
+          "primary": true
+        },
+        {
+          "constraint_id": "dose",
+          "name": "Rock spread each year",
+          "description": "Annual basalt supply per hectare.",
+          "unit": "t/ha/yr",
+          "minimum": 0,
+          "maximum": 50,
+          "step": 1,
+          "control_type": "continuous",
+          "default_practical_scenario": 20,
+          "default_physical_limit": 50,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part IV · Enhanced Weathering; reference calculation and resource case",
+          "primary": true
+        },
+        {
+          "constraint_id": "weathered",
+          "name": "Rock reacting within the credit period",
+          "description": "Share retained at this stage of the book calculation.",
+          "unit": "%",
+          "minimum": 0,
+          "maximum": 100,
+          "step": 5,
+          "control_type": "continuous",
+          "default_practical_scenario": 40,
+          "default_physical_limit": 100,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part IV · Enhanced Weathering; reference calculation and resource case",
+          "primary": true
+        },
+        {
+          "constraint_id": "air",
+          "name": "Atmospheric-carbon attribution",
+          "description": "Share retained at this stage of the book calculation.",
+          "unit": "%",
+          "minimum": 0,
+          "maximum": 100,
+          "step": 5,
+          "control_type": "continuous",
+          "default_practical_scenario": 80,
+          "default_physical_limit": 100,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part IV · Enhanced Weathering; reference calculation and resource case",
+          "primary": false
+        },
+        {
+          "constraint_id": "storage",
+          "name": "Carbon reaching durable storage",
+          "description": "Share retained at this stage of the book calculation.",
+          "unit": "%",
+          "minimum": 0,
+          "maximum": 100,
+          "step": 5,
+          "control_type": "continuous",
+          "default_practical_scenario": 85,
+          "default_physical_limit": 100,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part IV · Enhanced Weathering; reference calculation and resource case",
+          "primary": false
+        },
+        {
+          "constraint_id": "delivery",
+          "name": "Net benefit after lifecycle emissions",
+          "description": "Share retained at this stage of the book calculation.",
+          "unit": "%",
+          "minimum": 0,
+          "maximum": 100,
+          "step": 5,
+          "control_type": "continuous",
+          "default_practical_scenario": 85,
+          "default_physical_limit": 100,
+          "default_ipcc": null,
+          "calculation_role": "Multiplicative factor in the stated book equation",
+          "confidence": "Book scenario assumption; not a probability interval",
+          "notes": "The control explores values from zero to the stated book resource/performance endpoint. This is an exploration interval, not a literature-assessed confidence range.",
+          "source": "Counting Carbon v13",
+          "uncertainty": "Site performance and feasible global deployment remain uncertain.",
+          "source_page_or_chapter": "Part IV · Enhanced Weathering; reference calculation and resource case",
+          "primary": false
+        }
+      ],
+      "deferred_constraint_families": [
+        "land",
+        "minerals",
+        "energy"
+      ],
+      "calculation_method": "book_factor_product",
+      "equation": "0.15 billion ha × 20 t rock/ha/yr × 0.30 tCO2/t × 40% × 80% × 85% × 85%",
+      "constants": {},
+      "references": [
+        {
+          "title": "Counting Carbon v13",
+          "location": "Part IV · Enhanced Weathering",
+          "page": 417,
+          "kind": "book_scenario"
+        }
+      ],
+      "book_chapter": "Part IV · Enhanced Weathering",
+      "verification_status": "Book-derived equation; endpoint arithmetic checked; deployment feasibility not verified.",
+      "known_reconciliation_issue": "Standalone case overlaps with shared resource allocations; not an independent additive global supply.",
+      "outputs": {
+        "removal": {
+          "practical_scenario": 0.20807999999999996,
+          "physical_limit": 24
+        },
+        "avoided_natural_releases": {
+          "practical_scenario": 0,
+          "physical_limit": null,
+          "included_in_v0_total": false
+        },
+        "capacity": {
+          "status": "deferred_to_next_iteration"
+        },
+        "timeline": {
+          "book_shape": {
+            "r": 10,
+            "d": 0,
+            "b": null,
+            "f": 0,
+            "pulse": 0
+          },
+          "status": "stored_not_evaluated_in_v0"
+        },
+        "permanence": {
+          "status": "method_specific_not_equated_across_approaches"
+        }
+      },
+      "resource_dependencies": [
+        "land",
+        "minerals",
+        "energy"
+      ],
+      "physical_limit_definition": "Book upper physical/resource scenario under explicitly permissive assumptions; not a harmonised universal limit.",
+      "model": {
+        "coefficient": 0.3,
+        "terms": [
+          {
+            "id": "area",
+            "scale": 1
+          },
+          {
+            "id": "dose",
+            "scale": 1
+          },
+          {
+            "id": "weathered",
+            "scale": 0.01
+          },
+          {
+            "id": "air",
+            "scale": 0.01
+          },
+          {
+            "id": "storage",
+            "scale": 0.01
+          },
+          {
+            "id": "delivery",
+            "scale": 0.01
+          }
+        ]
+      },
+      "physical_limit_calculation": {
+        "method": "book_resource_scenario",
+        "value": 24,
+        "qualification": "Applied as the explicit book endpoint. Where resource boundaries change, it is not reverse-engineered into technical-case sliders.",
+        "equation": "1.6 billion ha × 50 t rock/ha/yr × 0.30 tCO₂/t rock"
+      },
+      "controls_status": "Principal book factors are adjustable; remaining book quantities and conversion factors are recorded as fixed inputs.",
+      "physical_controls_supported": true,
+      "ipcc": {
+        "lower": 2,
+        "upper": 4,
+        "midpoint": 3.0,
+        "unit": "GtCO₂/yr",
+        "source_report": "IPCC AR6 WGIII (2022)",
+        "source_url": "https://www.ipcc.ch/report/ar6/wg3/chapter/chapter-12/",
+        "location": "Table 12.6",
+        "category": "Enhanced weathering",
+        "qualification": "Author-judgement range; full literature range <1–95 is not used for the midpoint.",
+        "status": "verified_range",
+        "midpoint_definition": "Arithmetic midpoint (lower + upper)/2; not an IPCC mean",
+        "control_mapping": "No unique IPCC parameter settings; assessment-reference mode preserves the book assumptions.",
+        "verified_date": "2026-10-07",
+        "applied_preset_value": 3.0
+      },
+      "review_issues": [
+        "Book Practical Scenario is outside the assessed range; compare resource and accounting boundaries."
+      ]
+    }
+  ],
+  "reconciliation": [
+    {
+      "method": "land",
+      "book_location": "Land portfolio and standalone chapter comparisons",
+      "value_a": 6.954600000000001,
+      "value_b": 6.3016000000000005,
+      "unit": "GtCO₂e/yr",
+      "likely_reason": "Book portfolio allocates common resources before summing; standalone cases are not independent.",
+      "recommended_value": 6.3016000000000005,
+      "status": "V0 intentionally shows standalone sum; coordinated aggregation requires the portfolio allocation model.",
+      "scenario": "Practical Scenario"
+    },
+    {
+      "method": "land",
+      "book_location": "Land portfolio and standalone chapter comparisons",
+      "value_a": 34.469666700000005,
+      "value_b": 32,
+      "unit": "GtCO₂/yr",
+      "likely_reason": "Book portfolio allocates common resources before summing; standalone cases are not independent.",
+      "recommended_value": 32,
+      "status": "V0 intentionally shows standalone sum; coordinated aggregation requires the portfolio allocation model.",
+      "scenario": "Physical Limit"
+    },
+    {
+      "method": "ocean",
+      "book_location": "Ocean portfolio and standalone chapter comparisons",
+      "value_a": 0.10622685165094341,
+      "value_b": 0.08017503436320755,
+      "unit": "GtCO₂e/yr",
+      "likely_reason": "Book portfolio allocates common resources before summing; standalone cases are not independent.",
+      "recommended_value": 0.08017503436320755,
+      "status": "V0 intentionally shows standalone sum; coordinated aggregation requires the portfolio allocation model.",
+      "scenario": "Practical Scenario"
+    },
+    {
+      "method": "engineered",
+      "book_location": "Engineered portfolio and standalone chapter comparisons",
+      "value_a": 0.942905,
+      "value_b": 0.80146925,
+      "unit": "GtCO₂e/yr",
+      "likely_reason": "Book portfolio allocates common resources before summing; standalone cases are not independent.",
+      "recommended_value": 0.80146925,
+      "status": "V0 intentionally shows standalone sum; coordinated aggregation requires the portfolio allocation model.",
+      "scenario": "Practical Scenario"
+    },
+    {
+      "method": "combined",
+      "book_location": "Combined portfolio and standalone chapter comparisons",
+      "value_a": 8.003731851650944,
+      "value_b": 7.183244284363208,
+      "unit": "GtCO₂e/yr",
+      "likely_reason": "Book portfolio allocates common resources before summing; standalone cases are not independent.",
+      "recommended_value": 7.183244284363208,
+      "status": "V0 intentionally shows standalone sum; coordinated aggregation requires the portfolio allocation model.",
+      "scenario": "Practical Scenario"
+    },
+    {
+      "method": "combined",
+      "book_location": "Combined portfolio and standalone chapter comparisons",
+      "value_a": 639.8638683981133,
+      "value_b": 637.3942016981132,
+      "unit": "GtCO₂/yr",
+      "likely_reason": "Book portfolio allocates common resources before summing; standalone cases are not independent.",
+      "recommended_value": 637.3942016981132,
+      "status": "V0 intentionally shows standalone sum; coordinated aggregation requires the portfolio allocation model.",
+      "scenario": "Physical Limit"
+    },
+    {
+      "method": "global reference",
+      "book_location": "Part I and confirmed author instruction",
+      "value_a": 20,
+      "value_b": 19,
+      "unit": "GtCO₂/yr",
+      "likely_reason": "Approximate brief value versus precise book reference (40 emissions minus 21 natural uptake).",
+      "recommended_value": 19,
+      "status": "Resolved: use 19; do not call this total human emissions."
+    },
+    {
+      "method": "Physical Limit terminology",
+      "book_location": "All physical-limit resource cases",
+      "value_a": "V0 brief calls this Physical Limit",
+      "value_b": "v13 calls these physical-limit resource cases",
+      "likely_reason": "Different resources and idealisations; not uniform empirical hard physical maxima.",
+      "recommended_value": "Keep requested V0 preset name, label as book idealised resource case; enforce as a model input bound only.",
+      "status": "Definition still needs method-by-method review."
+    },
+    {
+      "method": "alkalinity",
+      "book_location": "Part III · Ocean Dissolved Inorganic Carbon and Alkalinity",
+      "value_a": 48.224,
+      "value_b": 12.075471698113208,
+      "unit": "A = GtCO₂ stock; B = GtCO₂/yr",
+      "likely_reason": "Whole-ocean one-off stock increment differs from annual 10-Gt mineral-throughput test.",
+      "recommended_value": 12.075471698113208,
+      "status": "Resolved for V0: annual test only."
+    },
+    {
+      "method": "geological storage",
+      "book_location": "Part IV · Geological storage, p. 448",
+      "value_a": 1,
+      "value_b": 0,
+      "unit": "A = GtCO₂/yr injection service; B = independent removal credit",
+      "likely_reason": "Storage enables capture methods; adding injection as removal double-counts their carbon.",
+      "recommended_value": "Shared limiting resource, not an additional removal orb.",
+      "status": "Represented in architecture; coupling not yet enforced."
+    },
+    {
+      "method": "units",
+      "book_location": "Part I accounting and method chapter deductions",
+      "value_a": "Requested common GtCO₂/yr metric",
+      "value_b": "Book credited values can be CO₂-equivalent",
+      "likely_reason": "Mixed-gas and lifecycle deductions make credited benefit different from physical CO₂.",
+      "recommended_value": "Show GtCO₂e for potential and GtCO₂ for the 19 reference; do not assert an exact physical balance.",
+      "status": "Visible qualification; gas-resolved outputs deferred."
+    }
+  ],
+  "ipcc_preset_policy": {
+    "missing_range": "Reset to Book Practical Scenario; explicitly labelled as book fallback, never an IPCC value.",
+    "above_ceiling": "Apply book ceiling, retain unaltered IPCC range and midpoint, disclose capped result.",
+    "aggregation": "Mixed comparison, not an IPCC-assessed portfolio. Sum remains unreconciled."
+  }
+}

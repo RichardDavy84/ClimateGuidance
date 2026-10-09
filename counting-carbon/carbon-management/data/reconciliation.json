@@ -1,0 +1,116 @@
+[
+  {
+    "method": "land",
+    "book_location": "Land portfolio and standalone chapter comparisons",
+    "value_a": 6.954600000000001,
+    "value_b": 6.3016000000000005,
+    "unit": "GtCO₂e/yr",
+    "likely_reason": "Book portfolio allocates common resources before summing; standalone cases are not independent.",
+    "recommended_value": 6.3016000000000005,
+    "status": "This iteration intentionally shows standalone sum; coordinated aggregation requires the portfolio allocation model.",
+    "scenario": "Practical Scenario"
+  },
+  {
+    "method": "land",
+    "book_location": "Land portfolio and standalone chapter comparisons",
+    "value_a": 34.469666700000005,
+    "value_b": 32,
+    "unit": "GtCO₂/yr",
+    "likely_reason": "Book portfolio allocates common resources before summing; standalone cases are not independent.",
+    "recommended_value": 32,
+    "status": "This iteration intentionally shows standalone sum; coordinated aggregation requires the portfolio allocation model.",
+    "scenario": "Physical Limit"
+  },
+  {
+    "method": "ocean",
+    "book_location": "Ocean portfolio and standalone chapter comparisons",
+    "value_a": 0.10622685165094341,
+    "value_b": 0.08017503436320755,
+    "unit": "GtCO₂e/yr",
+    "likely_reason": "Book portfolio allocates common resources before summing; standalone cases are not independent.",
+    "recommended_value": 0.08017503436320755,
+    "status": "This iteration intentionally shows standalone sum; coordinated aggregation requires the portfolio allocation model.",
+    "scenario": "Practical Scenario"
+  },
+  {
+    "method": "engineered",
+    "book_location": "Engineered portfolio and standalone chapter comparisons",
+    "value_a": 0.942905,
+    "value_b": 0.80146925,
+    "unit": "GtCO₂e/yr",
+    "likely_reason": "Book portfolio allocates common resources before summing; standalone cases are not independent.",
+    "recommended_value": 0.80146925,
+    "status": "This iteration intentionally shows standalone sum; coordinated aggregation requires the portfolio allocation model.",
+    "scenario": "Practical Scenario"
+  },
+  {
+    "method": "combined",
+    "book_location": "Combined portfolio and standalone chapter comparisons",
+    "value_a": 8.003731851650944,
+    "value_b": 7.183244284363208,
+    "unit": "GtCO₂e/yr",
+    "likely_reason": "Book portfolio allocates common resources before summing; standalone cases are not independent.",
+    "recommended_value": 7.183244284363208,
+    "status": "This iteration intentionally shows standalone sum; coordinated aggregation requires the portfolio allocation model.",
+    "scenario": "Practical Scenario"
+  },
+  {
+    "method": "combined",
+    "book_location": "Combined portfolio and standalone chapter comparisons",
+    "value_a": 639.8638683981133,
+    "value_b": 637.3942016981132,
+    "unit": "GtCO₂/yr",
+    "likely_reason": "Book portfolio allocates common resources before summing; standalone cases are not independent.",
+    "recommended_value": 637.3942016981132,
+    "status": "This iteration intentionally shows standalone sum; coordinated aggregation requires the portfolio allocation model.",
+    "scenario": "Physical Limit"
+  },
+  {
+    "method": "global reference",
+    "book_location": "Part I and confirmed author instruction",
+    "value_a": 20,
+    "value_b": 19,
+    "unit": "GtCO₂/yr",
+    "likely_reason": "Approximate brief value versus precise book reference (40 emissions minus 21 natural uptake).",
+    "recommended_value": 19,
+    "status": "Resolved: use 19; do not call this total human emissions."
+  },
+  {
+    "method": "Physical Limit terminology",
+    "book_location": "All physical-limit resource cases",
+    "value_a": "Author requests Physical Limit",
+    "value_b": "Book v13 physical-limit resource cases",
+    "likely_reason": "Different resources and idealisations; not uniform empirical hard physical maxima.",
+    "recommended_value": "Use Physical Limit consistently; keep each book scenario definition and enforce its ceiling.",
+    "status": "Terminology aligned; universal physical interpretation remains method-dependent."
+  },
+  {
+    "method": "alkalinity",
+    "book_location": "Part III · Ocean Dissolved Inorganic Carbon and Alkalinity",
+    "value_a": 48.224,
+    "value_b": 12.075471698113208,
+    "unit": "A = GtCO₂ stock; B = GtCO₂/yr",
+    "likely_reason": "Whole-ocean one-off stock increment differs from annual 10-Gt mineral-throughput test.",
+    "recommended_value": 12.075471698113208,
+    "status": "Resolved for This iteration: annual test only."
+  },
+  {
+    "method": "geological storage",
+    "book_location": "Part IV · Geological storage, p. 448",
+    "value_a": 1,
+    "value_b": 0,
+    "unit": "A = GtCO₂/yr injection service; B = independent removal credit",
+    "likely_reason": "Storage enables capture methods; adding injection as removal double-counts their carbon.",
+    "recommended_value": "Shared limiting resource, not an additional removal orb.",
+    "status": "Represented in architecture; coupling not yet enforced."
+  },
+  {
+    "method": "units",
+    "book_location": "Part I accounting and method chapter deductions",
+    "value_a": "Requested common GtCO₂/yr metric",
+    "value_b": "Book credited values can be CO₂-equivalent",
+    "likely_reason": "Mixed-gas and lifecycle deductions make credited benefit different from physical CO₂.",
+    "recommended_value": "Show GtCO₂e for potential and GtCO₂ for the 19 reference; do not assert an exact physical balance.",
+    "status": "Visible qualification; gas-resolved outputs deferred."
+  }
+]

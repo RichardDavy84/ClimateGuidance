@@ -1,0 +1,13 @@
+# Claim Checker assumptions
+
+The local Claim Checker is now connected to 61 grouped, searchable registry entries. Each entry has its gas basis, accounting scope, source and source/reporting year; UK records also retain the exact 2026 workbook row ID and published kg factor. The source registry is `counting-carbon/data/equivalences.json`. CO₂e entries are never relabelled as atmospheric CO₂.
+
+Trees use a 30-year average, as requested. Default accumulated capture is 300 kg CO₂ per surviving tree, derived from the book's illustrative 10 kg/year example multiplied by 30. Default establishment survival is 80%; both are explicitly editable scenario assumptions, not literature estimates. The accumulated growth curve is normalised `(1-exp(-t/tau))²`, with tau 35 years (20/50 alternatives). Its endpoint is the entered 30-year total, and individual annual rates are computed by differencing the stock. Average annual capture is the sum divided by 30, not the peak or final-year rate. No extrapolation beyond 30 years or assumed abrupt saturation is shown.
+
+Cook-Patton et al. (2020), https://www.nature.com/articles/s41586-020-2686-x, supports discussion of site variation and the first-30-years horizon, not this tree-level default or curve. These distinctions appear beside the figure. The model excludes later mortality/reversal, soil pools, counterfactual uptake and project emissions. Forest-hectare comparisons require a user-supplied site rate instead of inventing a global default.
+
+Flight distances are editable illustrative distances, not named-route measurements. The UK CO₂-only factors exclude the RF multiplier. Journey direction is explicit; return doubles one-way distance. UK reporting factors are not all measurements taken in 2026. EPA entries use the calculator's published reference factors; source vintage differs by equivalence. The US car-year factor is CO₂e, while home-energy factors exclude goods, food and transport.
+
+Five automated tests cover integrated tree capture, changed timing with fixed totals, survival, flight scaling, unit basis, validation and registry completeness. Browser checks now confirm the boxed answer, original Habit 1 cartoon, concise selected-source explanation, custom-unit conversion and responsive layout at 375 and 805 pixels.
+
+Additional comparisons include derived fuel/mass units, explicit illustrative transatlantic distance, parameterised car journeys, EPA public comparisons, and 2023 per-person territorial/consumption factors from the OWID snapshot. The EPA 10-year-seedling factor remains excluded pending resolution of conflicting time wording in the primary reference page.

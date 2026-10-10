@@ -1,3 +1,4 @@
+import { initTutorial } from '../tutorial.js';
 import { tonnes, atmosphericHistory, duration } from './model.js';
 const $ = id => document.getElementById(id), ns = 'http://www.w3.org/2000/svg';
 const number = value => new Intl.NumberFormat('en', { maximumSignificantDigits: 3 }).format(value);
@@ -104,3 +105,5 @@ try {
   regions.addEventListener('change', () => { selected = regions.value; render(); });
   $('global-reset').addEventListener('click', () => selectRegion('global'));
 } catch { $('atmosphere-result').textContent = 'Data could not load'; $('atmosphere-caption').textContent = 'Please reload the page to try again.'; }
+
+initTutorial("time");

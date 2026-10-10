@@ -1,16 +1,15 @@
-import { hostedTestCheckout } from './checkout.js';
+import { validCheckoutUrl } from './checkout.js';
 const config = await fetch('./config.json').then(r => r.json());
 const container = document.querySelector('#products');
 const status = document.querySelector('#purchase-status');
 const money = (amount, currency) => new Intl.NumberFormat('en', {
-  style: 'currency', currency, maximumFractionDigits: 0,
+  style: 'currency', currency, minimumFractionDigits: 2, maximumFractionDigits: 2,
 }).format(amount);
 
 for (const product of config.products) {
   const printed = product.id === 'hardcopy';
-  const hostedUrl = hostedTestCheckout(config, product);
   const checkoutReady = !printed && product.availability !== 'coming_soon' &&
-    config.salesStatus !== 'coming_soon' && Boolean(hostedUrl || config.checkoutApi);
+    config.salesStatus !== 'coming_soon' && Boolean(config.checkoutApi);
   const article = document.createElement('article');
   const heading = document.createElement('h3');
   const description = document.createElement('p');
@@ -35,7 +34,6 @@ for (const product of config.products) {
     : (checkoutReady ? 'Get PDF + EPUB' : 'PDF + EPUB — coming soon');
   button.addEventListener('click', async () => {
     if (printed) return;
-    if (hostedUrl) { location.href = hostedUrl; return; }
     button.disabled = true;
     status.textContent = 'Opening secure checkout…';
     try {
@@ -45,7 +43,9 @@ for (const product of config.products) {
       });
       const body = await response.json();
       if (!response.ok) throw Error(body.error || 'Checkout unavailable');
-      location.href = body.url;
+      const url = validCheckoutUrl(body.url);
+      if (!url || body.mode !== config.paymentMode) throw Error("Checkout could not be verified. Please try again.");
+      location.href = url;
     } catch (error) {
       status.textContent = error.message;
       button.disabled = false;

@@ -1,102 +1,115 @@
-import { createHmac, timingSafeEqual, createHash } from 'node:crypto';
-import { mkdir, writeFile } from 'node:fs/promises';
+import Stripe from 'stripe';
+import { createHash } from 'node:crypto';
+import { mkdir, writeFile, readFile, stat, realpath } from 'node:fs/promises';
 import { resolve, join } from 'node:path';
 
 export class HttpError extends Error {
   constructor(status, message) { super(message); this.status = status; }
 }
-const positiveId = value => typeof value === 'string' && /^[1-9]\d*$/.test(value);
-
-// This branch cannot switch to live mode through an environment variable.
+const sessionId = id => typeof id === 'string' && /^cs_(test|live)_[A-Za-z0-9]+$/.test(id);
 export function paymentConfig(env = process.env) {
-  if (env.PAYMENT_MODE && env.PAYMENT_MODE !== 'test') throw Error('Only test payments are supported on this branch.');
+  const mode = env.PAYMENT_MODE || 'test';
+  if (!['test', 'live'].includes(mode)) throw Error('PAYMENT_MODE must be test or live.');
   const origin = new URL(env.SITE_ORIGIN || 'http://127.0.0.1:8766');
   if (origin.pathname !== '/' || origin.search || origin.hash || origin.username || origin.password ||
-      !(origin.protocol === 'https:' || (origin.protocol === 'http:' && ['localhost', '127.0.0.1'].includes(origin.hostname)))) {
-    throw Error('SITE_ORIGIN must be an HTTPS origin (or local development origin).');
-  }
-  const variants = { digital: env.LEMONSQUEEZY_DIGITAL_VARIANT_ID };
-  for (const value of Object.values(variants)) if (value && !positiveId(value)) throw Error('Variant IDs must be positive integers.');
-  if (env.LEMONSQUEEZY_STORE_ID && !positiveId(env.LEMONSQUEEZY_STORE_ID)) throw Error('Invalid store ID.');
+      !(origin.protocol === 'https:' || (mode === 'test' && origin.protocol === 'http:' && ['localhost','127.0.0.1'].includes(origin.hostname)))) throw Error('SITE_ORIGIN must be an HTTPS origin (or local test origin).');
+  const apiKey = env.STRIPE_SECRET_KEY || '';
+  if (apiKey && !new RegExp(`^[sr]k_${mode}_`).test(apiKey)) throw Error('Stripe key and PAYMENT_MODE must match.');
   return {
-    origin: origin.origin, apiKey: env.LEMONSQUEEZY_API_KEY || '',
-    storeId: env.LEMONSQUEEZY_STORE_ID || '', variants,
-    webhookSecret: env.LEMONSQUEEZY_WEBHOOK_SECRET || '',
+    mode, origin: origin.origin, apiKey,
+    priceId: env.STRIPE_DIGITAL_PRICE_ID || 'price_...',
+    successUrl: env.STRIPE_SUCCESS_URL || `${origin.origin}/success?session_id={CHECKOUT_SESSION_ID}`,
+    cancelUrl: env.STRIPE_CANCEL_URL || origin.origin,
+    webhookSecret: env.STRIPE_WEBHOOK_SECRET || '',
     ledgerDir: resolve(env.PAYMENT_LEDGER_DIR || './.payment-data'),
+    files: {pdf:env.BOOK_PDF_PATH || '', epub:env.BOOK_EPUB_PATH || ''},
   };
 }
 
-export function validSignature(raw, signature, secret) {
-  if (!secret || typeof signature !== 'string' || !/^[a-f0-9]{64}$/i.test(signature)) return false;
-  return timingSafeEqual(createHmac('sha256', secret).update(raw).digest(), Buffer.from(signature, 'hex'));
-}
-
-export function createPayments(config, { fetchImpl = fetch, now = () => Date.now() } = {}) {
-  async function api(path, body) {
-    if (!config.apiKey || !config.storeId) throw new HttpError(503, 'Test checkout has not been configured yet.');
-    let response;
-    try {
-      response = await fetchImpl(`https://api.lemonsqueezy.com/v1/${path}`, {
-        method: body ? 'POST' : 'GET',
-        headers: { Authorization: `Bearer ${config.apiKey}`, Accept: 'application/vnd.api+json', 'Content-Type': 'application/vnd.api+json' },
-        ...(body ? { body: JSON.stringify(body) } : {}), signal: AbortSignal.timeout(15000),
-      });
-    } catch { throw new HttpError(502, 'Payment provider is temporarily unavailable. Please try again.'); }
-    if (!response.ok) throw new HttpError(502, 'Payment provider could not complete the request. Please try again.');
-    try { return (await response.json()).data; }
-    catch { throw new HttpError(502, 'Payment provider returned an invalid response.'); }
+export function createPayments(config, { stripe: injectedStripe } = {}) {
+  // No API version override: use the installed SDK's compatible default.
+  const stripe = injectedStripe || (config.apiKey ? new Stripe(config.apiKey, {timeout:15000, maxNetworkRetries:2}) : null);
+  function ready() {
+    if (!stripe || !/^price_[A-Za-z0-9]+$/.test(config.priceId) || !config.webhookSecret) throw new HttpError(503, 'Checkout has not been configured yet.');
+  }
+  async function api(action) {
+    try { return await action(); }
+    catch (error) { if (error instanceof HttpError) throw error; throw new HttpError(502, 'Payment service is temporarily unavailable. Please try again.'); }
+  }
+  async function privateFile(format) {
+    if (!['pdf','epub'].includes(format) || !config.files?.[format]) throw new HttpError(503, 'Book downloads are not ready yet.');
+    let path, info;
+    try { path = await realpath(config.files[format]); info = await stat(path); } catch { throw new HttpError(503, 'Book downloads are not ready yet.'); }
+    const root = resolve(import.meta.dirname, '..');
+    // Files must be outside the static site or inside the explicitly excluded private folder.
+    if (!info.isFile() || !info.size || (path.startsWith(root + '/') && !path.startsWith(join(root,'private-products') + '/'))) throw new HttpError(503, 'Private download storage is not configured correctly.');
+    return {path, size:info.size, format};
+  }
+  async function validatePrice() {
+    const price = await api(() => stripe.prices.retrieve(config.priceId));
+    if (!price.active || price.type !== 'one_time' || price.currency !== 'eur' || price.unit_amount !== 1999 || price.tax_behavior !== 'inclusive' || price.livemode !== (config.mode === 'live')) throw new HttpError(503, 'The digital edition price must be €19.99 including tax.');
   }
   async function checkout(input) {
-    if (!input || input.product !== 'digital' || Object.keys(input).some(k => k !== 'product')) {
-      throw new HttpError(400, 'Choose the digital edition (PDF + EPUB). Prices and payment details are set by the store.');
+    if (!input || input.product !== 'digital' || Object.keys(input).some(k => k !== 'product')) throw new HttpError(400, 'Choose the digital edition (PDF + EPUB). Prices are set by the store.');
+    ready();
+    for (const value of [config.successUrl, config.cancelUrl]) {
+      const url = new URL(value);
+      if (url.origin !== config.origin) throw new HttpError(503, 'Checkout return URLs must use the website origin.');
     }
-    const variant = config.variants[input.product];
-    if (!variant) throw new HttpError(503, 'The digital edition is not yet available in test checkout.');
-    const data = await api('checkouts', { data: {
-      type: 'checkouts', attributes: {
-        test_mode: true, expires_at: new Date(now() + 30 * 60 * 1000).toISOString(),
-        product_options: { enabled_variants: [Number(variant)] },
-        checkout_options: { embed: false },
-        checkout_data: { custom: { product: input.product, integration: 'counting-carbon-sandbox' } },
-      },
-      relationships: { store: { data: { type: 'stores', id: config.storeId } }, variant: { data: { type: 'variants', id: variant } } },
-    } });
-    const a = data?.attributes;
-    let url;
-    try { url = new URL(a?.url); } catch { throw new HttpError(502, 'Invalid checkout response.'); }
-    if (a.test_mode !== true || String(a.store_id) !== config.storeId || String(a.variant_id) !== variant ||
-        url.protocol !== 'https:' || !url.hostname.endsWith('.lemonsqueezy.com') || url.username || url.password || url.port) {
-      throw new HttpError(502, 'Provider response failed sandbox validation.');
-    }
-    return { url: url.href, mode: 'test' };
+    if (!config.successUrl.includes('{CHECKOUT_SESSION_ID}')) throw new HttpError(503, 'The checkout success page is not configured.');
+    await Promise.all([validatePrice(), privateFile('pdf'), privateFile('epub')]);
+    const session = await api(() => stripe.checkout.sessions.create({
+      ui_mode: 'hosted_page', mode: 'payment',
+      billing_address_collection: 'auto', phone_number_collection: {enabled:false},
+      // Owner approved omitting automatic_tax: Managed Payments controls tax itself.
+      managed_payments: {enabled:true},
+      allow_promotion_codes: false, submit_type: 'auto',
+      integration_identifier: 'hosted_web_0001', origin_context: 'web',
+      success_url: config.successUrl, cancel_url: config.cancelUrl,
+      line_items: [{price:config.priceId, quantity:1}],
+    }));
+    let url; try { url = new URL(session.url); } catch { throw new HttpError(502, 'Invalid checkout response.'); }
+    if (session.livemode !== (config.mode === 'live') || url.protocol !== 'https:' || url.hostname !== 'checkout.stripe.com' || url.username || url.password || url.port) throw new HttpError(502, 'Invalid checkout response.');
+    return {url:url.href, mode:config.mode};
+  }
+  const orderPath = id => join(config.ledgerDir, createHash('sha256').update(id).digest('hex') + '.json');
+  async function paidSession(id) {
+    ready();
+    if (!sessionId(id)) throw new HttpError(400, 'Invalid checkout reference.');
+    const session = await api(() => stripe.checkout.sessions.retrieve(id, {expand:['line_items', 'payment_intent.latest_charge']}));
+    const lines = session.line_items;
+    if (session.livemode !== (config.mode === 'live') || session.mode !== 'payment' || session.managed_payments?.enabled !== true || lines?.has_more || lines?.data?.length !== 1 || lines.data[0].price?.id !== config.priceId || lines.data[0].quantity !== 1) throw new HttpError(403, 'This payment does not match the digital edition.');
+    if (session.status !== 'complete' || session.payment_status !== 'paid') throw new HttpError(409, 'Payment is still being confirmed. Please check again shortly.');
+    const charge = session.payment_intent?.latest_charge;
+    if (!charge || typeof charge !== 'object' || !charge.paid || charge.amount_refunded > 0 || charge.refunded || charge.disputed) throw new HttpError(403, 'Downloads are unavailable for this payment.');
+    return session;
   }
   async function webhook(raw, signature) {
-    if (!config.webhookSecret) throw new HttpError(503, 'Webhook is not configured.');
-    if (!validSignature(raw, signature, config.webhookSecret)) throw new HttpError(401, 'Invalid webhook signature.');
-    let event;
-    try { event = JSON.parse(raw.toString('utf8')); } catch { throw new HttpError(400, 'Invalid JSON.'); }
-    const name = event?.meta?.event_name;
-    if (!['order_created', 'order_refunded'].includes(name)) return { received: true, ignored: true };
-    const id = event?.data?.id;
-    if (event?.data?.type !== 'orders' || !positiveId(String(id)) || event?.data?.attributes?.test_mode !== true) {
-      throw new HttpError(400, 'Expected a test order.');
-    }
-    // Re-fetch current provider state: a replayed paid event cannot resurrect a refunded order.
-    const order = await api(`orders/${id}`);
-    const a = order?.attributes;
-    const variant = String(a?.first_order_item?.variant_id);
-    const product = Object.keys(config.variants).find(k => config.variants[k] === variant);
-    if (String(order?.id) !== String(id) || order?.type !== 'orders' || a?.test_mode !== true ||
-        String(a.store_id) !== config.storeId || !product) throw new HttpError(400, 'Order does not match this test store.');
-    if (!['paid', 'refunded', 'partial_refund'].includes(a.status)) return { received: true, ignored: true };
-    const record = { provider: 'lemonsqueezy', orderId: String(id), product, status: a.status, testMode: true,
-      providerUpdatedAt: a.updated_at, event: name, fulfilment: 'provider_managed_download' };
-    // Immutable, idempotent audit records; never store customer data, receipt URLs or file URLs.
-    const key = createHash('sha256').update(JSON.stringify(record)).digest('hex');
-    await mkdir(config.ledgerDir, { recursive: true, mode: 0o700 });
-    try { await writeFile(join(config.ledgerDir, `${key}.json`), JSON.stringify(record) + '\n', { flag: 'wx', mode: 0o600 }); }
+    ready(); let event;
+    try { event = stripe.webhooks.constructEvent(raw, signature, config.webhookSecret); }
+    catch { throw new HttpError(400, 'Invalid webhook signature.'); }
+    if (event.livemode !== (config.mode === 'live')) throw new HttpError(400, 'Webhook mode does not match.');
+    if (!['checkout.session.completed','checkout.session.async_payment_succeeded','checkout.session.async_payment_failed'].includes(event.type)) return {received:true};
+    if (event.type === 'checkout.session.async_payment_failed') return {received:true};
+    let session;
+    try { session = await paidSession(event.data.object.id); }
+    catch (error) { if ([403,409].includes(error.status)) return {received:true}; throw error; }
+    await mkdir(config.ledgerDir,{recursive:true,mode:0o700});
+    try { await writeFile(orderPath(session.id), JSON.stringify({sessionId:session.id, paymentIntent:session.payment_intent.id, priceId:config.priceId, mode:config.mode, eventId:event.id}), {flag:'wx',mode:0o600}); }
     catch (error) { if (error.code !== 'EEXIST') throw error; }
-    return { received: true };
+    return {received:true};
   }
-  return { checkout, webhook };
+  async function authoriseDownload(id) {
+    const session = await paidSession(id); let record;
+    try { record = JSON.parse(await readFile(orderPath(id),'utf8')); }
+    catch { throw new HttpError(409, 'Your payment is confirmed. Downloads are being prepared; please check again shortly.'); }
+    if (record.sessionId !== id || record.priceId !== config.priceId || record.mode !== config.mode) throw new HttpError(403, 'Download access could not be verified.');
+    return session;
+  }
+  async function downloads(id) {
+    await authoriseDownload(id); await Promise.all([privateFile('pdf'),privateFile('epub')]);
+    return {files:['pdf','epub'].map(format=>({format,path:`/api/download/${format}?session_id=${encodeURIComponent(id)}`}))};
+  }
+  async function download(id,format) { await authoriseDownload(id); return privateFile(format); }
+  return {checkout, webhook, downloads, download};
 }

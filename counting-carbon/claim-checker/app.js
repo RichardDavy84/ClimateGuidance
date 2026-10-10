@@ -1,3 +1,4 @@
+import { initTutorial } from '../tutorial.js';
 import { calculate } from './model.js';
 const $ = id => document.getElementById(id);
 const quantity = $('quantity'), select = $('equivalence'), search = $('search'), result = $('claim-result'), details = $('claim-details'), qualifier = $('claim-qualifier'), controls = $('parameters');
@@ -116,3 +117,5 @@ try {
   const response = await fetch('/counting-carbon/data/equivalences.json'); if (!response.ok) throw Error();
   items = (await response.json()).items; filter();
 } catch { result.textContent='Equivalences could not load'; qualifier.textContent='Please reload the page to try again.'; select.disabled=true; }
+
+initTutorial("claim");

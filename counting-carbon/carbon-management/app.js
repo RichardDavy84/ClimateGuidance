@@ -1,3 +1,4 @@
+import { initTutorial } from '../tutorial.js';
 import {createState, calculate, applyPreset, setConstraint, isPreset, setDirectPotential, resumeAssumptions} from './model.js';
 
 const $ = id => document.getElementById(id), NS = 'http://www.w3.org/2000/svg';
@@ -258,3 +259,10 @@ if(context?.registerTool) {
   const tools=[{name:'read_carbon_scenario',description:'Read the visible carbon scenario and accounting qualification.',inputSchema:{type:'object',properties:{},additionalProperties:false},annotations:{readOnlyHint:true},execute:()=>({view,total:result.total,clusters:result.clusters,methods:result.methods,accounting:result.reconciliation.status})},{name:'restore_carbon_preset',description:'Restore all methods or one method to an explicit book scenario; updates the visible bars.',inputSchema:{type:'object',properties:{preset:{enum:['practical_scenario','ipcc','physical_limit']},scope:{type:'string'}},required:['preset'],additionalProperties:false},execute:input=>{setPreset(input.preset,input.scope||null);return {total:result.total};}}];
   for(const tool of tools){try{Promise.resolve(context.registerTool(tool,{signal:lifecycle.signal})).catch(()=>{});}catch{}}
 }
+
+let tutorialView;
+initTutorial("management", {
+  onStart: () => { tutorialView = {...view}; },
+  onStep: step => navigate(step < 2 ? {level:"overall"} : {level:"method",id:"forest"}),
+  onClose: () => navigate(tutorialView),
+});

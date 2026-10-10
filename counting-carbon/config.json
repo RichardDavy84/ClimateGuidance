@@ -10,7 +10,7 @@
       "id": "digital",
       "name": "Digital edition",
       "description": "PDF + EPUB together. One purchase, both formats.",
-      "price": 20,
+      "price": 19.99,
       "currency": "EUR",
       "purchaseUrl": null,
       "fulfilment": "private_download",

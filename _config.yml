@@ -8,3 +8,6 @@ exclude:
   - package-lock.json
   - private-products
   - dist
+  - pnpm-lock.yaml
+  - node_modules
+  - STRIPE_INTEGRATION_TODO.md

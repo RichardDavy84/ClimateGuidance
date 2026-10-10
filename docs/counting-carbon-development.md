@@ -4,7 +4,7 @@ Public release prepared on `feature/counting-carbon`, based on main `5b3b0a5`. T
 
 ## Run and verify
 
-Node 22+; the static site and test-only API require no npm package installation.
+Node 22+. Install the pinned Stripe SDK with `pnpm install --frozen-lockfile` before running payments or tests.
 
 ```sh
 npm run preview  # http://127.0.0.1:8766/counting-carbon/
@@ -17,7 +17,7 @@ The preview server listens only on loopback and serves the public root assets, `
 
 ## Pages
 
-- `/counting-carbon/`: new v14 cover, three limited v14 page previews, format configuration and companion tools. Source files stay outside the site. The digital edition is €20 for PDF + EPUB together; the printed edition is Coming soon with no price or checkout. The v14 PDF and EPUB are finished and remain outside the public repository. Stripe checkout and private download delivery remain pending.
+- `/counting-carbon/`: new v14 cover, three limited v14 page previews, format configuration and companion tools. Source files stay outside the site. The digital edition is €19.99 for PDF + EPUB together; the printed edition is Coming soon with no price or checkout. The v14 PDF and EPUB are finished and remain outside the public repository. Stripe checkout and private download delivery are implemented locally; deployment and end-to-end Stripe testing remain pending.
 - `/counting-carbon/carbon-management/`: existing diagram, presets, linked bars, thirteen method equations, direct-value control and assumption controls preserved. Small screens use readable HTML controls connected to the same state; the three primary input nodes move between layouts rather than calculating a second model.
 - `/counting-carbon/claim-checker/`: 61 searchable comparisons, the original Habit 1 cartoon, boxed result, short linked source explanations, optional 30-year tree growth view, geography for per-person comparisons and a named custom factor with kg/tonne units.
 - `/counting-carbon/carbon-time-machine/`: original illustration, NOAA stock comparison with observed history plot, country/continent map and separate emissions-duration comparison. Numeric inputs, zero, record boundaries and missing data have explicit behaviour.
@@ -26,7 +26,7 @@ Navigation is added across the existing root pages. No tool data load on unrelat
 
 ## Configuration and data
 
-`counting-carbon/config.json` owns book/product configuration. The selected provider is now Stripe Managed Payments. `salesStatus` and digital product availability are `coming_soon`, and there is no configured checkout URL or API. The earlier Lemon Squeezy test adapter is retained only as legacy code, excluded from the published Pages site. It is not a Stripe integration. See [Stripe release setup](stripe-managed-payments.md).
+`counting-carbon/config.json` owns book/product configuration. The selected provider is now Stripe Managed Payments. `salesStatus` and digital product availability are `coming_soon`, and there is no configured checkout URL or API. The existing payment API now uses Stripe Managed Payments and verified private downloads. See [the single Stripe setup checklist](../STRIPE_INTEGRATION_TODO.md) for deployment and remaining credentials.
 
 Claim factors and sources are in `counting-carbon/data/equivalences.json`; parameters remain separate from presentation. Time Machine source snapshots, constants and hashes are in the same directory; see [dataset refresh instructions](time-machine-data.md). Source workbooks are not bundled into the site.
 
@@ -47,3 +47,7 @@ Automated tests cover the original 13 equations/presets, independent changes and
 Stripe sandbox payment, Managed Payments tax presentation, verified fulfilment and both buyer downloads still need end-to-end testing. The site can be public while the digital product remains Coming soon. No complete paid manuscript, credentials or customer records are in the site or static build.
 
 Commercial setup: [owner guide](payments-and-print-setup.md) and [print/shipping comparison](print-on-demand-research.md).
+
+## Tool guidance
+
+Each tool has a short introduction and an optional first-visit walkthrough. “No thanks” and completion are remembered per tool in browser storage; “Show tutorial” always reopens it. Escape closes the guide, keyboard focus is contained in the dialog, and a Management walkthrough restores the previous view without changing scientific inputs.

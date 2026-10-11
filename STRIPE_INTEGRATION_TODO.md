@@ -1,102 +1,68 @@
-# Counting Carbon — Stripe setup
+# Counting Carbon — payment and delivery setup
 
-This is the single source of truth for checkout setup. The website sells **one €19.99 digital bundle containing both PDF and EPUB**. The printed edition remains **Coming soon**.
+The selected launch sells **one €19.99 PDF + EPUB bundle**, with Stripe Managed Payments checkout and delivery from **richard@climateguidance.com**. Dropbox holds version-specific files; Make handles verified orders and email. The printed edition remains **Coming soon**.
 
-The code is implemented and tested locally. **Purchases are still disabled on the public site.** A production payment server, its credentials, webhook endpoint and private book files must be connected before enabling sales. GitHub Pages hosts the public website; it cannot run the Node payment API.
+## Current status — 11 October 2026
 
-## Account and product already set up
+| Item | Status |
+|---|---|
+| Version 18 PDF and EPUB | Complete; source unchanged, PDF reviewed, EPUBCheck passed |
+| Dropbox upload | Both buyer links downloaded and matched the approved file hashes |
+| Live Stripe catalogue | €19.99 one-time, tax-inclusive product and price created |
+| Make account and Stripe connection | Connected |
+| Stripe webhook | Enabled for completed Checkout Sessions and successful delayed payments |
+| Make scenario | Inactive draft; trigger and authenticated Session lookup added |
+| Email connection | Connected; test message received in the Climate Guidance inbox |
+| Paid-order filters and duplicate guard | Configured in inactive draft; end-to-end validation pending |
+| Sandbox purchase and actual email/download test | Pending |
+| Live Payment Link | Not created |
+| Website Buy button | Disabled until delivery passes testing |
 
-The owner confirmed the **Climate Guidance** live account, `acct_1UOPUpBTUOb6lCsc`. Its live catalogue was empty. The following live product and price were created without taking a payment:
+The connector currently exposes only the live Stripe account. A separate sandbox connection is needed for end-to-end testing. No real payment is needed.
+
+## Catalogue
+
+Climate Guidance account: `acct_1UOPUpBTUOb6lCsc`.
 
 - Product: `prod_VPkbhHjiRsA4u0` — Counting Carbon — PDF + EPUB.
-- Price: `price_1UOv6ABTUOb6lCscNicCpqFp` — **1999 euro cents**, one-time, tax-inclusive.
+- Price: `price_1UOv6ABTUOb6lCscNicCpqFp` — EUR 1999 cents, one-time, inclusive tax.
 - Lookup key: `counting_carbon_digital_eur_1999`.
-- Tax code: `txcd_10302000` — downloaded digital books with permanent rights.
-- [Open the product](https://dashboard.stripe.com/acct_1UOPUpBTUOb6lCsc/products/prod_VPkbhHjiRsA4u0).
+- Tax category: `txcd_10302000` — downloaded digital books.
+- [Stripe product](https://dashboard.stripe.com/acct_1UOPUpBTUOb6lCsc/products/prod_VPkbhHjiRsA4u0).
 
-A separate **test/sandbox** copy of the product and price is required for test payments. Never use the live Price ID with test credentials.
+Confirm Managed Payments activation and product eligibility before launch. Use `managed_payments.enabled: true`. Omit `automatic_tax` and a payment-method allowlist; the owner approved this adjustment because Managed Payments controls them. Adaptive Pricing may offer local currency; validate the purchased Price ID rather than assuming every charged amount is in EUR.
 
-## Values to replace
+## Finish the Make workflow
 
-Files with deployment values: [.env.example](.env.example), [server/payments.mjs](server/payments.mjs), [counting-carbon/config.json](counting-carbon/config.json).
+The scenario **Counting Carbon — paid order delivery** receives `checkout.session.completed` and `checkout.session.async_payment_succeeded`. Its authenticated lookup retrieves the current Checkout Session, expanded line items and latest charge.
 
-| Field | Current value | What to set |
-|---|---|---|
-| `mode` | `payment` | Already correct for the one-time bundle; no subscription. |
-| `STRIPE_DIGITAL_PRICE_ID` → `line_items[0].price` | `price_...` | Test Price ID in a sandbox; the live ID above only for live deployment. Quantity is fixed at one. |
-| `STRIPE_SUCCESS_URL` → `success_url` | `http://127.0.0.1:8766/success?session_id={CHECKOUT_SESSION_ID}` | For local tests: `http://127.0.0.1:8766/counting-carbon/downloads/?session_id={CHECKOUT_SESSION_ID}`. Live: `https://www.climateguidance.com/counting-carbon/downloads/?session_id={CHECKOUT_SESSION_ID}`. Keep the template exactly. |
-| `STRIPE_CANCEL_URL` → `cancel_url` | `http://127.0.0.1:8766` | Local or live `/counting-carbon/#products` URL. |
-| `SITE_ORIGIN` | `http://127.0.0.1:8766` | `https://www.climateguidance.com` in production. Must match checkout return URLs and browser Origin. |
-| `STRIPE_SECRET_KEY` | Empty | Server-only restricted key with Checkout Sessions write/read, Prices read, PaymentIntents/Charges read and any permissions Stripe identifies during testing. Use a host secret store; never commit it or paste it into chat. |
-| `STRIPE_WEBHOOK_SECRET` | Empty | Signing secret for this environment’s `/api/webhooks/stripe` endpoint. |
-| `BOOK_PDF_PATH`, `BOOK_EPUB_PATH` | Empty | Absolute paths to the approved paid files on the payment server. Outside the public website, or in excluded `private-products/`. Both are required before checkout opens. |
-| `PAYMENT_LEDGER_DIR` | `.payment-data` | A private, persistent directory with backups. This implementation is for one Node service with durable disk, not ephemeral/serverless instances. |
-| `HOST`, `PORT` | `127.0.0.1`, `8787` | Bind as required by the chosen HTTPS reverse proxy/Node host. |
-| `PAYMENT_MODE` | `test` | Keep test for testing; explicitly change to live with matching live key, price and webhook secret. |
-| `checkoutApi` | Empty | HTTPS base URL of the deployed payment API, without a trailing slash. Local test example: `http://127.0.0.1:8787`. |
-| `paymentMode` | `test` | Must match server mode. |
-| `salesStatus`, digital `availability` | `coming_soon` | Change both to `available` only after the complete checkout/download test succeeds. Hardcopy stays `coming_soon`. |
+Require a complete, paid, one-time Session in the expected environment, with exactly one configured book bundle item and quantity one. Check the payment is not refunded or disputed. Use the email from the retrieved Session. Restrict delivery to the book's Payment Link or metadata once configured.
 
-The server retains the Checkout Studio sample return-path defaults and price placeholder until these environment values are supplied. No publishable key or Stripe.js is needed for this hosted redirect flow.
+Use sequential scenario processing and a durable record keyed by Session ID. Reserve the order before sending, record edition and delivery outcome, and ignore already delivered events. Ambiguous SMTP failures need review before retrying. Keep update opt-in and unsubscribe suppression separate; purchase does not imply consent to announcements.
 
-## Configured parameters
+Connect SMTP, add the private v18 links to the thank-you email, and record delivery state. Download links, credentials and buyer information must never enter GitHub or the public website.
 
-Scenario B applied: there was no Stripe Checkout call. The existing Node HTTP endpoint, origin checks, environment loading and private audit pattern were reused. The former Lemon Squeezy adapter was replaced.
+## Test and activate
 
-[server/payments.mjs](server/payments.mjs) contains:
+1. Create a Stripe sandbox product/price and matching Make connection. Use only test card details in sandbox checkout.
+2. Complete a sandbox Checkout Session. Confirm one email arrives containing both working edition-18 links; download and open both files.
+3. Replay the event and confirm no duplicate email. Unpaid, wrong-product and wrong-environment events must send nothing. Delayed payments wait for success. Verify the error notification/support path.
+4. Test Yes, No and blank update choices, plus suppression of an unsubscribed address in future announcements.
+5. Verify live Managed Payments readiness. Create the live Payment Link only after delivery testing passes. Add the optional book-update dropdown, default No, and record its wording with consent.
+6. In `counting-carbon/config.json`, set the live digital `purchaseUrl`, `paymentMode: live`, `salesStatus: available`, and digital `availability: available`. Keep `checkoutMode: payment_link`, `checkoutApi` empty and printed edition Coming soon.
+7. Publish and verify the public button opens the correct €19.99 bundle checkout. Do not make a real charge as a test.
 
-| Parameter | Value |
-|---|---|
-| `ui_mode` | `hosted_page` (Stripe Node SDK 22.6.0, pinned in package.json and pnpm-lock.yaml) |
-| `mode` | `payment` |
-| `billing_address_collection` | `auto` |
-| `phone_number_collection.enabled` | `false` |
-| `managed_payments.enabled` | `true` |
-| `automatic_tax` | **Omitted with the owner’s explicit approval.** Stripe documents this parameter as unsupported with Managed Payments, which controls tax itself. |
-| `allow_promotion_codes` | `false` |
-| `submit_type` | `auto` |
-| `integration_identifier` | `hosted_web_0001` |
-| `origin_context` | `web` |
-| `payment_method_collection` | Omitted because this is a one-time payment, as required by the brief. |
+## Website and maintenance
 
-No API version override and no payment-method allowlist are added. Managed Payments selects available payment methods. Adaptive Pricing may offer local currency; the base EUR price remains €19.99 inclusive of tax. Verify the actual checkout presentation in supported buyer locations.
+`checkout.js` accepts only HTTPS links on `buy.stripe.com` with no credentials, query or hash, and matching test/live mode. `book.js` enables the button only when a valid link and available status exist. Card details stay on Stripe.
 
-## Set up and test
+The earlier Node server and Render configuration remain an undeployed alternative. No recurring hosting charge has been accepted. For support, verify an order in Stripe before resending. For a new edition, upload and test fresh links, update the delivery template, and deliberately send an announcement only to opted-in, non-suppressed buyers.
 
-1. Confirm **Managed Payments is activated** in the Climate Guidance Dashboard and this ebook tax category is eligible. Account activation and any agreement acceptance must be completed by the owner.
-2. In a Stripe sandbox/test environment, create the equivalent one-time €19.99 **inclusive** Price. Install dependencies with Node 22+ and `pnpm install --frozen-lockfile` (or `npm install` if pnpm is unavailable).
-3. Copy `.env.example` to untracked `.env`, fill the test values above, and start `npm run payments`. Use `npm run preview` for the static site. Set the local config’s API and availability values for testing; do not publish a localhost API URL.
-4. Forward Stripe test webhooks to `http://127.0.0.1:8787/api/webhooks/stripe` using Stripe CLI, or register the HTTPS test endpoint. Subscribe to `checkout.session.completed`, `checkout.session.async_payment_succeeded` and `checkout.session.async_payment_failed`. Put that endpoint’s signing secret in the server environment. Restart the server after environment changes.
-5. Complete hosted Checkout using Stripe test card **4242 4242 4242 4242**, a future expiry and any valid CVC. Test authentication with **4000 0025 0000 3155** and a decline with **4000 0000 0000 9995**. These are test cards only, never real payments.
-6. Confirm both files download after the webhook arrives. Test cancellation, delayed confirmation, retrying the same event, invalid signatures, an unpaid session, a wrong product, a refunded/disputed payment, and direct guesses at private file paths. A missing webhook must not grant access.
-7. Deploy the Node API on an HTTPS host with persistent private storage. Upload the approved PDF and EPUB there. The current edit deliverable is v16 DOCX; it is **not yet a new publication PDF/EPUB**. Do not silently sell an old version as v16.
-8. Register the live webhook endpoint and configure the live price/key/secret. Set production return URLs. Put a reverse-proxy rate limit on checkout and download endpoints, including per-session download limits, and redact `session_id` query strings from access logs. Back up the private ledger.
-9. Add the site’s purchase/download support and refund terms. Verify Stripe receipts and the buyer’s return link. The implemented access path is the checkout success page; automated delivery/recovery email is **not implemented**. Establish a working manual receipt-based support process or add a mail provider before launch, so buyers who close Checkout can recover their files.
-10. Only then enable digital availability and live mode in the public config. Hardcopy remains Coming soon.
-
-## How the integration works
-
-The button calls `POST /api/checkout` with only `product: digital`. The server retrieves and validates the configured Price, checks that both private files exist, then creates a Managed Payments Checkout Session. The browser redirects to Stripe; no card details pass through this website.
-
-Stripe sends a signed raw-body webhook. The server retrieves the current Session, verifies its mode, one-item bundle, quantity and paid status, and writes an idempotent private order record. Delayed payments do not receive files until payment succeeds. The record contains Stripe identifiers, not card details or customer email.
-
-The return page calls `POST /api/downloads`. File requests also re-check the live payment state and the webhook-created record. Refunded or disputed payments cannot download, including after a replayed old event. The private `session_id` acts as the download reference; do not share it publicly. Files are streamed from private disk with `no-store` and attachment headers. No paid file is included in the static build.
-
-## Changed/new files
-
-- [server/payments.mjs](server/payments.mjs): Stripe Session creation, validation, webhook and private delivery logic.
-- [server/index.mjs](server/index.mjs): existing HTTP server and new Stripe/download routes.
-- [counting-carbon/book.js](counting-carbon/book.js), [checkout.js](counting-carbon/checkout.js), [config.json](counting-carbon/config.json): €19.99 bundle display and validated Stripe redirect.
-- [counting-carbon/downloads/index.html](counting-carbon/downloads/index.html), [app.js](counting-carbon/downloads/app.js): payment confirmation and both download buttons.
-- [tests/payments.test.mjs](tests/payments.test.mjs): signatures, unpaid/refunded access, product/price validation, idempotency, HTTP and private-file isolation.
-- [tutorial.js](counting-carbon/tutorial.js), [tutorial.css](counting-carbon/tutorial.css): separate optional guidance for the three tools; these do not alter the scientific models.
+See [Dropbox delivery details](docs/download-hosting.md) for file maintenance and mail settings.
 
 ## References
 
-- [Managed Payments setup](https://docs.stripe.com/payments/managed-payments/set-up)
-- [Managed Payments parameter restrictions](https://docs.stripe.com/payments/managed-payments/update-checkout)
+- [Managed Payments Payment Links](https://docs.stripe.com/payments/managed-payments/use-payment-links)
 - [Checkout fulfillment](https://docs.stripe.com/checkout/fulfillment)
-- [Stripe testing](https://docs.stripe.com/testing)
-- [API-key security](https://docs.stripe.com/keys-best-practices)
-- [Stripe support](https://support.stripe.com)
-- [Stripe MCP documentation](https://docs.stripe.com/mcp)
+- [Payment Link custom fields](https://docs.stripe.com/payment-links/customize#add-custom-fields)
+- [Make Stripe integration](https://apps.make.com/stripe)

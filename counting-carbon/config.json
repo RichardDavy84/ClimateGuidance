@@ -2,7 +2,7 @@
   "title": "Counting Carbon",
   "subtitle": "A Practical Guide to Carbon Budgets, Sinks and Removal",
   "cover": "/counting-carbon/assets/cover.webp",
-  "version": 14,
+  "version": 18,
   "checkoutApi": "",
   "paymentMode": "test",
   "products": [
@@ -13,12 +13,12 @@
       "price": 19.99,
       "currency": "EUR",
       "purchaseUrl": null,
-      "fulfilment": "private_download",
+      "fulfilment": "dropbox_email",
       "formats": [
         "pdf",
         "epub"
       ],
-      "checkoutMode": null,
+      "checkoutMode": "payment_link",
       "availability": "coming_soon"
     },
     {

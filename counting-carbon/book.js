@@ -1,4 +1,4 @@
-import { validCheckoutUrl } from './checkout.js';
+import { validCheckoutUrl, paymentLinkForProduct } from './checkout.js';
 const config = await fetch('./config.json').then(r => r.json());
 const container = document.querySelector('#products');
 const status = document.querySelector('#purchase-status');
@@ -8,8 +8,13 @@ const money = (amount, currency) => new Intl.NumberFormat('en', {
 
 for (const product of config.products) {
   const printed = product.id === 'hardcopy';
+  const paymentLink = paymentLinkForProduct(config, product);
   const checkoutReady = !printed && product.availability !== 'coming_soon' &&
-    config.salesStatus !== 'coming_soon' && Boolean(config.checkoutApi);
+    config.salesStatus === 'available' &&
+    (product.checkoutMode === 'payment_link' ? Boolean(paymentLink) : Boolean(config.checkoutApi));
+  if (product.id === 'digital' && checkoutReady) {
+    document.querySelector('#delivery-details').hidden = false;
+  }
   const article = document.createElement('article');
   const heading = document.createElement('h3');
   const description = document.createElement('p');
@@ -26,7 +31,7 @@ for (const product of config.products) {
   note.textContent = printed
     ? 'Details will follow when the print edition is ready.'
     : (checkoutReady
-      ? 'Secure checkout. Applicable VAT included. Both files included.'
+      ? 'Secure checkout. Applicable VAT included. PDF and EPUB download links sent by email.'
       : 'PDF and EPUB included. Downloads will be available here when sales open.');
   button.disabled = !checkoutReady || product.price === null;
   button.textContent = printed
@@ -37,6 +42,10 @@ for (const product of config.products) {
     button.disabled = true;
     status.textContent = 'Opening secure checkout…';
     try {
+      if (paymentLink) {
+        location.href = paymentLink;
+        return;
+      }
       const response = await fetch(config.checkoutApi + '/api/checkout', {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ product: product.id }),

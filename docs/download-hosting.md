@@ -22,7 +22,7 @@ Check Make failure notifications and order records. If an email send has an unce
 
 The scenario must retrieve the current Stripe Session, validate payment and product, and record the Session ID to suppress duplicate webhook deliveries. A checkout redirect or webhook payload alone is not sufficient proof of a paid order. Delayed payments wait for confirmed success.
 
-See [the integration checklist](../STRIPE_INTEGRATION_TODO.md) for current launch status. Books are uploaded and both download hashes match the approved files. SMTP delivery was tested successfully; the full sandbox payment-to-email test remains pending. The website Buy button stays disabled until those checks pass.
+See [the integration checklist](../STRIPE_INTEGRATION_TODO.md) for current launch status. Books are uploaded and both download hashes match the approved files. Sandbox payment-to-email tests passed, including both update choices, duplicate replay and wrong-price rejection. The live Make scenario is active and the website uses the live Managed Payments link.
 
 ## References
 

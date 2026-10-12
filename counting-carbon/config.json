@@ -4,7 +4,7 @@
   "cover": "/counting-carbon/assets/cover.webp",
   "version": 18,
   "checkoutApi": "",
-  "paymentMode": "test",
+  "paymentMode": "live",
   "products": [
     {
       "id": "digital",
@@ -12,14 +12,14 @@
       "description": "PDF + EPUB together. One purchase, both formats.",
       "price": 19.99,
       "currency": "EUR",
-      "purchaseUrl": null,
+      "purchaseUrl": "https://buy.stripe.com/6oUfZgeFz6jddzUd9G4wM00",
       "fulfilment": "dropbox_email",
       "formats": [
         "pdf",
         "epub"
       ],
       "checkoutMode": "payment_link",
-      "availability": "coming_soon"
+      "availability": "available"
     },
     {
       "id": "hardcopy",
@@ -44,5 +44,5 @@
   "analytics": null,
   "paymentProvider": "stripe_managed_payments",
   "taxPresentation": "Digital price includes applicable VAT.",
-  "salesStatus": "coming_soon"
+  "salesStatus": "available"
 }

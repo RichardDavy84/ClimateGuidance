@@ -24,11 +24,11 @@
     {
       "id": "hardcopy",
       "name": "Printed edition",
-      "description": "A printed edition is planned.",
+      "description": "Paperback edition, available from Amazon.",
       "price": null,
       "currency": "EUR",
-      "purchaseUrl": null,
-      "availability": "coming_soon"
+      "purchaseUrl": "https://www.amazon.co.uk/dp/B0HN5DCX52",
+      "availability": "available"
     }
   ],
   "defaults": {

@@ -1,5 +1,5 @@
 import { validCheckoutUrl, paymentLinkForProduct } from './checkout.js';
-const config = await fetch('./config.json?v=20261016-999', {cache: 'no-store'}).then(r => r.json());
+const config = await fetch('./config.json?v=20261016-paperback', {cache: 'no-store'}).then(r => r.json());
 const container = document.querySelector('#products');
 const status = document.querySelector('#purchase-status');
 const money = (amount, currency) => new Intl.NumberFormat('en', {
@@ -8,6 +8,7 @@ const money = (amount, currency) => new Intl.NumberFormat('en', {
 
 for (const product of config.products) {
   const printed = product.id === 'hardcopy';
+  const printLink = printed && product.availability === 'available' ? product.purchaseUrl : null;
   const paymentLink = paymentLinkForProduct(config, product);
   const checkoutReady = !printed && product.availability !== 'coming_soon' &&
     config.salesStatus === 'available' &&
@@ -20,22 +21,28 @@ for (const product of config.products) {
   const description = document.createElement('p');
   const price = document.createElement('p');
   const note = document.createElement('p');
-  const button = document.createElement('button');
+  const button = document.createElement(printLink ? 'a' : 'button');
   heading.textContent = product.name;
   description.textContent = product.description;
   price.className = 'format-price';
   price.textContent = printed
-    ? 'Coming soon'
+    ? (printLink ? 'Price on Amazon' : 'Coming soon')
     : money(product.price, product.currency);
   note.className = 'small-note';
   note.textContent = printed
-    ? 'Details will follow when the print edition is ready.'
+    ? (printLink ? 'Order through Amazon. Price and delivery options are shown there.' : 'Details will follow when the print edition is ready.')
     : (checkoutReady
       ? 'Secure checkout. Applicable VAT included. PDF and EPUB download links sent by email.'
       : 'PDF and EPUB included. Downloads will be available here when sales open.');
-  button.disabled = !checkoutReady || product.price === null;
+  if (printLink) {
+    button.href = printLink;
+    button.className = 'button';
+    button.style.marginTop = 'auto';
+  } else {
+    button.disabled = !checkoutReady || product.price === null;
+  }
   button.textContent = printed
-    ? 'Printed edition — coming soon'
+    ? (printLink ? 'Buy paperback on Amazon' : 'Printed edition — coming soon')
     : (checkoutReady ? 'Get PDF + EPUB' : 'PDF + EPUB — coming soon');
   button.addEventListener('click', async () => {
     if (printed) return;

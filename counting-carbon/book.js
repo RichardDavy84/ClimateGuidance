@@ -1,5 +1,5 @@
 import { validCheckoutUrl, paymentLinkForProduct } from './checkout.js';
-const config = await fetch('./config.json?v=20261013-1299', {cache: 'no-store'}).then(r => r.json());
+const config = await fetch('./config.json?v=20261016-999', {cache: 'no-store'}).then(r => r.json());
 const container = document.querySelector('#products');
 const status = document.querySelector('#purchase-status');
 const money = (amount, currency) => new Intl.NumberFormat('en', {

@@ -10,9 +10,9 @@
       "id": "digital",
       "name": "Digital edition",
       "description": "PDF + EPUB together. One purchase, both formats.",
-      "price": 12.99,
+      "price": 9.99,
       "currency": "EUR",
-      "purchaseUrl": "https://buy.stripe.com/8x228q9lf5f9gM6glS4wM01",
+      "purchaseUrl": "https://buy.stripe.com/3cI6oG40V6jdcvQc5C4wM02",
       "fulfilment": "dropbox_email",
       "formats": [
         "pdf",

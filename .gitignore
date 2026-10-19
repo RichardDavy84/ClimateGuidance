@@ -5,3 +5,7 @@
 private-products/
 node_modules/
 dist/
+
+# Derived scientific datasets and local design review artifacts
+/climate-tools/data/
+/redesign-review/

@@ -1,0 +1,86 @@
+[
+  {
+    "id": "npr",
+    "title": "The Arctic is heating up nearly four times faster than the whole planet, study finds",
+    "outlet": "NPR / WBUR",
+    "date": "2022-08-11",
+    "type": "radio",
+    "url": "https://www.wbur.org/npr/1116608415/the-arctic-is-heating-up-nearly-four-times-faster-than-the-rest-of-earth-study-f",
+    "description": "Rebecca Hersher interviews Richard about Arctic amplification, sea-ice loss and the challenge for climate models. Independent expert comment on a study by other researchers.",
+    "verified": true,
+    "featured": true,
+    "sourceIds": [
+      "npr"
+    ]
+  },
+  {
+    "id": "climate-hour",
+    "title": "World Tipping Points: Emerging Collapse Of The Arctic Sea Ice",
+    "outlet": "Climate Hour",
+    "date": "2026-01-01",
+    "type": "podcast",
+    "url": "https://climategkc.org/world-tipping-points-emerging-collapse-of-the-arctic-sea-ice/",
+    "description": "A long-form conversation with host Bob Grove about Arctic sea ice and climate-system change. Approximately 50 minutes.",
+    "verified": true,
+    "featured": true,
+    "sourceIds": [
+      "climatehour"
+    ]
+  },
+  {
+    "id": "heat-explainer",
+    "title": "Why do cities get warmer than the countryside?",
+    "outlet": "Bjerknes Centre",
+    "date": null,
+    "type": "explainer",
+    "url": "https://www.linkedin.com/posts/bjerknes-centre-for-climate-research_europe-has-been-affected-by-a-strong-activity-7477277140816801792-VMi6",
+    "description": "An institutional video explaining urban heat islands, surface properties, moisture and the role of vegetation.",
+    "verified": true,
+    "featured": true,
+    "sourceIds": [
+      "urbanvideo"
+    ]
+  },
+  {
+    "id": "summer-school",
+    "title": "The changing Arctic climate system",
+    "outlet": "Norwegian Scientific Academy for Polar Research",
+    "date": "2026-06-09",
+    "type": "talk",
+    "url": "https://www.polar-academy.com/news/summer-school-2026-daily-report-day-2",
+    "description": "Teaching at the 2026 international summer school in Svalbard on Arctic amplification and its physical consequences.",
+    "verified": true,
+    "featured": true,
+    "sourceIds": [
+      "school"
+    ]
+  },
+  {
+    "id": "sage-daybinar",
+    "title": "Making sea ice age comparable across models and observations",
+    "outlet": "ESA SAGE research-community event",
+    "date": "2025-09-19",
+    "type": "talk",
+    "url": "https://climate.esa.int/nl/projecten/sea-ice-age-and-drift-sage/",
+    "description": "A scientific presentation at Beyond Sea Ice Area, bringing observational and modelling communities together.",
+    "verified": true,
+    "featured": false,
+    "sourceIds": [
+      "sage-talk"
+    ]
+  },
+  {
+    "id": "sciam",
+    "title": "One Climate-Change Wildfire Risk Lurks in the Dark",
+    "outlet": "Scientific American",
+    "date": "2020-10-27",
+    "type": "explainer",
+    "url": "https://www.scientificamerican.com/article/one-climate-change-wildfire-risk-lurks-in-the-dark/",
+    "description": "Editorial coverage by Jane Braxton Little drawing on day/night warming research.",
+    "verified": true,
+    "featured": false,
+    "sourceIds": [
+      "sciam"
+    ]
+  }
+]

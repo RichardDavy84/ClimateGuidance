@@ -1,0 +1,74 @@
+{
+  "/RichardDavy-portrait.JPG": {
+    "width": 300,
+    "height": 300
+  },
+  "/assets/research/nextsim-drift.png": {
+    "width": 1892,
+    "height": 700
+  },
+  "/assets/research/apatity-temperature.png": {
+    "width": 2067,
+    "height": 1993
+  },
+  "/assets/tools/gsi.png": {
+    "width": 1280,
+    "height": 720
+  },
+  "/assets/tools/time.png": {
+    "width": 1265,
+    "height": 712
+  },
+  "/assets/tools/carbon.png": {
+    "width": 1265,
+    "height": 712
+  },
+  "/assets/tools/warm-nights.png": {
+    "width": 1265,
+    "height": 712
+  },
+  "/assets/tools/pasvik.png": {
+    "width": 1265,
+    "height": 712
+  },
+  "/assets/tools/snow.png": {
+    "width": 1265,
+    "height": 712
+  },
+  "/assets/tools/marine.png": {
+    "width": 1265,
+    "height": 712
+  },
+  "/assets/tools/claims.png": {
+    "width": 1265,
+    "height": 712
+  },
+  "/assets/tools/reisa.png": {
+    "width": 1265,
+    "height": 712
+  },
+  "/counting-carbon/assets/cover.webp": {
+    "width": 980,
+    "height": 1400
+  },
+  "/counting-carbon/assets/time-machine.webp": {
+    "width": 1000,
+    "height": 333
+  },
+  "/counting-carbon/assets/peek-time.webp": {
+    "width": 980,
+    "height": 1400
+  },
+  "/counting-carbon/assets/peek-claims.webp": {
+    "width": 980,
+    "height": 1400
+  },
+  "/counting-carbon/assets/peek-ledger.webp": {
+    "width": 980,
+    "height": 1400
+  },
+  "/assets/research/boundary-layer.svg": {
+    "width": 1000,
+    "height": 560
+  }
+}

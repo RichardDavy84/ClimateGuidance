@@ -1,0 +1,16 @@
+{
+  "price": 19.99,
+  "currency": "EUR",
+  "shippingRegion": "Europe",
+  "shippingIncluded": true,
+  "checkoutUrl": "https://buy.stripe.com/test_4gM00i9cl5Vs0Jw1Khew802",
+  "paymentMode": "test",
+  "sourceIds": [
+    "owner-oct19"
+  ],
+  "stripeSandboxAccount": "acct_1UOPUxBbpvbDaZbY",
+  "stripeProductId": "prod_VTGRaoElTcgENp",
+  "stripePriceId": "price_1USJuTBbpvbDaZbYoSZP4FXQ",
+  "stripePaymentLinkId": "plink_1USJvnBbpvbDaZbYOJ1gR0J8",
+  "taxCollection": "pending_live_review"
+}

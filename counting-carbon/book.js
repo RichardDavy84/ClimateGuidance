@@ -42,8 +42,8 @@ for (const product of config.products) {
     button.disabled = !checkoutReady || product.price === null;
   }
   button.textContent = printed
-    ? (printLink ? 'Buy paperback on Amazon' : 'Printed edition — coming soon')
-    : (checkoutReady ? 'Get PDF + EPUB' : 'PDF + EPUB — coming soon');
+    ? (printLink ? 'Buy paperback on Amazon' : 'Printed edition: coming soon')
+    : (checkoutReady ? 'Get PDF + EPUB' : 'PDF + EPUB: coming soon');
   button.addEventListener('click', async () => {
     if (printed) return;
     button.disabled = true;

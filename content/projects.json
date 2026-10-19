@@ -1,0 +1,55 @@
+[
+  {
+    "id": "aria",
+    "name": "ARIA",
+    "role": "NERSC project leader",
+    "description": "Atmosphere–sea-ice interactions in the new Arctic.",
+    "url": "https://nersc.no/en/ansatt/richard-davy/",
+    "sourceIds": [
+      "nersc",
+      "cv"
+    ]
+  },
+  {
+    "id": "keyclim",
+    "name": "KeyCLIM",
+    "role": "NERSC project leader / work-package leadership in institutional records",
+    "description": "Earth-system processes and uncertainty in northern climate change.",
+    "url": "https://nersc.no/en/ansatt/richard-davy/",
+    "sourceIds": [
+      "nersc",
+      "cv"
+    ]
+  },
+  {
+    "id": "sage",
+    "name": "ESA SAGE",
+    "role": "Research contributor; NERSC lead Anton Korosov",
+    "description": "Sea-ice age and drift records, tracking and comparison with models.",
+    "url": "https://climate.esa.int/nl/projecten/sea-ice-age-and-drift-sage/",
+    "sourceIds": [
+      "sage",
+      "nersc"
+    ]
+  },
+  {
+    "id": "ocean2050",
+    "name": "Arctic Ocean 2050",
+    "role": "Institutional programme context; no individual leadership claimed",
+    "description": "NERSC participation led by Helene Langehaug. Confirm specific Davy work-package role before expanding.",
+    "url": "https://nersc.no/en/ansatt/richard-davy/",
+    "sourceIds": [
+      "nersc"
+    ]
+  },
+  {
+    "id": "bergen",
+    "name": "Urban Climate Hazards Insights",
+    "role": "Collaborator; PI Victoria Miles",
+    "description": "Bjerknes-funded 2026 neighbourhood-scale story-map project for Bergen, with Stephanie Mayer and Marie Pontoppidan.",
+    "url": "https://bjerknes.uib.no/en/for-bjerknes-members/fast-track-initiative",
+    "sourceIds": [
+      "bergen"
+    ]
+  }
+]

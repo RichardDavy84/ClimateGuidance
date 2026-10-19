@@ -1,0 +1,76 @@
+{
+  "intro": "I help organisations turn climate evidence into useful decisions through data acquisition and processing, scientific analysis and interactive tools.",
+  "timescales": [
+    {
+      "title": "Seasonal planning",
+      "period": "3–12 months",
+      "text": "Explore the range of possible snow, temperature or marine conditions for an operating season. Forecast skill, local thresholds and the cost of different decisions guide the design."
+    },
+    {
+      "title": "The next decade",
+      "period": "2–10 years",
+      "text": "Bring observed variability, trends and available predictions together for maintenance, investment and medium-term planning. The evidence and predictability of each variable determine the methods."
+    },
+    {
+      "title": "Long-term adaptation",
+      "period": "5–50+ years",
+      "text": "Compare climate projections for infrastructure, land management and conservation. Explore scenarios, local exposure and thresholds across the lifetime of the decision."
+    }
+  ],
+  "examples": [
+    {
+      "title": "Protected-area planning",
+      "text": "The Reisa and Pasvik explorers show how model cases and local indicators can be organised around questions about river access, snow, birdlife and fire conditions. These tools carry their CLAP / Interreg Aurora project credits.",
+      "url": "/climate-tools/reisa/",
+      "label": "Explore Reisa"
+    },
+    {
+      "title": "Seasonal conditions",
+      "text": "The archived snow and marine-heatwave examples show how ensembles can communicate a range of possible conditions to tourism and aquaculture users. A commissioned service can be scoped around the data feeds and update schedule your work requires.",
+      "url": "/climate-tools/snow-forecasts/",
+      "label": "See the snow example"
+    },
+    {
+      "title": "Wind-energy analysis",
+      "text": "Compare wind-resource estimates, terrain and operating constraints, including the effect of maintenance windows on potential generation. The geographic detail and reporting format follow the planning question.",
+      "url": "/contact.html?reason=consulting",
+      "label": "Discuss an analysis"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "What climate models and datasets do you use?",
+      "answer": "I acquire and process the datasets appropriate to the question and region. Options include CMIP global climate-model ensembles, CORDEX regional simulations, ERA5 reanalysis and seasonal forecasts. Processing can include extracting variables, quality checks, spatial and temporal aggregation, and deriving indicators for analysis."
+    },
+    {
+      "question": "How does downscaling help with local decisions?",
+      "answer": "Downscaling can represent local gradients associated with terrain and other surface properties. KrigR, developed with Erik Kusch, provides one route to statistically downscaled reanalysis. Each application includes an assessment of the information the inputs can support."
+    },
+    {
+      "question": "What is convection-permitting modelling?",
+      "answer": "These simulations use fine grids to represent deep convection more directly. They can be useful for questions about intense rainfall and complex terrain, with the choice of dataset guided by the region and available evaluation."
+    },
+    {
+      "question": "Why work with a scientist when climate data are public?",
+      "answer": "Finding the right data is the starting point. I acquire, quality-check and process the relevant observations and model output into a form suited to your analysis, explain uncertainty and keep the calculation traceable."
+    },
+    {
+      "question": "What can a project deliver?",
+      "answer": "A project can produce spatial data, tailored indicators, a scientific briefing, a report, an interactive dashboard or a workshop. We agree the scope, methods, handover format and any ongoing updates at the outset."
+    },
+    {
+      "question": "Can you build a tool around our planning timescale?",
+      "answer": "Yes. We start with the decision, location, time horizon and operational thresholds. That defines which observations, forecasts or projections are useful and how an interface should present them."
+    },
+    {
+      "question": "Can you provide training and support?",
+      "answer": "Workshops can cover choosing datasets, interpreting maps and ensembles, understanding uncertainty and using a commissioned tool. Documentation, training and maintenance can be included in the project scope."
+    }
+  ],
+  "sourceIds": [
+    "legacy-services",
+    "krigr",
+    "tools",
+    "owner-oct19"
+  ]
+}

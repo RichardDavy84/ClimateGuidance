@@ -1,0 +1,147 @@
+[
+  {
+    "id": "carbon",
+    "title": "Carbon Management",
+    "question": "How much can different carbon-management approaches contribute?",
+    "group": "Carbon & mitigation",
+    "status": "Public tool",
+    "url": "/counting-carbon/carbon-management/",
+    "image": "/assets/tools/carbon.png",
+    "method": "Book-based rates, stocks, shared constraints and adjustable assumptions.",
+    "note": "Worked scenarios from Counting Carbon; explore the resource and deployment assumptions.",
+    "related": "/counting-carbon/",
+    "sourceIds": [
+      "tools",
+      "book"
+    ]
+  },
+  {
+    "id": "claims",
+    "title": "Claim Checker",
+    "question": "What does a claim in cars, flights or trees mean in tonnes?",
+    "group": "Carbon & mitigation",
+    "status": "Public tool",
+    "url": "/counting-carbon/claim-checker/",
+    "image": "/assets/tools/claims.png",
+    "method": "Published equivalence factors and explicit annualised tree assumptions.",
+    "note": "Comparisons depend on units and time period.",
+    "related": "/counting-carbon/",
+    "sourceIds": [
+      "tools",
+      "book"
+    ]
+  },
+  {
+    "id": "time",
+    "title": "Carbon Time Machine",
+    "question": "Where does a quantity of carbon fit in the longer story?",
+    "group": "Carbon & mitigation",
+    "status": "Public tool",
+    "url": "/counting-carbon/carbon-time-machine/",
+    "image": "/assets/tools/time.png",
+    "method": "Atmospheric CO₂ history and emissions comparisons.",
+    "note": "Compare quantities against observed history and annual emissions rates.",
+    "related": "/counting-carbon/",
+    "sourceIds": [
+      "tools",
+      "book"
+    ]
+  },
+  {
+    "id": "reisa",
+    "title": "Reisa National Park",
+    "question": "How do climate indicators change across future periods?",
+    "group": "Climate risk & local decisions",
+    "status": "Research tool",
+    "url": "/climate-tools/reisa/",
+    "image": "/assets/tools/reisa.png",
+    "method": "CNRM, ICHEC and IPSL model cases; supplied park grid and 1970–1990 baseline.",
+    "note": "CLAP / Interreg Aurora. Interpret the screening categories alongside the stated thresholds and local evidence.",
+    "related": "/research/decision-support/",
+    "sourceIds": [
+      "tools",
+      "assets"
+    ]
+  },
+  {
+    "id": "pasvik",
+    "title": "Pasvik Nature Reserve",
+    "question": "Which changes matter for river access, birdlife and fire indicators?",
+    "group": "Climate risk & local decisions",
+    "status": "Research tool",
+    "url": "/climate-tools/pasvik/",
+    "image": "/assets/tools/pasvik.png",
+    "method": "Park-scale indicators, model cases and future-minus-baseline changes.",
+    "note": "CLAP / Interreg Aurora attribution; original threshold assumptions are explained.",
+    "related": "/research/decision-support/",
+    "sourceIds": [
+      "tools",
+      "assets"
+    ]
+  },
+  {
+    "id": "warm-nights",
+    "title": "Two Weeks of Warm Nights",
+    "question": "Where are sustained warm-night spells becoming more frequent?",
+    "group": "Urban climate",
+    "status": "Research visualisation",
+    "url": "/warm-nights/",
+    "image": "/assets/tools/warm-nights.png",
+    "method": "ERA5-Land; 14-night spells at selected minimum-temperature thresholds.",
+    "note": "1981–2000 versus 2005–2024. Results describe grid-scale climate conditions.",
+    "related": "/research/urban-climate/",
+    "sourceIds": [
+      "tools",
+      "assets"
+    ]
+  },
+  {
+    "id": "marine",
+    "title": "Marine heatwaves",
+    "question": "How does heatwave-category risk vary by coastal zone and month?",
+    "group": "Forecasts & scenarios",
+    "status": "Archived prototype",
+    "url": "/climate-tools/marine-heatwaves/",
+    "image": "/assets/tools/marine.png",
+    "method": "51-member ECMWF ensemble, Norwegian production zones.",
+    "note": "April–September 2025 snapshot. Original five-six-hourly-sample rule retained and labelled.",
+    "related": "/research/decision-support/",
+    "sourceIds": [
+      "tools",
+      "assets"
+    ]
+  },
+  {
+    "id": "snow",
+    "title": "Seasonal snow depth",
+    "question": "How wide is the forecast range for a resort or location?",
+    "group": "Forecasts & scenarios",
+    "status": "Archived prototype",
+    "url": "/climate-tools/snow-forecasts/",
+    "image": "/assets/tools/snow.png",
+    "method": "ECMWF seasonal ensemble; five percentiles and native-grid point queries.",
+    "note": "Archived December–May example; issue date unverified.",
+    "related": "/research/decision-support/",
+    "sourceIds": [
+      "tools",
+      "assets"
+    ]
+  },
+  {
+    "id": "gsi",
+    "title": "Good Summer Index",
+    "question": "How has the Good Summer Index varied at a chosen location?",
+    "group": "Climate risk & local decisions",
+    "status": "Research visualisation",
+    "url": "/climate-tools/gsi/",
+    "image": "/assets/tools/gsi.png",
+    "method": "Supplied 1980–2024 annual fields, linear trends and component correlations.",
+    "note": "An index devised by Richard Davy. The component relationships and trend calculation are explained in the tool.",
+    "related": "/research/climate-processes-models/",
+    "sourceIds": [
+      "tools",
+      "assets",
+      "owner-oct19"
+    ]
+  }
+]

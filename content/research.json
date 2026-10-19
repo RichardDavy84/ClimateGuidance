@@ -1,0 +1,184 @@
+[
+  {
+    "id": "arctic-sea-ice",
+    "title": "Arctic & Sea Ice",
+    "question": "What does the changing ice tell us about the changing Arctic?",
+    "summary": "From sea-ice age and drift to exchanges of heat with the atmosphere: testing the processes that shape a rapidly changing region.",
+    "image": "/assets/research/nextsim-drift.png",
+    "imageAlt": "Modelled and observed Arctic sea-ice drift, with a map of model bias",
+    "caption": "Model–observation comparison from Ólason et al. (2026), Fig. 9. CC BY 4.0; original colours retained.",
+    "sourceIds": [
+      "age",
+      "cmip",
+      "nextsim",
+      "nersc",
+      "sage"
+    ],
+    "sections": [
+      {
+        "title": "Compare like with like",
+        "text": "A difference between a model and an observation can come from the physics, but it can also come from the way the quantity was calculated. With Heather Regan, Anton Korosov, Jakob Dörr, Philipp Griewank and Einar Ólason, I applied a common sea-ice-age method to make the comparison more informative."
+      },
+      {
+        "title": "Follow the moving ice",
+        "text": "Age, drift, fractures and open leads reveal different aspects of sea-ice change. Lagrangian methods follow the ice as it moves. I am a co-author of the neXtSIM v2 model paper, part of a wider collaboration on sea-ice dynamics and interactions with the ocean and atmosphere."
+      },
+      {
+        "title": "Evaluate the Arctic in climate models",
+        "text": "With Stephen Outten, I examined how the Arctic surface climate is represented in CMIP6 relative to CMIP5. The aim is to identify which processes and biases matter for interpreting future change."
+      },
+      {
+        "title": "Processes, projects and collaborators",
+        "text": "I led ARIA at NERSC, investigating atmosphere–sea-ice interactions, and served as NERSC project leader for KeyCLIM. SAGE is an ESA-supported collaboration led at NERSC by Anton Korosov; my contributions include sea-ice-age methods and model–observation comparison. NERSC also participates in Arctic Ocean 2050, led there by Helene Langehaug."
+      }
+    ],
+    "publicationIds": [
+      "sea-ice-age",
+      "cmip6",
+      "nextsim-v2"
+    ],
+    "toolIds": [],
+    "projectIds": [
+      "aria",
+      "sage",
+      "ocean2050"
+    ],
+    "mediaIds": [
+      "npr",
+      "climate-hour",
+      "sage-daybinar"
+    ]
+  },
+  {
+    "id": "urban-climate",
+    "title": "Urban Climate",
+    "question": "Which local climate differences matter for people living in a city?",
+    "summary": "The atmosphere close to the ground connects northern urban heat islands, warm nights and the design of useful local information.",
+    "image": "/assets/research/apatity-temperature.png",
+    "imageAlt": "Four panels showing winter land-surface-temperature anomalies around Apatity",
+    "caption": "Winter surface-temperature anomalies in Apatity. Varentsov et al. (2018), Fig. 6, CC BY 4.0.",
+    "sourceIds": [
+      "urban",
+      "diurnal",
+      "urbanvideo",
+      "tools"
+    ],
+    "sections": [
+      {
+        "title": "Separate urban effects from the landscape",
+        "text": "In our Apatity study, with Mikhail Varentsov as first author alongside Pavel Konstantinov, Alexander Baklanov, Igor Esau and Victoria Miles, observations and model experiments distinguished human heat sources from the effects of terrain. That distinction matters when interpreting an urban–rural temperature comparison."
+      },
+      {
+        "title": "Warm nights and local exposure",
+        "text": "A daily maximum is only one part of heat exposure. My work on day/night warming connects the depth of the boundary layer to temperature response. The warm-night explorer lets visitors examine sustained periods of warm nights across Europe using ERA5-Land. The maps describe conditions at the ERA5-Land grid scale."
+      },
+      {
+        "title": "From a physical mechanism to a practical question",
+        "text": "Surface moisture, vegetation, building form and the surrounding topography affect local conditions in different ways. I want the evidence behind a climate map to remain visible: what was observed, what was modelled and what spatial scale the result can support."
+      }
+    ],
+    "publicationIds": [
+      "urban-heat",
+      "day-night"
+    ],
+    "toolIds": [
+      "warm-nights"
+    ],
+    "projectIds": [],
+    "mediaIds": [
+      "heat-explainer"
+    ]
+  },
+  {
+    "id": "climate-processes-models",
+    "title": "Climate Processes & Models",
+    "question": "Why does the same energy change produce different warming?",
+    "summary": "Boundary-layer physics, temperature variability and careful model evaluation connect mechanisms to the climate patterns we observe.",
+    "image": "/assets/research/boundary-layer.svg",
+    "imageAlt": "Conceptual diagram showing heat distributed through shallow and deep layers of air",
+    "caption": "Conceptual illustration of the boundary-layer idea, informed by Davy & Esau (2016). It illustrates the mechanism conceptually.",
+    "sourceIds": [
+      "boundary",
+      "diurnal",
+      "variability",
+      "cmip",
+      "nersc"
+    ],
+    "sections": [
+      {
+        "title": "Start with the volume of air",
+        "text": "Heat distributed through a shallow layer of air can produce a larger temperature change than the same energy distributed through a deeper layer. With Igor Esau, I examined how this physical perspective helps explain differences in climate-forcing efficacy."
+      },
+      {
+        "title": "Days, nights and variability",
+        "text": "The lower atmosphere changes over the day and with weather conditions. Work with Igor Esau, Alexander Chernokulsky, Stephen Outten and Sergej Zilitinkevich examined how this contributes to asymmetric warming. Related work connects boundary-layer representation with modelled temperature trends and variability."
+      },
+      {
+        "title": "Evaluate the process as well as the average",
+        "text": "A model can reproduce one large-scale measure while retaining important regional or seasonal biases. My work on CMIP and Arctic surface climate asks which processes support—or undermine—the interpretation of those outputs."
+      },
+      {
+        "title": "One thread from Mars to Earth",
+        "text": "My doctoral work on the Martian atmosphere and NASA’s Phoenix mission began with questions about the lowest part of an atmosphere. The environments differ enormously, but the discipline of connecting observations, physical processes and models has remained central to my work."
+      }
+    ],
+    "publicationIds": [
+      "boundary-layer",
+      "day-night",
+      "variability",
+      "cmip6"
+    ],
+    "toolIds": [
+      "gsi"
+    ],
+    "projectIds": [
+      "keyclim"
+    ],
+    "mediaIds": [
+      "sciam"
+    ]
+  },
+  {
+    "id": "decision-support",
+    "title": "Climate Information & Decision Support",
+    "question": "What does someone actually need to know to make a decision?",
+    "summary": "Turn large datasets into inspectable metrics, maps and interfaces, while keeping uncertainty and limitations in view.",
+    "image": "/assets/tools/reisa.png",
+    "imageAlt": "Screenshot of the Reisa National Park climate explorer",
+    "caption": "Reisa climate explorer, rebuilt from the supplied CLAP / Interreg Aurora tool. Project credits and model-case limitations remain visible in the application.",
+    "sourceIds": [
+      "krigr",
+      "tools",
+      "assets"
+    ],
+    "sections": [
+      {
+        "title": "Design around a question",
+        "text": "Climate information becomes useful when it is designed around the question someone needs to answer. A park manager, a researcher and a reader examining a carbon claim may need very different quantities from the same underlying climate evidence."
+      },
+      {
+        "title": "From reanalysis to local information",
+        "text": "KrigR, developed with Erik Kusch, supports downloading and statistically downscaling ERA5 reanalysis. The distinction between more grid cells and more information is essential: a high-resolution result still depends on covariates, data quality and the assumptions of the method."
+      },
+      {
+        "title": "Make the route from data to answer visible",
+        "text": "The protected-area explorers retain model cases, time windows and definitions alongside maps and time series. The snow and marine interfaces show ensemble information; their archive periods and prototype status are shown alongside the results."
+      },
+      {
+        "title": "Credit the work behind the interface",
+        "text": "The Reisa and Pasvik tools carry CLAP / Interreg Aurora attribution. The gallery links each interface to its method and scope so visitors can judge what it can support."
+      }
+    ],
+    "publicationIds": [
+      "krigr"
+    ],
+    "toolIds": [
+      "reisa",
+      "pasvik",
+      "marine",
+      "snow"
+    ],
+    "projectIds": [],
+    "mediaIds": []
+  }
+]

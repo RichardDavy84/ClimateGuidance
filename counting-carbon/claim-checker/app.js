@@ -49,7 +49,7 @@ function filter() {
     const option = document.createElement('option'); option.value = item.id; option.textContent = item.label; groups.get(item.group).append(option);
   }
   select.disabled = !visible.length;
-  if (!visible.length) { const option = document.createElement('option'); option.textContent = 'No matches — try another search'; select.append(option); }
+  if (!visible.length) { const option = document.createElement('option'); option.textContent = 'No matches: try another search'; select.append(option); }
   else if (visible.some(i => i.id === previous)) select.value = previous;
   choose();
 }
@@ -74,17 +74,17 @@ function render() {
   if (!selected) { result.textContent = 'No matching equivalence'; paragraph('Try a broader search, such as tree, car, flight or electricity.'); return; }
   let r;
   try { r = calculate(selected, quantity.value, params); }
-  catch (error) { result.textContent = '—'; qualifier.textContent = error.message; paragraph(selected.scope); addSource(); return; }
+  catch (error) { result.textContent = '–'; qualifier.textContent = error.message; paragraph(selected.scope); addSource(); return; }
   result.append(document.createTextNode(`${fmt(r.annualised ? r.annual : r.total)} t${r.gas}${r.annualised ? '/yr' : ''}`));
   const small = document.createElement('small');
   small.textContent = selected.kind === 'custom' && params.name ? `${params.name}${selected.annualised ? ' · annual footprint' : ''}` : selected.kind === 'trees' ? 'Average annual capture over 30 years' : selected.group === 'Homes' || selected.id === 'us-car' ? 'For one year of the selected activity' : r.annualised ? selected.kind === 'forest' ? 'Annual capture at the supplied site rate' : 'Annual emissions for the selected quantity' : 'For the selected quantity'; result.append(small);
-  qualifier.textContent = selected.kind === 'trees' ? 'A 30-year average, not immediate removal. Open the calculation to see the growth curve and assumptions.' : selected.scope;
+  qualifier.textContent = selected.kind === 'trees' ? 'Average annual capture over 30 years. Open the calculation to see the growth curve and assumptions.' : selected.scope;
   if (selected.kind === 'trees') {
-    paragraph('The starting assumptions come from the book’s illustrative 10 kg CO₂ per surviving tree per year: 300 kg over 30 years. The initial 80% survival rate is an editable assumption, not a measured global average.');
+    paragraph('The starting assumptions come from the book’s illustrative 10 kg CO₂ per surviving tree per year: 300 kg over 30 years. You can adjust the illustrative 80% establishment survival rate.');
     paragraph(`With your settings, the trees capture ${fmt(r.total)} tonnes over 30 years. Dividing by 30 gives ${fmt(r.annual)} tonnes per year on average. Actual uptake varies with species and site; later losses and project emissions are not included.`);
     const growth = document.createElement('details'), summary = document.createElement('summary');
     summary.textContent = 'See the 30-year growth pattern'; growth.append(summary); details.append(growth);
-    paragraph('This illustrative curve spreads the assumed total across the first 30 years. Changing the growth pattern changes when capture happens, but not the 30-year total. It does not assume growth stops at year 30.', growth);
+    paragraph('This illustrative curve spreads the assumed total across the first 30 years. Changing the growth pattern changes when capture happens while preserving the 30-year total. Growth after year 30 falls outside this comparison.', growth);
     trajectoryChart(r, growth);
   } else if (selected.kind === 'flight') {
     paragraph(`We use the UK government’s 2026 factor for the selected route category and cabin class: ${selected.factorKg} kg CO₂ per passenger-kilometre. Your distance and one-way/return choice determine the journey total. Preset distances are illustrative; non-CO₂ aviation effects are excluded.`);
@@ -109,13 +109,13 @@ function render() {
 function addSource() {
   if (!selected.source || selected.group === 'Carbon units') return;
   const p = document.createElement('p'), a = document.createElement('a'); a.href = selected.source;
-  a.textContent = selected.source.includes('owid') ? 'Global Carbon Budget via Our World in Data' : selected.source.startsWith('/') ? 'Counting Carbon — book assumptions' : selected.source.includes('gov.uk') ? 'UK government conversion factors' : selected.source.includes('epa.gov') ? 'US EPA equivalencies' : 'Cook-Patton et al.';
+  a.textContent = selected.source.includes('owid') ? 'Global Carbon Budget via Our World in Data' : selected.source.startsWith('/') ? 'Counting Carbon: book assumptions' : selected.source.includes('gov.uk') ? 'UK government conversion factors' : selected.source.includes('epa.gov') ? 'US EPA equivalencies' : 'Cook-Patton et al.';
   p.append(a, ` · ${selected.year}`); details.append(p);
 }
 quantity.addEventListener('input', render); select.addEventListener('change', choose); search.addEventListener('input', filter);
 try {
   const response = await fetch('/counting-carbon/data/equivalences.json'); if (!response.ok) throw Error();
-  items = (await response.json()).items; filter();
+  items = (await response.json()).items.map(item => ({...item, label:item.label.replaceAll('\u2014', ':')})); filter();
 } catch { result.textContent='Equivalences could not load'; qualifier.textContent='Please reload the page to try again.'; select.disabled=true; }
 
 initTutorial("claim");

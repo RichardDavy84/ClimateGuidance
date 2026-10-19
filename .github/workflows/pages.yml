@@ -1,0 +1,62 @@
+name: Publish Climate Guidance
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the website
+        uses: actions/checkout@v6
+      - name: Set up Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+      - name: Download the versioned climate data
+        run: |
+          curl --fail --location --retry 3 --output /tmp/climate-data.zip https://github.com/RichardDavy84/ClimateGuidance/releases/download/Shiny/climate-tools-data-2026-10-19.zip
+          echo '27fbc02d434f034bd9ef5d3a0e4b2a95fd31f1d6d34709a863b4eac6e90105ad  /tmp/climate-data.zip' | sha256sum --check
+          python3 - <<'PY'
+          from pathlib import Path
+          import zipfile
+          root = Path.cwd().resolve()
+          with zipfile.ZipFile('/tmp/climate-data.zip') as archive:
+              for name in archive.namelist():
+                  path = (root / name).resolve()
+                  if not path.is_relative_to(root / 'climate-tools' / 'data'):
+                      raise ValueError('Unexpected dataset path')
+              archive.extractall(root)
+          PY
+      - name: Check the website and scientific reference cases
+        run: |
+          node scripts/check.mjs
+          node --test tests/climate-tools.test.mjs
+      - name: Build the public static files
+        run: node scripts/build.mjs
+      - name: Upload the website artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

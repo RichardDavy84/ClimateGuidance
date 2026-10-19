@@ -5,7 +5,7 @@ const extensions=new Set(['.html','.css','.js','.json','.svg','.png','.jpg','.jp
 // Copy a public allowlist only. Backend, secrets, audit data and paid files never enter this artifact.
 await rm(dist,{recursive:true,force:true});await mkdir(dist);
 for(const e of await readdir(root,{withFileTypes:true})){
- if(e.isDirectory()&&['counting-carbon','warm-nights'].includes(e.name))await cp(resolve(root,e.name),resolve(dist,e.name),{recursive:true});
- else if(e.isFile()&&extensions.has(extname(e.name))&&!['package.json','package-lock.json'].includes(e.name))await cp(resolve(root,e.name),resolve(dist,e.name));
+ if(e.isDirectory()&&['counting-carbon','warm-nights','climate-tools'].includes(e.name))await cp(resolve(root,e.name),resolve(dist,e.name),{recursive:true});
+ else if(e.isFile()&&(extensions.has(extname(e.name))||e.name==='CNAME')&&!['package.json','package-lock.json'].includes(e.name))await cp(resolve(root,e.name),resolve(dist,e.name));
 }
 console.log('Static preview built in dist/. No deployment performed.');

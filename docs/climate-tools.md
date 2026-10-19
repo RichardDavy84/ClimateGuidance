@@ -20,3 +20,9 @@ The website's `/climate-tools/migration-notes.html` records approved bug fixes a
 `node scripts/preview.mjs` serves the tools locally at `http://127.0.0.1:8766/climate-tools/`. `node scripts/build.mjs` creates the allowlisted public files in `dist/`, including CNAME, without including backend files, paid books, private data or tests.
 
 When replacing a climate snapshot, regenerate data and R reference fixtures, re-run the checks, upload a new versioned release asset, and update the pinned URL and checksum in the Pages workflow. Never relabel archived forecasts as live forecasts without verified issue dates and an actual refresh process.
+
+## Shared website branding
+
+The catalog, its legacy Data Viz alias, all tool pages and migration notes include the same masthead/navigation and Banner.png hero as the main website. Their styles are scoped in `climate-tools/shared/site-chrome.css` so they do not reset scientific controls or chart layouts. Mobile navigation reuses `counting-carbon/navigation.js`.
+
+Public root asset extensions are matched without case sensitivity during the build; this retains original case-sensitive URLs such as `RichardDavy-portrait.JPG` on the About page.

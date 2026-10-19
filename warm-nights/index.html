@@ -7,12 +7,27 @@
   <meta name="description" content="Interactive map of sustained warm-night spells in Europe from ERA5-Land." />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
   <link rel="stylesheet" href="assets/warm-nights.css" />
-</head>
-<body>
-  <main class="page-shell">
+<link rel="stylesheet" href="/climate-tools/shared/site-chrome.css?v=20261019"><script src="/counting-carbon/navigation.js" defer></script></head>
+<body><a class="skip" href="#main">Skip to tool</a>
+<div class="site-chrome">
+  <input type="checkbox" id="menu-toggle">
+  <label for="menu-toggle" class="hamburger"><img src="/menu-icon.png" alt="Menu Icon"></label>
+  <header><div class="logo"><h1>Climate Guidance</h1></div></header>
+  <nav class="navbar" aria-label="Main navigation">
+    <a href="/index.html">Home</a><a href="/services.html">Services</a><a href="/case-studies.html">Case Studies</a>
+    <a href="/climate-tools/" class="active" aria-current="location">Climate Tools</a>
+    <a href="/about.html">About</a><a href="/contact.html">Contact</a>
+    <details class="cc-nav"><summary>Counting Carbon</summary><div><a href="/counting-carbon/">The Book</a><a href="/counting-carbon/carbon-management/">Carbon Management</a><a href="/counting-carbon/claim-checker/">Claim Checker</a><a href="/counting-carbon/carbon-time-machine/">Carbon Time Machine</a></div></details>
+  </nav>
+  <section class="hero" aria-label="Climate Tools">
+    <div class="hero-overlay"><h2>Climate Tools</h2><p>Explore climate futures, seasonal forecasts and historical change.</p></div>
+  </section>
+</div>
+
+  <main class="page-shell" id="main">
     <section class="hero">
       <div>
-        <p class="eyebrow">Climate Guidance · Data Viz</p>
+        <p class="eyebrow">Climate Guidance · Climate Tools</p>
         <h1>Where do European nights stay warm for two weeks at a time?</h1>
         <p class="lede">This map shows how often summers contain at least one 14-night spell where every nightly minimum temperature exceeds a selected threshold.</p>
       </div>

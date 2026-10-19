@@ -16,9 +16,9 @@ createServer(async (req, res) => {
       file = resolve(file, 'index.html');
     }
     file = await realpath(file);
-    if (!file.startsWith(root + sep) || !mime[extname(file)]) throw Error();
+    if (!file.startsWith(root + sep) || !mime[extname(file).toLowerCase()]) throw Error();
     const data = await readFile(file);
-    res.writeHead(200, { 'Content-Type': mime[extname(file)], 'Cache-Control':'no-store', 'X-Content-Type-Options':'nosniff' });
+    res.writeHead(200, { 'Content-Type': mime[extname(file).toLowerCase()], 'Cache-Control':'no-store', 'X-Content-Type-Options':'nosniff' });
     res.end(req.method === 'HEAD' ? undefined : data);
   } catch { res.writeHead(404, { 'Content-Type':'text/plain' }); res.end('Not found'); }
 }).listen(8766, '127.0.0.1', () => console.log('Preview: http://127.0.0.1:8766/counting-carbon/'));

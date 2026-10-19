@@ -103,3 +103,7 @@ Then open `http://127.0.0.1:8766/`. The local scientific datasets are already pr
 ## Publication checks
 
 Consulting explicitly includes climate-data acquisition, quality checks and processing for analysis. Fresh browser checks at 320px and 390px found no horizontal overflow across the principal pages and representative interactive tools. The mobile menu opens and closes correctly. The build and local-link checks passed across 4,996 files. The previous production source is retained on `archive/pre-profile-redesign-2026-10-19`, and local ZIP and verified full-history bundle backups are available. Public book pages expose no sandbox checkout link.
+
+## Approved direct paperback activation
+
+The owner confirmed posting from Norway, no VAT registration, and explicitly approved live activation with recipient import-charge disclosure. The €19.99 physical Books product, Europe shipping-address collection, live payment link and successful-payment notification were configured. See `docs/redesign/paperback-live.md`. A final browser pass identified a shared global variable name in the legacy navigation and new profile script; the new script is now scoped privately, with an updated cache key. Phone menu open/close was verified on all three book tools and the Reisa explorer.

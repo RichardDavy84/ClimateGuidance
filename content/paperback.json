@@ -3,14 +3,16 @@
   "currency": "EUR",
   "shippingRegion": "Europe",
   "shippingIncluded": true,
-  "checkoutUrl": "https://buy.stripe.com/test_4gM00i9cl5Vs0Jw1Khew802",
-  "paymentMode": "test",
+  "checkoutUrl": "https://buy.stripe.com/28EcN41SNfTN8fAc5C4wM03",
+  "paymentMode": "live",
   "sourceIds": [
     "owner-oct19"
   ],
-  "stripeSandboxAccount": "acct_1UOPUxBbpvbDaZbY",
-  "stripeProductId": "prod_VTGRaoElTcgENp",
-  "stripePriceId": "price_1USJuTBbpvbDaZbYoSZP4FXQ",
-  "stripePaymentLinkId": "plink_1USJvnBbpvbDaZbYOJ1gR0J8",
-  "taxCollection": "pending_live_review"
+  "stripeProductId": "prod_VTGuSPo1NVFR84",
+  "stripePriceId": "price_1USKMjBTUOb6lCscM47SWAEl",
+  "stripePaymentLinkId": "plink_1USKQ8BTUOb6lCscvTCDWpBg",
+  "taxCollection": "seller_not_registered_owner_confirmed",
+  "stripeAccount": "acct_1UOPUpBTUOb6lCsc",
+  "dispatchCountry": "NO",
+  "recipientImportCharges": true
 }

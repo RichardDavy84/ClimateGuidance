@@ -32,4 +32,4 @@ The archive preserves website source and configuration. Stripe, Make, Dropbox an
 
 ## Launch commerce state
 
-The existing €9.99 PDF + EPUB checkout and Amazon paperback link remain available. The new direct paperback checkout remains in Stripe sandbox mode. Public pages show direct orders as coming soon and do not expose the test payment link. The sandbox setup is recorded in `paperback-checkout.md` for later activation.
+The existing €9.99 PDF + EPUB checkout and Amazon paperback link remain available. After the website launch, the owner separately approved activation of direct paperback sales. The live €19.99 checkout and manual fulfilment procedure are recorded in `paperback-live.md`. Reverting the website does not deactivate a Stripe payment link; manage that separately in Stripe if required. The sandbox setup remains recorded in `paperback-checkout.md`.

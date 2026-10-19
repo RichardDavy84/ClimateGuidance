@@ -38,7 +38,7 @@
 .consulting-examples .arrow-link{display:inline-block;margin-top:22px}
 .consulting-faq{max-width:920px}.consulting-faq details{padding:22px 0;border-top:1px solid var(--rule)}
 .consulting-faq summary{cursor:pointer;font:22px/1.5 var(--serif)}.consulting-faq details p{margin-top:18px;max-width:820px;color:var(--muted)}
-.formats .print-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto}.formats .print-actions a{flex:1 1 160px;padding:13px 14px;text-align:center}
+.formats .print-actions{display:flex;flex-direction:column;gap:10px;margin-top:auto}.formats .print-actions a{padding:13px 14px;text-align:center}
 .paperback-layout{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(220px,.6fr);gap:60px;align-items:start}
 .paperback-summary{padding:30px;background:#eef0eb;border:1px solid var(--rule)}.paperback-summary .price{font:42px var(--serif);margin:20px 0}
 .paperback-summary img{width:155px;margin-bottom:25px}.paperback-summary p{font-size:15px;color:var(--muted)}

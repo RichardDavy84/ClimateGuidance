@@ -1,0 +1,139 @@
+{
+  "name": "Paid digital or paperback bundle: verified payment",
+  "conditions": [
+    [
+      {
+        "a": "{{3.body.mode}}",
+        "b": "payment",
+        "o": "text:equal"
+      },
+      {
+        "a": "{{3.body.status}}",
+        "b": "complete",
+        "o": "text:equal"
+      },
+      {
+        "a": "{{3.body.payment_status}}",
+        "b": "paid",
+        "o": "text:equal"
+      },
+      {
+        "a": "{{3.body.livemode}}",
+        "b": "true",
+        "o": "text:equal"
+      },
+      {
+        "a": "{{3.body.metadata.book}}",
+        "b": "counting_carbon",
+        "o": "text:equal"
+      },
+      {
+        "a": "{{length(3.body.line_items.data)}}",
+        "b": "1",
+        "o": "text:equal"
+      },
+      {
+        "a": "{{get(3.body.line_items.data; \"1.price.id\")}}",
+        "b": "^(price_1UOv6ABTUOb6lCscNicCpqFp|price_1UPsVkBTUOb6lCsc6AD4IfBz|price_1UR5pBBTUOb6lCscQ7wAZb9R)$",
+        "o": "text:pattern"
+      },
+      {
+        "a": "{{get(3.body.line_items.data; \"1.quantity\")}}",
+        "b": "1",
+        "o": "text:equal"
+      },
+      {
+        "a": "{{3.body.payment_intent.status}}",
+        "b": "succeeded",
+        "o": "text:equal"
+      },
+      {
+        "a": "{{3.body.payment_intent.latest_charge.paid}}",
+        "b": "true",
+        "o": "text:equal"
+      },
+      {
+        "a": "{{3.body.payment_intent.latest_charge.refunded}}",
+        "b": "false",
+        "o": "text:equal"
+      },
+      {
+        "a": "{{3.body.payment_intent.latest_charge.disputed}}",
+        "b": "false",
+        "o": "text:equal"
+      },
+      {
+        "a": "{{3.body.payment_intent.latest_charge.amount_refunded}}",
+        "b": "0",
+        "o": "text:equal"
+      }
+    ],
+    [
+      {
+        "a": "{{3.body.mode}}",
+        "b": "payment",
+        "o": "text:equal"
+      },
+      {
+        "a": "{{3.body.status}}",
+        "b": "complete",
+        "o": "text:equal"
+      },
+      {
+        "a": "{{3.body.payment_status}}",
+        "b": "paid",
+        "o": "text:equal"
+      },
+      {
+        "a": "{{3.body.livemode}}",
+        "b": "true",
+        "o": "text:equal"
+      },
+      {
+        "a": "{{length(3.body.line_items.data)}}",
+        "b": "1",
+        "o": "text:equal"
+      },
+      {
+        "a": "{{get(3.body.line_items.data; \"1.price.id\")}}",
+        "b": "price_1USKMjBTUOb6lCscM47SWAEl",
+        "o": "text:equal"
+      },
+      {
+        "a": "{{get(3.body.line_items.data; \"1.quantity\")}}",
+        "b": "1",
+        "o": "text:equal"
+      },
+      {
+        "a": "{{3.body.payment_intent.status}}",
+        "b": "succeeded",
+        "o": "text:equal"
+      },
+      {
+        "a": "{{3.body.payment_intent.latest_charge.paid}}",
+        "b": "true",
+        "o": "text:equal"
+      },
+      {
+        "a": "{{3.body.payment_intent.latest_charge.refunded}}",
+        "b": "false",
+        "o": "text:equal"
+      },
+      {
+        "a": "{{3.body.payment_intent.latest_charge.disputed}}",
+        "b": "false",
+        "o": "text:equal"
+      },
+      {
+        "a": "{{3.body.payment_intent.latest_charge.amount_refunded}}",
+        "b": "0",
+        "o": "text:equal"
+      },
+      {
+        "a": "{{3.body.payment_link}}",
+        "b": "plink_1USKQ8BTUOb6lCscvTCDWpBg",
+        "o": "text:equal"
+      }
+    ]
+  ]
+}

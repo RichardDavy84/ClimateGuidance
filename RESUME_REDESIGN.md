@@ -1,6 +1,6 @@
 # Launch continuation, 19 October 2026
 
-The owner approved publication. The consulting acquisition/processing wording and mobile checks are complete. Public direct paperback purchases remain coming soon while the test checkout awaits live activation. Existing digital and Amazon purchases remain available. Use `docs/redesign/rollback.md` for the archived previous production version. The GitHub publication PR and Pages workflow provide the authoritative deployment record.
+The owner approved publication. The consulting acquisition/processing wording and mobile checks are complete. Direct paperback activation was subsequently approved. Its live checkout, included PDF + EPUB delivery, import-charge disclosure and manual postage workflow are recorded in docs/redesign/paperback-live.md. Existing digital and Amazon purchases remain available. Use `docs/redesign/rollback.md` for the archived previous production version. The GitHub publication PR and Pages workflow provide the authoritative deployment record.
 
 ## Earlier review notes
 

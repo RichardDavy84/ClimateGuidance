@@ -1,0 +1,73 @@
+{
+  "name": "Dr Richard Davy",
+  "displayName": "Richard Davy",
+  "roles": "Climate scientist · Author · Decision-support tools",
+  "tagline": "Making complex climate science quantitatively understandable and useful.",
+  "intro": "I study the physical processes behind climate change, from Arctic sea ice and the atmosphere close to the ground to the information people need for local decisions. I also write and build tools that make assumptions easier to examine and put the answers in context.",
+  "position": "Senior Researcher at the Nansen Environmental and Remote Sensing Center, Bergen",
+  "affiliation": "Associated with the Bjerknes Centre for Climate Research",
+  "portrait": "/RichardDavy-portrait.JPG",
+  "email": "richard@climateguidance.com",
+  "sourceIds": [
+    "nersc",
+    "bjerknes",
+    "cv",
+    "book"
+  ],
+  "links": [
+    {
+      "label": "NERSC",
+      "url": "https://nersc.no/en/ansatt/richard-davy/"
+    },
+    {
+      "label": "Bjerknes Centre",
+      "url": "https://bjerknes.uib.no/en/researchers/richard-davy"
+    },
+    {
+      "label": "NVA",
+      "url": "https://nva.sikt.no/research-profile/521667"
+    },
+    {
+      "label": "ORCID",
+      "url": "https://orcid.org/0000-0001-9639-5980"
+    },
+    {
+      "label": "Google Scholar",
+      "url": "https://scholar.google.no/citations?user=v3d2ceIAAAAJ"
+    },
+    {
+      "label": "GitHub",
+      "url": "https://github.com/RichardDavy84"
+    }
+  ],
+  "career": [
+    {
+      "year": "2009",
+      "title": "Physics, planetary atmospheres and Phoenix",
+      "text": "My PhD at York University in Canada focused on the Martian boundary layer and water cycle. Models and observations from NASA’s Phoenix lander helped establish how snow forms and falls in the Martian atmosphere.",
+      "sourceIds": [
+        "nersc"
+      ]
+    },
+    {
+      "year": "2011 onwards",
+      "title": "From planetary atmospheres to Earth’s climate",
+      "text": "At NERSC, my work has connected boundary-layer meteorology to surface warming, temperature variability and climate-model evaluation.",
+      "sourceIds": [
+        "cv",
+        "boundary",
+        "variability"
+      ]
+    },
+    {
+      "year": "Research today",
+      "title": "Sea ice, local climate and useful evidence",
+      "text": "I work across observations and models of the Arctic, northern urban climate and quantitative tools for exploring climate information. Counting Carbon extends that interest in inspectable calculations to carbon management.",
+      "sourceIds": [
+        "nersc",
+        "urban",
+        "book"
+      ]
+    }
+  ]
+}

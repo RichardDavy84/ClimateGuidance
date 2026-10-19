@@ -1,0 +1,190 @@
+[
+  {
+    "id": "sea-ice-age",
+    "title": "A Fair Assessment of Sea Ice Age Reduces Bias and Gives New Insight to Arctic Sea Ice Dynamics",
+    "year": 2025,
+    "journal": "Geophysical Research Letters",
+    "doi": "10.1029/2025GL117765",
+    "authors": [
+      "Richard Davy",
+      "Heather Regan",
+      "Anton Korosov",
+      "Jakob Dörr",
+      "Philipp Griewank",
+      "Einar Ólason"
+    ],
+    "role": "First and corresponding author",
+    "themes": [
+      "Arctic & Sea Ice",
+      "Climate Models"
+    ],
+    "why": "Applying a consistent age-tracking method to observations and models changes how we assess sea-ice dynamics.",
+    "sourceIds": [
+      "age"
+    ],
+    "selected": true
+  },
+  {
+    "id": "cmip6",
+    "title": "The Arctic Surface Climate in CMIP6: Status and Developments since CMIP5",
+    "year": 2020,
+    "journal": "Journal of Climate",
+    "doi": "10.1175/JCLI-D-19-0990.1",
+    "authors": [
+      "Richard Davy",
+      "Stephen Outten"
+    ],
+    "role": "First author",
+    "themes": [
+      "Arctic & Sea Ice",
+      "Climate Models"
+    ],
+    "why": "A comparison of Arctic surface climate across two generations of global climate models.",
+    "sourceIds": [
+      "cmip"
+    ],
+    "selected": true
+  },
+  {
+    "id": "boundary-layer",
+    "title": "Differences in the efficacy of climate forcings explained by variations in atmospheric boundary layer depth",
+    "year": 2016,
+    "journal": "Nature Communications",
+    "doi": "10.1038/ncomms11690",
+    "authors": [
+      "Richard Davy",
+      "Igor Esau"
+    ],
+    "role": "First author",
+    "themes": [
+      "Atmosphere / Boundary Layer",
+      "Climate Models"
+    ],
+    "why": "The depth of air that receives heat helps explain why equal energy changes produce different surface-temperature responses.",
+    "sourceIds": [
+      "boundary"
+    ],
+    "selected": true
+  },
+  {
+    "id": "urban-heat",
+    "title": "Anthropogenic and natural drivers of a strong winter urban heat island in a typical Arctic city",
+    "year": 2018,
+    "journal": "Atmospheric Chemistry and Physics",
+    "doi": "10.5194/acp-18-17573-2018",
+    "authors": [
+      "Mikhail Varentsov",
+      "Pavel Konstantinov",
+      "Alexander Baklanov",
+      "Igor Esau",
+      "Victoria Miles",
+      "Richard Davy"
+    ],
+    "role": "Co-author",
+    "themes": [
+      "Urban Climate",
+      "Atmosphere / Boundary Layer"
+    ],
+    "why": "Observations and model experiments separate urban heating from terrain-driven temperature differences in Apatity.",
+    "sourceIds": [
+      "urban"
+    ],
+    "selected": true
+  },
+  {
+    "id": "krigr",
+    "title": "KrigR: a tool for downloading and statistically downscaling climate reanalysis data",
+    "year": 2022,
+    "journal": "Environmental Research Letters",
+    "doi": "10.1088/1748-9326/ac48b3",
+    "authors": [
+      "Erik Kusch",
+      "Richard Davy"
+    ],
+    "role": "Co-author",
+    "themes": [
+      "Applications / Decision Support"
+    ],
+    "why": "A reproducible route from ERA5 reanalysis to locally relevant climate data, developed with Erik Kusch.",
+    "sourceIds": [
+      "krigr"
+    ],
+    "selected": true
+  },
+  {
+    "id": "nextsim-v2",
+    "title": "The next generation sea-ice model neXtSIM, version 2",
+    "year": 2026,
+    "journal": "Geoscientific Model Development",
+    "doi": "10.5194/gmd-19-6467-2026",
+    "authors": [
+      "Einar Ólason",
+      "Guillaume Boutin",
+      "Timothy Williams",
+      "Anton Korosov",
+      "Heather Regan",
+      "Jonathan Rheinlænder",
+      "Pierre Rampal",
+      "Daniela Flocco",
+      "Abdoulaye Samaké",
+      "Richard Davy",
+      "Timothy Spain",
+      "Sean Chua"
+    ],
+    "role": "Co-author",
+    "themes": [
+      "Arctic & Sea Ice",
+      "Climate Models"
+    ],
+    "why": "A team-developed model of sea-ice dynamics, including fractures, deformation and interactions with the ocean and atmosphere.",
+    "sourceIds": [
+      "nextsim"
+    ],
+    "selected": true
+  },
+  {
+    "id": "day-night",
+    "title": "Diurnal asymmetry to the observed global warming",
+    "year": 2017,
+    "journal": "International Journal of Climatology",
+    "doi": "10.1002/joc.4688",
+    "authors": [
+      "Richard Davy",
+      "Igor Esau",
+      "Alexander Chernokulsky",
+      "Stephen Outten",
+      "Sergej Zilitinkevich"
+    ],
+    "role": "First author",
+    "themes": [
+      "Atmosphere / Boundary Layer",
+      "Urban Climate"
+    ],
+    "why": "Examines how boundary-layer processes contribute to different warming rates during the day and night.",
+    "sourceIds": [
+      "diurnal"
+    ],
+    "selected": false
+  },
+  {
+    "id": "variability",
+    "title": "Global climate models’ bias in surface temperature trends and variability",
+    "year": 2014,
+    "journal": "Environmental Research Letters",
+    "doi": "10.1088/1748-9326/9/11/114024",
+    "authors": [
+      "Richard Davy",
+      "Igor Esau"
+    ],
+    "role": "First author",
+    "themes": [
+      "Atmosphere / Boundary Layer",
+      "Climate Models"
+    ],
+    "why": "Connects the representation of the lower atmosphere with patterns of temperature change and variability.",
+    "sourceIds": [
+      "variability"
+    ],
+    "selected": false
+  }
+]

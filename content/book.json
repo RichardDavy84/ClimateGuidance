@@ -1,0 +1,10 @@
+{
+  "title": "Counting Carbon",
+  "subtitle": "A Practical Guide to Carbon Budgets, Sinks and Removal",
+  "intro": "Carbon-management claims arrive in different units, over different periods and with different assumptions. This book brings them into a common frame: tonnes, rates, reservoir capacity, permanence and the resources that approaches share.",
+  "philosophy": "Inspired by David MacKay’s Sustainable Energy: Without the Hot Air, the book applies common units, transparent assumptions and inspectable calculations to carbon management.",
+  "sourceIds": [
+    "book"
+  ],
+  "cover": "/counting-carbon/assets/cover.webp"
+}

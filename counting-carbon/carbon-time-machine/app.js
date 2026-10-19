@@ -44,7 +44,7 @@ function render() {
   let amount;
   try { amount = tonnes(amountInput.value, unitInput.value); amountInput.removeAttribute('aria-invalid'); }
   catch (error) {
-    amountInput.setAttribute('aria-invalid', 'true'); $('atmosphere-result').textContent = '—'; $('region-result').textContent = '—';
+    amountInput.setAttribute('aria-invalid', 'true'); $('atmosphere-result').textContent = '–'; $('region-result').textContent = '–';
     $('atmosphere-caption').textContent = error.message; $('region-caption').textContent = ''; historyChart(); return;
   }
   const r = atmosphericHistory(amount, atmosphere.series, constants.gigatonnesCO2PerPpm);
@@ -55,7 +55,7 @@ function render() {
     $('atmosphere-result').textContent = `Before the ${r.first.year} annual record`;
     $('atmosphere-caption').textContent = `The implied ${number(r.targetPpm)} ppm is below our earliest annual observation (${r.first.ppm} ppm). We do not extrapolate to an earlier date.`;
   } else {
-    $('atmosphere-result').textContent = amount === 0 ? `${r.latest.year} baseline — no change` : r.yearsBack < .5 ? 'Within the latest annual average' : `Around ${Math.round(r.year)}`;
+    $('atmosphere-result').textContent = amount === 0 ? `${r.latest.year} baseline: no change` : r.yearsBack < .5 ? 'Within the latest annual average' : `Around ${Math.round(r.year)}`;
     $('atmosphere-caption').textContent = `A reduction of ${r.changePpm > 0 && r.changePpm < .01 ? r.changePpm.toExponential(1) : number(r.changePpm)} ppm from the ${r.latest.year} annual average (${r.latest.ppm} ppm). This compares atmospheric stocks; it does not rewind the climate.`;
   }
   historyChart(r);
@@ -90,11 +90,11 @@ function explanatoryText() {
   $('time-method').textContent = `For atmospheric history, we divide the amount by ${number(constants.gigatonnesCO2PerPpm)} billion tonnes of CO₂ per ppm, subtract that concentration from the ${atmosphere.series.at(-1).year} annual mean, then interpolate between observed annual means. For a region, we divide the amount by its ${emissions.year} annual emissions. We hold that rate constant only to express the comparison as a duration.`;
   const sourceBox = $('time-sources');
   for (const [label, url, text] of [
-    ['NOAA Mauna Loa annual means', atmosphere.url, ` · ${atmosphere.series[0].year}–${atmosphere.series.at(-1).year}. Direct measurements began in 1958; the first complete annual mean is 1959. Mauna Loa is a concentration proxy, not the global annual mean. NOAA used nearby Maunakea measurements during the 2022–23 interruption.`],
+    ['NOAA Mauna Loa annual means', atmosphere.url, ` · ${atmosphere.series[0].year}–${atmosphere.series.at(-1).year}. Direct measurements began in 1958; the first complete annual mean is 1959. Mauna Loa provides a long-running concentration record at one site. NOAA used nearby Maunakea measurements during the 2022–23 interruption.`],
     ['Global Carbon Budget via Our World in Data', emissions.url, ` · ${emissions.year} territorial fossil-fuel and industrial CO₂. Continents sum the country/territory records. Global adds ${number(emissions.internationalMt / 1000)} GtCO₂ from international aviation and shipping. This differs from the book’s rounded 40 Gt benchmark, which includes land-use emissions.`],
     ['Physical conversion: Global Carbon Budget 2025', constants.url, ' · 1 ppm = 2.124 GtC; using the book’s 44/12 convention gives 7.788 GtCO₂ (about 7.8).'],
     ['Map: Natural Earth', geography.url, ' · Public-domain country outlines. Continents use its geographic assignments; small territories and Kosovo have documented mappings.'],
-    ['Download the source manifest', '/counting-carbon/data/time-data-manifest.json', ` · Snapshots retrieved ${emissions.retrieved}. Values are versioned locally, not live feeds.`],
+    ['Download the source manifest', '/counting-carbon/data/time-data-manifest.json', ` · Snapshots retrieved ${emissions.retrieved}. Values use locally versioned snapshots.`],
   ]) { const p = document.createElement('p'), a = document.createElement('a'); a.href = url; a.textContent = label; p.append(a, text); sourceBox.append(p); }
 }
 try {

@@ -32,7 +32,7 @@ for (const a of data.approaches) {
   add(g,'circle',{r:33,fill:colors[a.cluster].fill,stroke:colors[a.cluster].stroke});
   add(g,'text',{y:60,'text-anchor':'middle'},a.short_name);
   add(g,'text',{y:82,'text-anchor':'middle',class:'orb-value'},'');
-  add(g,'title',{},`${a.approach_name} — click to inspect`);
+  add(g,'title',{},`${a.approach_name}: click to inspect`);
   g.addEventListener('pointerenter',()=>enterHover({kind:'method',id:a.approach_id}));g.addEventListener('pointerleave',exitHover);
   g.addEventListener('focus',()=>enterHover({kind:'method',id:a.approach_id}));g.addEventListener('blur',exitHover);
   activate(g,()=>navigate({level:'method',id:a.approach_id,parent:view.level==='cluster'?view.id:null}));orbs.set(a.approach_id,g);
@@ -202,7 +202,7 @@ function updateEvidence() {
  const area=$('evidence-body'),sources=$('sources-body');area.replaceChildren();sources.replaceChildren();
  const para=(parent,text)=>{const e=document.createElement('p');e.textContent=text;parent.append(e);};
  const link=(parent,text,url)=>{const e=document.createElement('a');e.textContent=text;e.href=url;e.target='_blank';e.rel='noopener';parent.append(e);};
- para(area,'The red bar is the book’s 19-GtCO₂ annual atmospheric increase: 40 from human emissions minus 21 absorbed naturally. It is not total emissions. Potential is credited removal in CO₂-equivalent units; this comparison is not an exact physical CO₂ balance.');
+ para(area,'The red bar is the book’s 19-GtCO₂ annual atmospheric increase: 40 from human emissions minus 21 absorbed naturally. Potential uses credited removal in CO₂-equivalent units, allowing a scale comparison across the chapter scenarios.');
  if(view.level==='method'){
   const a=selected(),ip=a.ipcc,r=result.methods[a.approach_id];
   para(area,`${a.book_chapter}, page ${a.references[0].page} in the v13 review layout. Book calculation: ${a.equation}.`);
@@ -217,8 +217,8 @@ function updateEvidence() {
   para(sources,'Shared resources: '+a.resource_dependencies.join(', ')+'. These interactions are not yet reconciled.');
  }else{
   para(area,`Standalone chapter values are summed before shared-resource deductions. The book’s coordinated Practical Scenario is ${fmt(data.aggregation.coordinated_book_practical_scenario)} GtCO₂e/yr. Avoided natural releases and storage services are not added as extra removals.`);
-  para(sources,'Practical Scenario is our worked scenario using the resource and deployment assumptions in the book. It is not a measure of today’s installed capability. IPCC Assessed uses arithmetic range midpoints, not reported means. Physical Limit uses the book’s permissive resource cases. They are different kinds of reference, not low/medium/high forecasts.');
-  para(sources,'IPCC comparison: nine methods have mapped assessed ranges. Peat, coastal restoration, macroalgae and direct ocean capture use labelled Book Practical Scenario fallbacks because an appropriate separate range was not identified. Biochar and alkalinity midpoints exceed their book ceilings and are capped in the tool. The aggregate is therefore a mixed comparison, not an IPCC-assessed portfolio.');
+  para(sources,'Practical Scenario uses the book’s resource and deployment assumptions. IPCC Assessed uses arithmetic midpoints of assessed ranges. Physical Limit uses the book’s permissive resource cases. Each reference has its own assumptions and interpretation.');
+  para(sources,'IPCC comparison: nine methods have mapped assessed ranges. Peat, coastal restoration, macroalgae and direct ocean capture use labelled Book Practical Scenario fallbacks because an appropriate separate range was not identified. Biochar and alkalinity midpoints exceed their book ceilings and are capped in the tool. The aggregate combines assessed values with book fallbacks and ceiling adjustments.');
   link(sources,'IPCC AR6 WGIII Chapter 12', 'https://www.ipcc.ch/report/ar6/wg3/chapter/chapter-12/');
   para(sources,'Cropland and grassland ranges are assessed separately in Chapter 7 §7.4.3.1. Range definitions, dates and geographic constraints differ. Land, biomass, nutrients, clean energy and geological storage remain shared limitations; adding methods does not establish feasibility.');
  }

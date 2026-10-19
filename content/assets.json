@@ -1,0 +1,36 @@
+[
+  {
+    "path": "/RichardDavy-portrait.JPG",
+    "credit": "Existing user website portrait",
+    "rights": "User-supplied website asset; reused at the user’s direction. Higher-resolution preferred portrait requested."
+  },
+  {
+    "path": "/assets/research/nextsim-drift.png",
+    "credit": "Ólason et al. (2026), GMD, Fig. 9",
+    "url": "https://gmd.copernicus.org/articles/19/6467/2026/gmd-19-6467-2026-f09-web.png",
+    "license": "CC BY 4.0",
+    "changes": "None; displayed uncropped on theme page. Link to original paper adjacent."
+  },
+  {
+    "path": "/assets/research/apatity-temperature.png",
+    "credit": "Varentsov et al. (2018), ACP, Fig. 6",
+    "url": "https://acp.copernicus.org/articles/18/17573/2018/acp-18-17573-2018-f06-web.png",
+    "license": "CC BY 4.0",
+    "changes": "None. Caption identifies Apatity explicitly; never presented as Bergen."
+  },
+  {
+    "path": "/assets/research/boundary-layer.svg",
+    "credit": "Original conceptual illustration for this draft",
+    "rights": "Code-native schematic. Not measured data. Informed by Davy & Esau (2016)."
+  },
+  {
+    "path": "/assets/tools/*.png",
+    "credit": "Screenshots of the existing website tools",
+    "rights": "Captured from local development build; data/project credits retained in the applications."
+  },
+  {
+    "path": "/counting-carbon/assets/*",
+    "credit": "Existing user-owned Counting Carbon website material",
+    "rights": "Retained from production repository; no new third-party media images used."
+  }
+]

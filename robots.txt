@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
-Sitemap: https://climateguidance.com/sitemap.xml
+Sitemap: https://www.climateguidance.com/sitemap.xml

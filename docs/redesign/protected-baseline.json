@@ -1,0 +1,58 @@
+{
+  "production_branch": "main",
+  "production_commit": "68c6fdfdc012c6e53961ca6dfc9031f0c43b115b",
+  "hashes": {
+    ".github/workflows/pages.yml": "94a14d7ce605b791874efd3e44d18624f42d68da03836f28b2017fde0354ae8c",
+    "CNAME": "6f1591429477b52c01e35fdc582cca6eebaf6e5487b47a497f855a903f78ca8d",
+    "counting-carbon/config.json": "4395f2b5be8b3a97e7cbfe38ab6a1e83246d0636baf06fecc3e2bbfdf0ba61f9",
+    "counting-carbon/book.js": "41e2f3f152ebce542b1993d99a47f5f7fcda8253a81434bea2ad0b9513b3b6b4",
+    "server/payments.mjs": "2fe0980c33dbcec015d0eadef9c5e37bb0cac0c102c122e496898876d3fe66ab",
+    "server/index.mjs": "b73599a0f532f9a4bce55cc0ea284afc21c3affd3f1b9fa7858a4d2e746cc8bc",
+    "counting-carbon/data/physical-constants.json": "799bb31526cb4b1e32634abe7eb5588e3f97f683f426c58de1e6317b46621ca3",
+    "counting-carbon/data/emissions.json": "b27d0ca7b2297974bad1643a7005ccd81be131f664fdc7a6f0019575ad0c7406",
+    "counting-carbon/data/world-map.json": "6b13d59b8eac250f0bbc1be624c7baeae21459e185096c92af43b95b8cf96fdb",
+    "counting-carbon/data/atmosphere.json": "3e944da7a1c7dbd86dd783eebf61c5d18410d4ee7b9960b483811fb1e6defabd",
+    "counting-carbon/data/time-data-manifest.json": "60ea4f862d9e573e0a3474663f64cf6380c50bb505cb3cb18a70b1ed09a7fc5d",
+    "counting-carbon/data/equivalences.json": "a768f4132e1821640969de0582e5a1ab572d3fad66538bd6b5d42b1a47080cda",
+    "counting-carbon/carbon-management/data/approaches.json": "c7477d049a19433e9b6c01be274fcc91af8284f0cae4ab83499ddeb119793151",
+    "counting-carbon/carbon-management/data/reconciliation.json": "38835173de923dcbf78f64405a7b323ee7db30d87beef574b11ce1a97d17e6d9",
+    "counting-carbon/carbon-management/data/scientific-review.json": "d89492240c82d28f20dc32ae344dfc835b368080342a38ff29e45a20369dff37",
+    "climate-tools/shared/core.js": "049da53c4fac17b4514034345b442f14f1b77f48635e2c58aaebc606052c2fbb",
+    "climate-tools/shared/parks.js": "d2a158a92cba8af7f23ddd64efb2c2b374962d0cc96fbbaff9e7359689bb8c88",
+    "climate-tools/shared/snow.js": "d831b15ea9e8aa2a3eeb07d09fb945fe990f4877bb0698ffaba348efab134f83",
+    "climate-tools/shared/marine.js": "6e5384ece10e371f99bbfacbf667032e83387778954882d6b72df10c9a37d6d5",
+    "climate-tools/shared/gsi.js": "cb131fa4171ff476f5e4f98510693fb4d5f2af4b93eee0746f73c309f3e1ad2e"
+  },
+  "authorized_presentation_changes": [
+    {
+      "path": "counting-carbon/book.js",
+      "previous_sha256": "7d7da0afd096ab203f9d2534b60eaf9b4414d6950934393f38e24f6c263d00ef",
+      "approved_sha256": "41e2f3f152ebce542b1993d99a47f5f7fcda8253a81434bea2ad0b9513b3b6b4",
+      "reason": "Owner-requested display text changes on 19 October 2026: full Good Summer Index name, punctuation and positive wording. Scientific calculations, data inputs, prices and URLs retained."
+    },
+    {
+      "path": "climate-tools/shared/parks.js",
+      "previous_sha256": "9c8858db6aa44b2743549b4299b68beb3a3a1a0d00c250551d174b090b58e52e",
+      "approved_sha256": "d2a158a92cba8af7f23ddd64efb2c2b374962d0cc96fbbaff9e7359689bb8c88",
+      "reason": "Owner-requested display text changes on 19 October 2026: full Good Summer Index name, punctuation and positive wording. Scientific calculations, data inputs, prices and URLs retained."
+    },
+    {
+      "path": "climate-tools/shared/marine.js",
+      "previous_sha256": "0de5a4074291479e2d28cbd3cdbf6a2c9496414d4569765c98d0fc0ffe335d0c",
+      "approved_sha256": "6e5384ece10e371f99bbfacbf667032e83387778954882d6b72df10c9a37d6d5",
+      "reason": "Owner-requested display text changes on 19 October 2026: full Good Summer Index name, punctuation and positive wording. Scientific calculations, data inputs, prices and URLs retained."
+    },
+    {
+      "path": "climate-tools/shared/gsi.js",
+      "previous_sha256": "9f0ed89c63e88a9c91d632146bfaa4076fa89e38f14ce1f8a429622a22e13031",
+      "approved_sha256": "cb131fa4171ff476f5e4f98510693fb4d5f2af4b93eee0746f73c309f3e1ad2e",
+      "reason": "Owner-requested display text changes on 19 October 2026: full Good Summer Index name, punctuation and positive wording. Scientific calculations, data inputs, prices and URLs retained."
+    },
+    {
+      "path": "climate-tools/shared/snow.js",
+      "previous_sha256": "830887b5b5c9b90067fe30a93b54cbaac749cbfdfbc475c8f5074ea0b1cbe9d2",
+      "approved_sha256": "d831b15ea9e8aa2a3eeb07d09fb945fe990f4877bb0698ffaba348efab134f83",
+      "reason": "Owner-requested punctuation change in a displayed chart label; scientific calculations retained."
+    }
+  ]
+}

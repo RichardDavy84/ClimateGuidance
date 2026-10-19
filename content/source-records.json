@@ -1,0 +1,226 @@
+[
+  {
+    "id": "nersc",
+    "claim": "Current position, Physics PhD (York, Canada, 2009), Phoenix/Mars work, physical research interests, ARIA and KeyCLIM leadership",
+    "title": "Richard Davy — Nansen Environmental and Remote Sensing Center",
+    "url": "https://nersc.no/en/ansatt/richard-davy/",
+    "accessed": "2026-10-19",
+    "notes": "Institutional profile. Project leadership is explicitly at NERSC; do not imply leadership of all listed projects."
+  },
+  {
+    "id": "bjerknes",
+    "claim": "Bjerknes association and polar-climate research",
+    "title": "Richard Davy — Bjerknes Centre",
+    "url": "https://bjerknes.uib.no/en/researchers/richard-davy",
+    "accessed": "2026-10-19",
+    "notes": "Senior Researcher employed by NERSC. Association is not a second employment claim."
+  },
+  {
+    "id": "cv",
+    "claim": "Career chronology, selected project roles, Glasgow lecture 2017, Bergen examining, summer schools",
+    "title": "Richard Davy — institutional CV",
+    "url": "https://nersc.no/wp-content/uploads/2023/08/CV-RichardDavy.pdf",
+    "accessed": "2026-10-19",
+    "notes": "Older CV, hosted in 2023. Do not reuse its counts, telephone, birth date or other private details. 2011 research appointment supports 15+ years by October 2026."
+  },
+  {
+    "id": "nva",
+    "claim": "Full national research record and project results",
+    "title": "Richard Davy — Norwegian Research Information Repository",
+    "url": "https://nva.sikt.no/research-profile/521667",
+    "accessed": "2026-10-19",
+    "notes": "Link to maintained record. No count repeated on the site."
+  },
+  {
+    "id": "orcid",
+    "claim": "Researcher identifier",
+    "title": "Richard Davy — ORCID",
+    "url": "https://orcid.org/0000-0001-9639-5980",
+    "accessed": "2026-10-19",
+    "notes": "Identifier also corroborated on publisher author pages. ORCID page is JS-only to the research tool."
+  },
+  {
+    "id": "scholar",
+    "claim": "Google Scholar profile link",
+    "title": "Institutional CV researcher identifier",
+    "url": "https://scholar.google.no/citations?user=v3d2ceIAAAAJ",
+    "accessed": "2026-10-19",
+    "notes": "Exact profile ID from institutional CV; Scholar content not scraped. No citation metrics used."
+  },
+  {
+    "id": "age",
+    "claim": "Sea-ice-age comparison and author role",
+    "title": "Davy et al. — GRL 2025",
+    "url": "https://doi.org/10.1029/2025GL117765",
+    "accessed": "2026-10-19",
+    "notes": "Publisher and University of Vienna record corroborate title, authors, 2025 publication and corresponding-author role. https://ucrisportal.univie.ac.at/en/publications/a-fair-assessment-of-sea-ice-age-reduces-bias-and-gives-new-insig/"
+  },
+  {
+    "id": "cmip",
+    "claim": "CMIP6 Arctic evaluation",
+    "title": "Davy & Outten — Journal of Climate 2020",
+    "url": "https://journals.ametsoc.org/view/journals/clim/33/18/jcliD190990.xml",
+    "accessed": "2026-10-19",
+    "notes": "Publisher search record verifies DOI 10.1175/JCLI-D-19-0990.1, title and two authors. Full-text retrieval intermittently unavailable."
+  },
+  {
+    "id": "boundary",
+    "claim": "Boundary-layer depth and climate-forcing efficacy",
+    "title": "Davy & Esau — Nature Communications 2016",
+    "url": "https://www.nature.com/articles/ncomms11690",
+    "accessed": "2026-10-19",
+    "notes": "Original paper; DOI 10.1038/ncomms11690. Readable institutional explanation at https://bjerknes.uib.no/en/news/why-some-climate-processes-are-more-effective-at-warming-the-earth"
+  },
+  {
+    "id": "diurnal",
+    "claim": "Day/night warming and boundary-layer processes",
+    "title": "Davy et al. — International Journal of Climatology",
+    "url": "https://rmets.onlinelibrary.wiley.com/doi/10.1002/joc.4688",
+    "accessed": "2026-10-19",
+    "notes": "Volume year 2017; first online 2016. Display 2017 consistently."
+  },
+  {
+    "id": "urban",
+    "claim": "Apatity winter heat-island attribution and collaborators",
+    "title": "Varentsov et al. — Atmospheric Chemistry and Physics 2018",
+    "url": "https://acp.copernicus.org/articles/18/17573/2018/",
+    "accessed": "2026-10-19",
+    "notes": "DOI 10.5194/acp-18-17573-2018. Davy is a co-author; no implication he led the field campaign."
+  },
+  {
+    "id": "krigr",
+    "claim": "Reanalysis retrieval and statistical downscaling; shared authorship",
+    "title": "Kusch & Davy — KrigR project and paper",
+    "url": "https://www.erikkusch.com/project/krigr/",
+    "accessed": "2026-10-19",
+    "notes": "Author-maintained project; paper DOI 10.1088/1748-9326/ac48b3. Credit Erik Kusch first. Do not describe as Davy-only software."
+  },
+  {
+    "id": "nextsim",
+    "claim": "neXtSIM v2 publication and co-author role",
+    "title": "Ólason et al. — Geoscientific Model Development 2026",
+    "url": "https://gmd.copernicus.org/articles/19/6467/2026/",
+    "accessed": "2026-10-19",
+    "notes": "DOI 10.5194/gmd-19-6467-2026. Published 17 July 2026. Credit full research team and distinguish first/corresponding author Einar Ólason."
+  },
+  {
+    "id": "variability",
+    "claim": "Surface-temperature trends and variability",
+    "title": "Davy & Esau — Environmental Research Letters 2014",
+    "url": "https://arxiv.org/abs/1409.8426",
+    "accessed": "2026-10-19",
+    "notes": "Author preprint and ACP reference list corroborate DOI 10.1088/1748-9326/9/11/114024. Use published title; no numeric headline claims."
+  },
+  {
+    "id": "sage",
+    "claim": "SAGE, ESA/MET Norway context and Davy talk",
+    "title": "ESA Sea Ice Age and Drift project",
+    "url": "https://climate.esa.int/nl/projecten/sea-ice-age-and-drift-sage/",
+    "accessed": "2026-10-19",
+    "notes": "19 September 2025 talk listed. NERSC profile names Anton Korosov as NERSC project leader, so Davy is described as contributor."
+  },
+  {
+    "id": "bergen",
+    "claim": "Funded Bergen story-map project and named collaborators",
+    "title": "Bjerknes Fast Track Initiative 2026 results",
+    "url": "https://bjerknes.uib.no/en/for-bjerknes-members/fast-track-initiative",
+    "accessed": "2026-10-19",
+    "notes": "Funded-project list explicitly names PI Victoria Miles with Richard Davy, Stephanie Mayer and Marie Pontoppidan. ICE-AGE appears only in applications list and is NOT described as funded. Outputs and dates still require user material."
+  },
+  {
+    "id": "npr",
+    "claim": "Actual interview/quotes, reporter, date, audio",
+    "title": "Rebecca Hersher — NPR / WBUR, 11 August 2022",
+    "url": "https://www.wbur.org/npr/1116608415/the-arctic-is-heating-up-nearly-four-times-faster-than-the-rest-of-earth-study-f",
+    "accessed": "2026-10-19",
+    "notes": "Audio 02:35, includes Davy in transcript. He was not an author of the reported study. Article title is historical, not a new claim about the current warming ratio."
+  },
+  {
+    "id": "climatehour",
+    "claim": "Long-form podcast with Bob Grove and Davy",
+    "title": "Climate Hour — World Tipping Points, 1 January 2026",
+    "url": "https://climategkc.org/world-tipping-points-emerging-collapse-of-the-arctic-sea-ice/",
+    "accessed": "2026-10-19",
+    "notes": "Producer/host organisation episode page. Duration ~50 min corroborated by Amazon Music. Link outward; do not repeat overgeneralised tipping-point claims from episode description."
+  },
+  {
+    "id": "urbanvideo",
+    "claim": "Actual institutional video featuring Davy",
+    "title": "Bjerknes Centre — urban heat island explainer",
+    "url": "https://www.linkedin.com/posts/bjerknes-centre-for-climate-research_europe-has-been-affected-by-a-strong-activity-7477277140816801792-VMi6",
+    "accessed": "2026-10-19",
+    "notes": "Institutional social post and transcript. Exact date not reliably shown; leave date null. No thumbnail rehosted."
+  },
+  {
+    "id": "school",
+    "claim": "Arctic teaching in Svalbard, 2026",
+    "title": "Norwegian Scientific Academy for Polar Research — summer school day 2",
+    "url": "https://www.polar-academy.com/news/summer-school-2026-daily-report-day-2",
+    "accessed": "2026-10-19",
+    "notes": "Published 9 June 2026. Supports teaching Arctic amplification/physical change, not a UNIS appointment."
+  },
+  {
+    "id": "sage-talk",
+    "claim": "Invited research-community talk, September 2025",
+    "title": "ESA SAGE — Beyond Sea Ice Area programme",
+    "url": "https://climate.esa.int/nl/projecten/sea-ice-age-and-drift-sage/",
+    "accessed": "2026-10-19",
+    "notes": "Talk: Making sea ice age comparable across models and observations."
+  },
+  {
+    "id": "sciam",
+    "claim": "Editorial coverage referencing Davy research, not a personal interview",
+    "title": "Scientific American — One Climate-Change Wildfire Risk Lurks in the Dark",
+    "url": "https://www.scientificamerican.com/article/one-climate-change-wildfire-risk-lurks-in-the-dark/",
+    "accessed": "2026-10-19",
+    "notes": "27 October 2020; Jane Braxton Little. Classification explicitly says research cited; no quotation or interview implied."
+  },
+  {
+    "id": "membership",
+    "claim": "Possible academy membership; withheld pending exact verification",
+    "title": "Richard Davy public professional profile",
+    "url": "https://no.linkedin.com/in/richard-davy-9261a430",
+    "accessed": "2026-10-19",
+    "notes": "Self-reported January 2023 membership; official 2023 meeting minutes corroborate participation but not a formal member-directory entry. Omitted from visible draft pending confirmation."
+  },
+  {
+    "id": "book",
+    "claim": "Counting Carbon title, author, methods, current independent formats",
+    "title": "Existing website and user brief",
+    "url": "https://www.climateguidance.com/counting-carbon/",
+    "accessed": "2026-10-19",
+    "notes": "User-owned project, existing cover/previews/tool calculations retained. No endorsements or formal MacKay association implied."
+  },
+  {
+    "id": "tools",
+    "claim": "Existing scientific tools, data periods, original-method caveats",
+    "title": "Climate Tools migration notes",
+    "url": "https://www.climateguidance.com/climate-tools/migration-notes.html",
+    "accessed": "2026-10-19",
+    "notes": "Repository data and independently tested calculations. Marine/snow are archived snapshots. CLAP/Interreg credit retained; partner roles beyond source need confirmation."
+  },
+  {
+    "id": "assets",
+    "claim": "Existing portrait, book art and screenshots",
+    "title": "User-provided website repository",
+    "url": "https://github.com/RichardDavy84/ClimateGuidance",
+    "accessed": "2026-10-19",
+    "notes": "Existing portrait reused for requested personal profile. No new rights asserted over institutional assets. Scientific external figures recorded separately in assets.json."
+  },
+  {
+    "id": "owner-oct19",
+    "claim": "Good Summer Index authorship, consulting content preferences and direct paperback price",
+    "title": "Richard Davy, website review instructions",
+    "url": "user-provided:2026-10-19",
+    "accessed": "2026-10-19",
+    "notes": "The owner identifies the Good Summer Index as his own index and requests a €19.99 direct paperback option including postage within Europe. Existing consultancy examples inform the new page."
+  },
+  {
+    "id": "legacy-services",
+    "claim": "Previous services, timescale material, case examples and FAQs",
+    "title": "Climate Guidance production source at 68c6fdf",
+    "url": "https://github.com/RichardDavy84/ClimateGuidance/tree/68c6fdfdc012c6e53961ca6dfc9031f0c43b115b",
+    "accessed": "2026-10-19",
+    "notes": "Consulting content adapted from index.html, services.html and case-studies.html. Offers and example applications retained; unverified client outcomes omitted."
+  }
+]

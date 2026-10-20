@@ -5,7 +5,7 @@
     ".github/workflows/pages.yml": "94a14d7ce605b791874efd3e44d18624f42d68da03836f28b2017fde0354ae8c",
     "CNAME": "6f1591429477b52c01e35fdc582cca6eebaf6e5487b47a497f855a903f78ca8d",
     "counting-carbon/config.json": "4395f2b5be8b3a97e7cbfe38ab6a1e83246d0636baf06fecc3e2bbfdf0ba61f9",
-    "counting-carbon/book.js": "41e2f3f152ebce542b1993d99a47f5f7fcda8253a81434bea2ad0b9513b3b6b4",
+    "counting-carbon/book.js": "ca1a70726abf4155980d79c08d3bffc996b5c3d99d333c91b94ef53ee6242694",
     "server/payments.mjs": "2fe0980c33dbcec015d0eadef9c5e37bb0cac0c102c122e496898876d3fe66ab",
     "server/index.mjs": "b73599a0f532f9a4bce55cc0ea284afc21c3affd3f1b9fa7858a4d2e746cc8bc",
     "counting-carbon/data/physical-constants.json": "799bb31526cb4b1e32634abe7eb5588e3f97f683f426c58de1e6317b46621ca3",
@@ -53,6 +53,12 @@
       "previous_sha256": "830887b5b5c9b90067fe30a93b54cbaac749cbfdfbc475c8f5074ea0b1cbe9d2",
       "approved_sha256": "d831b15ea9e8aa2a3eeb07d09fb945fe990f4877bb0698ffaba348efab134f83",
       "reason": "Owner-requested punctuation change in a displayed chart label; scientific calculations retained."
+    },
+    {
+      "path": "counting-carbon/book.js",
+      "previous_sha256": "41e2f3f152ebce542b1993d99a47f5f7fcda8253a81434bea2ad0b9513b3b6b4",
+      "approved_sha256": "ca1a70726abf4155980d79c08d3bffc996b5c3d99d333c91b94ef53ee6242694",
+      "reason": "Owner-requested customer-facing support wording on 20 October 2026. Checkout failures show a contact email instead of raw provider messages. Checkout URLs, prices, payment validation and backend behavior retained."
     }
   ]
 }

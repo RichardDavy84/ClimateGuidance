@@ -7,7 +7,7 @@ try { config = await fetch('../config.json').then(r => r.json()); } catch { /* S
 async function check() {
   links.replaceChildren(); retry.hidden = true;
   if (!sessionId) { status.textContent = 'Open the private download link from your completed checkout. No payment reference was supplied.'; return; }
-  if (!config?.checkoutApi) { status.textContent = 'Downloads are not connected yet. Please contact Climate Guidance if you have already paid.'; return; }
+  if (!config?.checkoutApi) { status.textContent = 'Your PDF and EPUB download links are sent by email after confirmed payment. For help, email richard@climateguidance.com.'; return; }
   status.textContent = 'Checking your payment…';
   try {
     const response = await fetch(config.checkoutApi + '/api/downloads', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sessionId})});
@@ -21,6 +21,11 @@ async function check() {
       a.className = 'button'; a.rel = 'noreferrer'; a.textContent = `Download ${file.format.toUpperCase()}`; links.append(a);
     }
     status.textContent = 'Payment confirmed. Both formats are ready.';
-  } catch (error) { status.textContent = error.message; }
+  } catch {
+    const help = document.createElement('a');
+    help.href = 'mailto:richard@climateguidance.com';
+    help.textContent = 'richard@climateguidance.com';
+    status.replaceChildren('Please try checking your payment again. For help with your downloads, email ', help, '.');
+  }
 }
 retry.addEventListener('click', check); await check();

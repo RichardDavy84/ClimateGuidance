@@ -62,8 +62,11 @@ for (const product of config.products) {
       const url = validCheckoutUrl(body.url);
       if (!url || body.mode !== config.paymentMode) throw Error("Checkout could not be verified. Please try again.");
       location.href = url;
-    } catch (error) {
-      status.textContent = error.message;
+    } catch {
+      const help = document.createElement('a');
+      help.href = 'mailto:richard@climateguidance.com';
+      help.textContent = 'richard@climateguidance.com';
+      status.replaceChildren('Please try checkout again. For help, email ', help, '.');
       button.disabled = false;
     }
   });

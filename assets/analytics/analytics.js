@@ -90,10 +90,13 @@ document.addEventListener('click', event => {
     emit('tool_interaction', interactionMeasurement(tool, kind));
   }
 }, true);
-document.addEventListener('change', event => {
+function recordControl(event) {
   if (!tool || !event.target.closest('main') || !event.target.matches('input, select') || performance.now() - lastInteraction <= 1000) return;
   lastInteraction = performance.now();
   emit('tool_interaction', interactionMeasurement(tool, 'control'));
-});
+}
+// These tools update as people type or drag, as well as when a choice is committed.
+document.addEventListener('input', recordControl);
+document.addEventListener('change', recordControl);
 updateStatus();
 start();

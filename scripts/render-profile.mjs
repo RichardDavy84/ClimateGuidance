@@ -28,7 +28,7 @@ const routes=['/','/research/',...research.map(t=>'/research/'+t.id+'/'),'/clima
 const analyticsConfig={measurementId:analytics.measurementId,pages:[...new Set([...routes,'/services(3).html','/climate-tools/migration-notes.html'])],tools:tools.map(({id,title,url})=>({id,title,url}))};
 async function out(path,html){
  if(path.endsWith('.html')){
-  const tag=`<link rel="stylesheet" href="/assets/analytics/analytics.css?v=20261020-1"><script id="cg-analytics-config" type="application/json">${JSON.stringify(analyticsConfig).replace(/</g,'\\u003c')}</script><script type="module" src="/assets/analytics/analytics.js?v=20261020-1"></script>`;
+  const tag=`<link rel="stylesheet" href="/assets/analytics/analytics.css?v=20261020-1"><script id="cg-analytics-config" type="application/json">${JSON.stringify(analyticsConfig).replace(/</g,'\\u003c')}</script><script type="module" src="/assets/analytics/analytics.js?v=20261020-2"></script>`;
   html=html.replace(/<link rel="stylesheet" href="\/assets\/analytics\/analytics\.css[^"]*"><script id="cg-analytics-config"[\s\S]*?<\/script><script type="module" src="\/assets\/analytics\/analytics\.js[^"]*"><\/script>/g,'');
   html=html.replace('</head>',tag+'</head>');
   html=html.replace(/<p class="cg-privacy-link">[\s\S]*?<\/p>/g,'');

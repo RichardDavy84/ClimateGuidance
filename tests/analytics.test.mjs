@@ -61,7 +61,10 @@ test('local previews, private downloads, unknown paths and browser opt-outs stay
 });
 test('tool changes report fixed action labels, excluding entered values',()=>{
   const page=visit({saved:saved('accepted')});
-  page.listeners.get('change')({target:{closest:()=>({}),matches:()=>true,value:'PRIVATE CALCULATOR VALUE'}});
+  const event={target:{closest:()=>({}),matches:()=>true,value:'PRIVATE CALCULATOR VALUE'}};
+  page.listeners.get('input')(event);
+  page.listeners.get('change')(event);
+  assert.equal(page.events().filter(e=>e[1]==='tool_interaction').length,1,'input and change for one edit are deduplicated');
   const action=page.events().find(e=>e[1]==='tool_interaction');
   assert.deepEqual(action[2],{tool_id:'claims',tool_name:'Claim Checker',interaction_type:'control'});
   assert.ok(!JSON.stringify(page.events()).includes('PRIVATE CALCULATOR VALUE'));
